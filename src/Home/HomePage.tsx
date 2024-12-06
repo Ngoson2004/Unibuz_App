@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import { SlMagnifier } from "react-icons/sl";
 import { FaBookBookmark } from "react-icons/fa6";
 import { FaRegEnvelope } from "react-icons/fa";
+import  Footers from "../Components/Footer";
 
 const TypingAnimation = () => {
   const sentences = [
@@ -57,7 +58,7 @@ function Home() {
     <div>
       <Header />
       <div className="isolate bg-white sm:relative">
-        <div className="w-full py-32 sm:relative sm:grid sm:grid-cols-2 sm:place-content-start">
+        <div className="w-full py-32 sm:relative sm:grid sm:grid-cols-2">
           <video
             autoPlay
             loop
@@ -176,6 +177,8 @@ function Home() {
           </div>
         </div>
       </div>
+      
+      <Footers/>
     </div>
   );
 }

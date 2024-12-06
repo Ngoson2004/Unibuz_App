@@ -45,7 +45,6 @@ export function Feed() {
   };
 
   const { openModal, setOpenModal } = useAppContext();
-  const { openSearch, setOpenSearch } = useAppContext();
   const [openFile, setOpenFile] = useState(false);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
@@ -53,41 +52,6 @@ export function Feed() {
     <div className="min-h-screen bg-slate-100">
       <TribeHeader />
       <div className="container mx-auto py-10 lg:px-20 xl:px-52">
-        <Modal
-          show={openSearch}
-          size="xl"
-          onClose={() => setOpenSearch(false)}
-          popup
-        >
-          <FaArrowLeft
-            className="m-3 h-5 w-5 text-indigo-600 hover:text-lime-300"
-            onClick={() => setOpenSearch(false)}
-          />
-          <Modal.Body>
-            <form>
-              <div className="relative">
-                <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
-                  <SlMagnifier className="h-6 w-6 text-indigo-400" />
-                </div>
-                <input
-                  type="search"
-                  id="default-search"
-                  className="block h-14 w-full rounded-full border border-gray-300 bg-gray-50 p-4 ps-12 text-sm text-gray-900"
-                  placeholder="Search for Tribes"
-                  required
-                />
-                <Button
-                  gradientMonochrome="lime"
-                  type="submit"
-                  className="py-0.25 absolute bottom-2.5 end-2.5 px-2 text-sm font-medium"
-                  pill
-                >
-                  Search
-                </Button>
-              </div>
-            </form>
-          </Modal.Body>
-        </Modal>
 
         <Modal show={openModal} size="6xl" onClose={() => closeModal()} popup>
           <FaArrowLeft
