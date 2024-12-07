@@ -25,7 +25,7 @@ const Header = () => {
       </Link>
       </div>
       
-      <div className="ml-5 flex items-center">
+      <div className="ml-10 flex items-center">
       <Link to="/">
         <img
         src="./src/media/logo_dark.jpeg"
