@@ -8,6 +8,11 @@ export default {
     extend: {
       fontFamily: {
         'serif': ['"Playfair Display"', ...defaultTheme.fontFamily.serif],
+        "clash-grotesk-semibold": ["ClashGrotesk-Semibold", ...defaultTheme.fontFamily.sans],
+        "clash-grotesk-bold": ["ClashGrotesk-Bold", ...defaultTheme.fontFamily.sans],
+        'satoshi': ['"Satoshi-Regular"', ...defaultTheme.fontFamily.sans],
+        'satoshi-md': ['"Satoshi-Medium"', ...defaultTheme.fontFamily.sans],
+        'satoshi-bold': ['"Satoshi-Bold"', ...defaultTheme.fontFamily.sans],
       },
       backgroundImage: {
         'gradient-lime': 'linear-gradient(to right, #ECFCCB, #D9F99D)'

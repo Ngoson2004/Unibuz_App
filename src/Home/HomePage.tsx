@@ -3,10 +3,10 @@
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import { useState, useEffect } from "react";
-import { SlMagnifier } from "react-icons/sl";
 import { FaBookBookmark } from "react-icons/fa6";
 import { FaRegEnvelope } from "react-icons/fa";
-import  Footers from "../Components/Footer";
+import { FaShoppingCart } from "react-icons/fa";
+import Footers from "../Components/Footer";
 
 const TypingAnimation = () => {
   const sentences = [
@@ -58,8 +58,8 @@ function Home() {
     <div>
       <Header />
       <div className="isolate bg-white sm:relative">
-        <div className="w-full py-32 sm:relative sm:grid sm:grid-cols-2">
-          <video
+        <div className="mt-20 w-full pl-24 sm:relative sm:grid sm:grid-cols-2">
+          {/* <video
             autoPlay
             loop
             muted
@@ -70,24 +70,30 @@ function Home() {
           >
             <source src=".\src\media\Banner video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
-          </video>
-          <div className="mt-30 relative mx-32 mb-36 w-10/12 justify-center rounded-3xl p-10 opacity-90 sm:items-start sm:bg-white">
-            <h1 className="hidden text-balance text-3xl font-bold text-[#050026] sm:block md:text-4xl lg:text-5xl">
+          </video> */}
+          <img
+            className="absolute inset-0 z-[-1] h-full w-full object-cover"
+            src=".\src\media\Hero Banner BG.png"
+            alt="Unibuz Hero Banner"
+          />
+
+          <div className="w-50 relative mb-[220px] mt-[190px] h-auto justify-center rounded-[50px] bg-[#f8f7f9] px-16 pb-[37px] pt-[50px] opacity-80 sm:h-[443px] sm:w-[595px] sm:items-start">
+            <h1 className="font-clash-grotesk-semibold mb-[37px] hidden w-full text-left text-6xl text-[#060028] sm:inline-block">
               Discover events, <p className="text-[#3224f2]">find new mates!</p>
             </h1>
-            <p className="mt-6 text-center text-3xl font-normal leading-8 text-white sm:inline-block sm:text-left sm:align-middle sm:text-2xl sm:text-[#050026]">
+            <p className="font-satoshi-md mb-[60px] text-center text-[18px] leading-8 sm:inline-block sm:text-left sm:align-middle sm:text-2xl sm:text-[#050026]">
               <TypingAnimation />
             </p>
-            <div className="mt-16 flex items-center gap-x-6 font-semibold">
+            <div className="flex w-full items-center gap-x-[40px]">
               <Link
                 to="/signup"
-                className="rounded-full bg-[#3224f2] p-3 text-xl text-[#cbfd80] shadow-sm hover:bg-lime-400 hover:text-blue-700 sm:px-12 sm:py-3"
+                className="font-satoshi-bold rounded-full bg-[#3224f2] p-3 text-[18px] text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3"
               >
                 Let's go!
               </Link>
               <a
                 href="#feature"
-                className="hidden rounded-full border-2 border-[#3224f2] px-8 py-3 text-lg font-normal leading-6 text-[#3224f2] hover:text-blue-700 sm:block"
+                className="font-satoshi-md hidden rounded-full border-2 border-[#3224f2] px-12 py-3 text-[18px] font-normal leading-6 text-[#3224f2] hover:bg-[#c3c1e6] sm:block"
               >
                 Learn more <span aria-hidden="true">→</span>
               </a>
@@ -96,89 +102,88 @@ function Home() {
         </div>
 
         <div
-          className="max-w-screen mx-20 hidden grid-rows-4 gap-60 py-32 sm:grid"
+          className="max-w-screen hidden hidden grid-rows-3 gap-1 sm:grid"
           id="feature"
         >
-          <div className="w-full items-start justify-items-start bg-white">
-            <div className="mb-10 w-7/12">
-              <h2 className="flex-inline gap-3 text-balance text-4xl font-bold xl:flex">
-                Make your UniLife <p className="text-[#3224f2]">memorable</p>
-              </h2>
-              <p className="mt-6 text-left text-xl">
-                Use Unibuz to find and connect with other university students in
-                your area, build friendships and network professionally. You
-                never know where your university connections may lead you!
-              </p>
+          <div className="grid w-full grid-cols-2 items-center gap-96 bg-white p-[77px]">
+            <div className="grid grid-rows-2 gap-14 w-[700px]">
+              <div>
+                <h2 className="flex-inline font-clash-grotesk-semibold gap-3 text-left text-5xl text-[#060028] xl:flex">
+                  Make your UniLife <p className="text-[#3224f2]">memorable</p>
+                </h2>
+                <p className="font-satoshi-md mt-[41px] text-left text-2xl text-[#44405e]">
+                  Use Unibuz to find and connect with other university students
+                  in your area, build friendships and network professionally.
+                  You never know where your university connections may lead you!
+                </p>
+              </div>
+
+              <div className="flex justify-end">
+                <img src=".\src\media\characters.png" className="h-72 w-72" />
+              </div>
             </div>
-            <div className="flex-inline flex w-full items-start gap-16">
-              <div className="h-80 w-7/12">
-                <iframe
-                  className="h-full w-full rounded-3xl"
-                  src=".\src\media\Unibuz video.mp4"
-                  title="Unibuz video player"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                ></iframe>
-              </div>
-              <div className="flex h-80">
-                <img
-                  src=".\src\media\characters.png"
-                  className="h-full w-full"
-                />
-              </div>
+
+            <div className="mr-[66px] h-[614px] w-[345px]">
+              <iframe
+                className="h-full w-full rounded-3xl"
+                src=".\src\media\Unibuz video.mp4"
+                title="Unibuz video player"
+                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             </div>
           </div>
 
-          <div className="flex-cols-2 flex justify-between gap-32 bg-white">
+          <div className="flex-cols-2 flex justify-between gap-20 bg-white p-[77px]">
             <div className="w-72 items-start py-10 pl-8">
-              <h2 className="text-left text-5xl font-extrabold">Features</h2>
-              <p className="mt-10 text-left text-xl">
+              <h2 className="font-clash-grotesk-semibold text-left text-5xl text-[#060028]">
+                Features
+              </h2>
+              <p className="font-satoshi-md mt-[35px] text-left text-xl text-[#44405e]">
                 Unibuz is a social media for everyone. With Unibuz, you can
                 check newsfeed, join social groups, attend events and message
                 your friends.
               </p>
             </div>
 
-            <div className="flex-cols-3 flex items-end gap-10">
-              <div className="mt-36 w-64 rounded-3xl bg-slate-100 px-10 py-5 text-center hover:mt-32 hover:bg-[#cbfd80]">
-                <h3 className="mb-10 text-3xl font-bold underline decoration-wavy">
-                  What's on
+            <div className="flex-cols-3 flex items-end gap-5 text-[#44405e]">
+              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
+                <h3 className="font-clash-grotesk-semibold mb-10 text-3xl underline underline-offset-8 decoration-2 decoration-wavy">
+                  Unibazaar
                 </h3>
-                <p className="text-md font-semibold">
-                  You can share, snoop on other people’s posts, crash social
-                  groups, RSVP to events you’ll probably forget, and even sell
-                  that weird lamp you regret buying!
+                <p className="text-lg font-satoshi-md">
+                  You can compare prices you’ll still ignore, window shopping,
+                  and even sell that weird lamp you regret buying!
                 </p>
-                <SlMagnifier className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
+                <FaShoppingCart className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
-              <div className="mt-36 w-64 rounded-3xl bg-slate-100 px-12 py-5 text-center hover:mt-32 hover:bg-[#cbfd80]">
-                <h3 className="mb-10 text-3xl font-bold underline decoration-wavy">
-                  Newsfeed
+              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
+                <h3 className="font-clash-grotesk-semibold mb-10 text-3xl underline underline-offset-8 decoration-2 decoration-wavy">
+                  What's on?
                 </h3>
-                <p className="text-md font-semibold">
-                  This is where you can share posts and view others' posts. Just
-                  remember, with great power comes great responsibility... and
-                  hilarious memes.
+                <p className="text-lg font-satoshi-md">
+                  Unibuz is where you can share posts and view others' posts.
+                  It’s like Facebook, but for oversharing about UniLife :)
                 </p>
-                <FaBookBookmark className="my-10 ml-10 h-20 w-20 text-[#3224f2]" />
+                <FaBookBookmark className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
-              <div className="mt-36 w-64 rounded-3xl bg-slate-100 px-12 py-5 text-center hover:mt-32 hover:bg-[#cbfd80]">
-                <h3 className="mb-10 text-3xl font-bold underline decoration-wavy">
+              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
+                <h3 className="font-clash-grotesk-semibold mb-10 text-3xl underline underline-offset-8 decoration-2 decoration-wavy">
                   Messages
                 </h3>
-                <p className="text-md font-semibold">
+                <p className="text-lg font-satoshi-md">
                   Having a good ol’ yarn with people on Unibuz — whether you’re
-                  swapping stuff, spilling tea, or just fishing for a soulmate
+                  doing group assignments or just fishing for a soulmate
                   with a killer GPA!
                 </p>
-                <FaRegEnvelope className="my-10 ml-10 h-20 w-20 text-[#3224f2]" />
+                <FaRegEnvelope className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
             </div>
           </div>
         </div>
       </div>
-      
-      <Footers/>
+
+      <Footers />
     </div>
   );
 }
