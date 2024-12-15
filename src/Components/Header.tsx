@@ -7,7 +7,7 @@ import { Dropdown } from "flowbite-react";
 const Header = () => {
   return (
     <div className="relative sm:absolute sm:inset-0 z-20 px-[77px] py-[30px] sm:flex w-full h-16 items-center justify-between rounded-b-[40px] bg-[#3224f2] sm:h-20 xl:h-24 2xl:h-[115px]">
-      <div className="hidden items-center space-x-10 w-[286px] text-[16px] font-satoshi sm:flex">
+      <div className="hidden items-center space-x-10 w-[286px] text-lg font-satoshi sm:flex">
         <Link
           to="/"
           className="hidden text-white hover:text-[#b9b5fa] sm:block"
@@ -38,7 +38,7 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="items-center space-x-[21px] text-[16px] font-satoshi-bold sm:flex">
+      <div className="items-center space-x-[21px] text-md font-satoshi-bold sm:flex">
         <Link
           to="/signin"
           className="hidden rounded-full bg-[#cbfd80] content-center px-[43px] h-[49px] w-[133px] text-[#3224f2] hover:bg-white sm:block"

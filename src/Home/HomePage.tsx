@@ -78,22 +78,23 @@ function Home() {
           />
 
           <div className="w-50 relative mb-[220px] mt-[190px] h-auto justify-center rounded-[50px] bg-[#f8f7f9] px-16 pb-[37px] pt-[50px] opacity-80 sm:h-[443px] sm:w-[595px] sm:items-start">
-            <h1 className="font-clash-grotesk-semibold mb-[37px] hidden w-full text-left text-6xl text-[#060028] sm:inline-block">
-              Discover events, <p className="text-[#3224f2]">find new mates!</p>
+            <h1 className="mb-[37px] hidden w-full text-left font-clash-grotesk-semibold text-6xl text-[#060028] sm:inline-block">
+              Join club events,{" "}
+              <p className="text-[#3224f2]">Find your tribe!</p>
             </h1>
-            <p className="font-satoshi-md mb-[60px] text-center text-[18px] leading-8 sm:inline-block sm:text-left sm:align-middle sm:text-2xl sm:text-[#050026]">
+            <p className="mb-[60px] text-center font-satoshi-md text-[18px] leading-8 sm:inline-block sm:text-left sm:align-middle sm:text-2xl sm:text-[#050026]">
               <TypingAnimation />
             </p>
             <div className="flex w-full items-center gap-x-[40px]">
               <Link
                 to="/signup"
-                className="font-satoshi-bold rounded-full bg-[#3224f2] p-3 text-[18px] text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3"
+                className="rounded-full bg-[#3224f2] p-3 font-satoshi-bold text-[18px] text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3"
               >
                 Let's go!
               </Link>
               <a
                 href="#feature"
-                className="font-satoshi-md hidden rounded-full border-2 border-[#3224f2] px-12 py-3 text-[18px] font-normal leading-6 text-[#3224f2] hover:bg-[#c3c1e6] sm:block"
+                className="hidden rounded-full border-2 border-[#3224f2] px-12 py-3 font-satoshi-md text-[18px] font-normal leading-6 text-[#3224f2] hover:bg-[#c3c1e6] sm:block"
               >
                 Learn more <span aria-hidden="true">→</span>
               </a>
@@ -106,15 +107,15 @@ function Home() {
           id="feature"
         >
           <div className="grid w-full grid-cols-2 items-center gap-96 bg-white p-[77px]">
-            <div className="grid grid-rows-2 gap-14 w-[700px]">
+            <div className="grid w-[700px] grid-rows-2 gap-14">
               <div>
-                <h2 className="flex-inline font-clash-grotesk-semibold gap-3 text-left text-5xl text-[#060028] xl:flex">
+                <h2 className="flex-inline gap-3 text-left font-clash-grotesk-semibold text-5xl text-[#060028] xl:flex">
                   Make your UniLife <p className="text-[#3224f2]">memorable</p>
                 </h2>
-                <p className="font-satoshi-md mt-[41px] text-left text-2xl text-[#44405e]">
-                  Use Unibuz to find and connect with other university students
-                  in your area, build friendships and network professionally.
-                  You never know where your university connections may lead you!
+                <p className="mt-[41px] text-left font-satoshi-md text-2xl text-[#44405e]">
+                  Use Unibuz to find and connect with other university students,
+                  build friendships and network professionally. You never know
+                  where your university connections may lead you!
                 </p>
               </div>
 
@@ -136,10 +137,10 @@ function Home() {
 
           <div className="flex-cols-2 flex justify-between gap-20 bg-white p-[77px]">
             <div className="w-72 items-start py-10 pl-8">
-              <h2 className="font-clash-grotesk-semibold text-left text-5xl text-[#060028]">
+              <h2 className="text-left font-clash-grotesk-semibold text-5xl text-[#060028]">
                 Features
               </h2>
-              <p className="font-satoshi-md mt-[35px] text-left text-xl text-[#44405e]">
+              <p className="mt-[35px] text-left font-satoshi-md text-xl text-[#44405e]">
                 Unibuz is a social media for everyone. With Unibuz, you can
                 check newsfeed, join social groups, attend events and message
                 your friends.
@@ -148,33 +149,33 @@ function Home() {
 
             <div className="flex-cols-3 flex items-end gap-5 text-[#44405e]">
               <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
-                <h3 className="font-clash-grotesk-semibold mb-10 text-3xl underline underline-offset-8 decoration-2 decoration-wavy">
+                <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Unibazaar
                 </h3>
-                <p className="text-lg font-satoshi-md">
+                <p className="font-satoshi-md text-lg">
                   You can compare prices you’ll still ignore, window shopping,
                   and even sell that weird lamp you regret buying!
                 </p>
                 <FaShoppingCart className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
               <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
-                <h3 className="font-clash-grotesk-semibold mb-10 text-3xl underline underline-offset-8 decoration-2 decoration-wavy">
+                <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   What's on?
                 </h3>
-                <p className="text-lg font-satoshi-md">
+                <p className="font-satoshi-md text-lg">
                   Unibuz is where you can share posts and view others' posts.
                   It’s like Facebook, but for oversharing about UniLife :)
                 </p>
                 <FaBookBookmark className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
               <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
-                <h3 className="font-clash-grotesk-semibold mb-10 text-3xl underline underline-offset-8 decoration-2 decoration-wavy">
+                <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Messages
                 </h3>
-                <p className="text-lg font-satoshi-md">
+                <p className="font-satoshi-md text-lg">
                   Having a good ol’ yarn with people on Unibuz — whether you’re
-                  doing group assignments or just fishing for a soulmate
-                  with a killer GPA!
+                  doing group assignments or just fishing for a soulmate with a
+                  killer GPA!
                 </p>
                 <FaRegEnvelope className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
