@@ -58,7 +58,7 @@ function Home() {
     <div>
       <Header />
       <div className="isolate bg-white sm:relative">
-        <div className="mt-20 w-full pl-24 sm:relative sm:grid sm:grid-cols-2">
+        <div className="w-full pl-24 sm:relative sm:grid sm:grid-cols-2">
           {/* <video
             autoPlay
             loop
@@ -77,7 +77,7 @@ function Home() {
             alt="Unibuz Hero Banner"
           />
 
-          <div className="w-50 relative mb-[220px] mt-[190px] h-auto justify-center rounded-[50px] bg-[#f8f7f9] px-16 pb-[37px] pt-[50px] opacity-80 sm:h-[443px] sm:w-[595px] sm:items-start">
+          <div className="w-50 relative mb-[210px] mt-[240px] h-auto justify-center rounded-[50px] bg-[#f8f7f9] px-16 pb-[37px] pt-[50px] opacity-80 sm:h-[443px] sm:w-[595px] sm:items-start">
             <h1 className="mb-[37px] hidden w-full text-left font-clash-grotesk-semibold text-6xl text-[#060028] sm:inline-block">
               Join club events,{" "}
               <p className="text-[#3224f2]">Find your tribe!</p>
@@ -103,7 +103,7 @@ function Home() {
         </div>
 
         <div
-          className="max-w-screen hidden hidden grid-rows-3 gap-1 sm:grid"
+          className="max-w-screen hidden grid-rows-3 gap-1 sm:grid"
           id="feature"
         >
           <div className="grid w-full grid-cols-2 items-center gap-96 bg-white p-[77px]">
@@ -148,7 +148,7 @@ function Home() {
             </div>
 
             <div className="flex-cols-3 flex items-end gap-5 text-[#44405e]">
-              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
+              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80] hover:cursor-pointer">
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Unibazaar
                 </h3>
@@ -158,7 +158,7 @@ function Home() {
                 </p>
                 <FaShoppingCart className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
-              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
+              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80] hover:cursor-pointer">
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   What's on?
                 </h3>
@@ -168,7 +168,7 @@ function Home() {
                 </p>
                 <FaBookBookmark className="my-10 ml-14 h-20 w-20 text-[#3224f2]" />
               </div>
-              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80]">
+              <div className="mt-[217px] h-3/4 w-64 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-4/5 hover:bg-[#cbfd80] hover:cursor-pointer">
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Messages
                 </h3>

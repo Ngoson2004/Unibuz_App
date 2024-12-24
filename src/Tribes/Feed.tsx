@@ -6,11 +6,9 @@ import { IoMdPhotos } from "react-icons/io";
 import { FaVideo } from "react-icons/fa";
 import { FaMapLocationDot } from "react-icons/fa6";
 import { BsEmojiHeartEyesFill } from "react-icons/bs";
-import { FaCheck } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { useAppContext } from "../Context/AppContext";
-import { SlMagnifier } from "react-icons/sl";
 import Post from "./Post";
 
 export function Feed() {
@@ -82,8 +80,7 @@ export function Feed() {
             <div className="flex flex-row">
               <div className="flex basis-3/4 flex-wrap gap-4">
                 <Button
-                  className="px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
-                  gradientDuoTone="greenToBlue"
+                  className="bg-[#3224f2] text-[#cbfd80] px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
                   onClick={() => setOpenFile(!openFile)}
                   size="sm"
                   pill
@@ -92,24 +89,21 @@ export function Feed() {
                   Add Photo
                 </Button>
                 <Button
-                  className="px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
-                  gradientDuoTone="greenToBlue"
+                  className="bg-[#3224f2] text-[#cbfd80] px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
                   pill
                 >
                   <FaVideo className="mr-2 h-5 w-5" />
                   Add Video
                 </Button>
                 <Button
-                  className="px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
-                  gradientDuoTone="greenToBlue"
+                  className="bg-[#3224f2] text-[#cbfd80] px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
                   pill
                 >
                   <FaMapLocationDot className="mr-2 h-5 w-5" />
                   Add Location
                 </Button>
                 <Button
-                  className="px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
-                  gradientDuoTone="greenToBlue"
+                  className="bg-[#3224f2] text-[#cbfd80] px-auto h-10 sm:h-auto sm:w-auto sm:py-1.5"
                   pill
                 >
                   <BsEmojiHeartEyesFill className="mr-2 h-5 w-5" />

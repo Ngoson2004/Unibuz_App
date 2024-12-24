@@ -57,7 +57,7 @@ const Post: React.FC<PostProps> = ({
   const [showComment, setShowComment] = useState(false);
 
   return (
-    <div className="mb-10 rounded-lg bg-white w-full p-5 sm:p-8 shadow-md">
+    <div className="mb-10 rounded-[40px] bg-white w-full p-5 sm:p-8 shadow-md">
       <div className="flex flex-col gap-5">
         <div className="px-auto flex flex-inline items-center">
           <div className="flex flex-wrap gap-5 basis-3/4">
@@ -72,7 +72,7 @@ const Post: React.FC<PostProps> = ({
             className="mt-4"
             renderTrigger={() => (
               <div className="flex grow justify-end">
-                <BsThreeDots className="h-5 w-5 text-indigo-600 hover:text-lime-300" />
+                <BsThreeDots className="h-5 w-5 text-indigo-600 hover:text-lime-300 cursor-pointer" />
               </div>
             )}
           >

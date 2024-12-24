@@ -9,7 +9,8 @@ import { Uni } from "./AccCreation/Uni.tsx";
 import { Interest } from "./AccCreation/Interest.tsx";
 import { Guide } from "./AccCreation/GoodVibeGuide.tsx";
 import { Feed } from "./Tribes/Feed.tsx";
-import { Tribe } from "./Tribes/Tribes.tsx";
+import { Tribe } from "./Tribes/MyTribes.tsx";
+import { TribeDetail } from "./Tribes/Tribe.tsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/guide" element={<Guide />} />
           <Route path="/feed" element={<Feed />} />
           <Route path="/tribes" element={<Tribe />} />
+          <Route path="/tribes/:id" element={<TribeDetail />} />
         </Routes>
       </Router>
     </main>
