@@ -6,7 +6,7 @@ import { Dropdown } from "flowbite-react";
 
 const Header = () => {
   return (
-    <div className="relative sm:absolute sm:inset-0 z-20 px-[77px] py-[30px] sm:flex w-full h-16 items-center justify-between rounded-b-[40px] bg-[#3224f2] sm:h-20 xl:h-28 2xl:h-[115px]">
+    <div className="fixed z-20 px-[77px] py-[30px] sm:flex w-full h-16 items-center justify-between rounded-b-[40px] bg-[#3224f2] sm:h-20 xl:h-28 2xl:h-[115px]">
       <div className="hidden items-center space-x-10 w-[286px] text-lg font-satoshi sm:flex">
         <Link
           to="/"

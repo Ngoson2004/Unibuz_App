@@ -3,16 +3,26 @@ import { SlMagnifier } from "react-icons/sl";
 import { FiPlus } from "react-icons/fi";
 import { useAppContext } from "../Context/AppContext";
 import { Button } from "flowbite-react";
+// import { HiBars3 } from "react-icons/hi2";
 
 export const TribeHeader = () => {
   const { setOpenModal } = useAppContext();
   const { openSearch, setOpenSearch } = useAppContext();
+  // const { setOpenDrawer } = useAppContext();
+
   return (
-    <div className="relative z-20 grid h-36 grid-rows-2 items-center gap-10 rounded-b-xl bg-[#3224f2] p-10 sm:gap-5">
+    <div className="fixed z-20 grid h-24 w-full grid-rows-2 items-center gap-10 rounded-b-[40px] bg-[#3224f2] p-10 sm:h-36 sm:gap-5">
       <div className="flex flex-row items-center justify-between">
-        <h1 className="text-xl font-bold text-slate-100 underline decoration-wavy sm:text-4xl">
-          Tribes
-        </h1>
+        <div className="flex flex-row items-center gap-3">
+          {/* <HiBars3
+            className="mt-2 h-6 w-6 text-slate-100 sm:h-10 sm:w-10"
+            onClick={() => setOpenDrawer(true)}
+          /> */}
+          <h1 className="text-xl font-bold text-slate-100 underline decoration-wavy sm:text-4xl">
+            Tribes
+          </h1>
+        </div>
+
         <div className="flex items-center space-x-5 font-bold sm:space-x-7">
           {openSearch && (
             <form>
@@ -60,15 +70,12 @@ export const TribeHeader = () => {
           </Button>
         </div>
       </div>
-      <div className="2xl:space-x-94 mt-10 flex items-center justify-center space-x-8 p-5 text-sm sm:space-x-20 sm:text-lg md:space-x-44 lg:space-x-52 xl:space-x-80">
+      <div className="2xl:space-x-94 my-1 flex items-center justify-center space-x-8 p-5 text-sm sm:mt-10 sm:space-x-20 sm:text-lg md:space-x-44 lg:space-x-52 xl:space-x-96">
         <Link to="/feed" className="text-slate-100 hover:text-lime-300">
           Feed
         </Link>
         <Link to="/tribes" className="text-slate-100 hover:text-lime-300">
           My Tribes
-        </Link>
-        <Link to="/explore" className="text-slate-100 hover:text-lime-300">
-          Explore
         </Link>
         <Link to="/market" className="text-slate-100 hover:text-lime-300">
           Unibazaar

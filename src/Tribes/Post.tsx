@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, TextInput, Textarea, Dropdown, Avatar } from "flowbite-react";
+import { Button, TextInput, Dropdown, Avatar } from "flowbite-react";
 import { FaHeart } from "react-icons/fa";
 import { FaCommentDots } from "react-icons/fa";
 import { IoIosSend } from "react-icons/io";
@@ -11,6 +11,7 @@ import { BiHide } from "react-icons/bi";
 
 interface PostProps {
   content: string;
+  image?: string;
   initialLikes: number;
   initialShares: number;
   initialComments: string[];
@@ -18,6 +19,7 @@ interface PostProps {
 
 const Post: React.FC<PostProps> = ({
   content,
+  image,
   initialLikes,
   initialComments,
   initialShares,
@@ -57,13 +59,13 @@ const Post: React.FC<PostProps> = ({
   const [showComment, setShowComment] = useState(false);
 
   return (
-    <div className="mb-10 rounded-[40px] bg-white w-full p-5 sm:p-8 shadow-md">
+    <div className="mb-10 w-full rounded-[40px] bg-white p-5 shadow-md sm:p-8">
       <div className="flex flex-col gap-5">
-        <div className="px-auto flex flex-inline items-center">
-          <div className="flex flex-wrap gap-5 basis-3/4">
+        <div className="px-auto flex-inline flex items-center">
+          <div className="flex basis-3/4 flex-wrap gap-5">
             <Avatar alt="Ava" rounded />
             <div className="flex flex-col gap-1.5">
-              <p className="font-semibold text-lg">Ngo Son</p>
+              <p className="text-lg font-semibold">Ngo Son</p>
               <p className="text-sm text-gray-500">20h</p>
             </div>
           </div>
@@ -72,7 +74,7 @@ const Post: React.FC<PostProps> = ({
             className="mt-4"
             renderTrigger={() => (
               <div className="flex grow justify-end">
-                <BsThreeDots className="h-5 w-5 text-indigo-600 hover:text-lime-300 cursor-pointer" />
+                <BsThreeDots className="h-5 w-5 cursor-pointer text-indigo-600 hover:text-lime-300" />
               </div>
             )}
           >
@@ -82,9 +84,17 @@ const Post: React.FC<PostProps> = ({
           </Dropdown>
         </div>
 
-        <div className="border-b border-indigo-600 pb-5 text-gray-800">
+        <div className="border-b border-indigo-600 pb-5 text-gray-800 text-lg">
           {content}
+          {image && (
+            <img
+              src={image}
+              alt="Post"
+              className="my-5 h-auto w-full rounded-lg"
+            />
+          )}
         </div>
+
         <div className="flex-inline flex items-center gap-4">
           <Button gradientDuoTone="purpleToPink" onClick={handleLike} pill>
             <FaHeart className="mr-2 h-5 w-5" /> {likeNo}

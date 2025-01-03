@@ -5,6 +5,8 @@ interface AppContextProps {
   setOpenModal: React.Dispatch<React.SetStateAction<boolean>>;
   openSearch: boolean;
   setOpenSearch: React.Dispatch<React.SetStateAction<boolean>>;
+  openDrawer: boolean;
+  setOpenDrawer: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 const AppContext = createContext<AppContextProps | undefined>(undefined);
@@ -12,9 +14,10 @@ const AppContext = createContext<AppContextProps | undefined>(undefined);
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [openModal, setOpenModal] = useState(false);
   const [openSearch, setOpenSearch] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   return (
-    <AppContext.Provider value={{ openModal, setOpenModal, openSearch, setOpenSearch }}>
+    <AppContext.Provider value={{ openModal, setOpenModal, openSearch, setOpenSearch, openDrawer, setOpenDrawer }}>
       {children}
     </AppContext.Provider>
   );

@@ -1,14 +1,14 @@
 "use client";
 
-import { Button, Card, ToggleSwitch, Checkbox, Label } from "flowbite-react";
-import { useState } from "react";
+import { Button, Card, Checkbox, Label } from "flowbite-react";
+// import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PiBookBookmarkFill } from "react-icons/pi";
 import Header from "../Components/Header";
 
 export const Guide = () => {
   const navigate = useNavigate();
-  const [toggle, setToggle] = useState(false);
+  // const [toggle, setToggle] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

@@ -14,6 +14,8 @@ import {
 } from "flowbite-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../Context/AppContext";
+import { Tab } from "../Components/Tabs";
 
 export function Tribe() {
   const [tribes, setTribes] = useState([
@@ -36,7 +38,8 @@ export function Tribe() {
       img: "./src/media/gymClub.avif",
     },
   ]);
-  const [openModal, setOpenModal] = useState(false);
+
+  const { openModal, setOpenModal } = useAppContext(); //useState(false);
   const [newTribe, setNewTribe] = useState({
     name: "",
     type: "",
@@ -48,7 +51,7 @@ export function Tribe() {
 
   const handleAddTribe = () => {
     if (newTribe.name.trim() !== "") {
-      setTribes([...tribes, {...newTribe, id: tribes.length + 1}]);
+      setTribes([...tribes, { ...newTribe, id: tribes.length + 1 }]);
       setNewTribe({
         name: "",
         type: "",
@@ -71,11 +74,11 @@ export function Tribe() {
   return (
     <div className="min-h-screen bg-slate-100">
       <TribeHeader />
-      <div className="container mx-auto py-10 lg:px-20 xl:px-52">
+      <div className="container mx-auto py-44 lg:px-20 xl:px-52">
         <div className="flex-inline mx-auto mb-10 flex w-10/12 justify-between rounded-xl bg-white px-5 py-5">
           <div className="flex-inline flex items-center gap-5">
             <FiPlus
-              className="h-10 w-10 rounded-full bg-indigo-100 p-1 text-[#3224f2] hover:bg-[#cbfd80] hover:text-green-500 cursor-pointer"
+              className="h-10 w-10 cursor-pointer rounded-full bg-indigo-100 p-1 text-[#3224f2] hover:bg-[#cbfd80] hover:text-green-500"
               onClick={() => setOpenModal(true)}
             />
             <p className="text-lg font-semibold">Create a tribe</p>
@@ -98,7 +101,7 @@ export function Tribe() {
               {tribes.map((tribe, index) => (
                 <li
                   key={index}
-                  className="flex-inline flex items-center justify-start gap-5 py-4 hover:bg-gray-100 cursor-pointer"
+                  className="flex-inline flex cursor-pointer items-center justify-start gap-5 py-4 hover:bg-gray-100"
                   onClick={() => navigate(`/tribes/${tribe.id}`)}
                 >
                   <Avatar img={tribe.img} />
@@ -118,7 +121,11 @@ export function Tribe() {
         </Card>
 
         <Modal show={openModal} onClose={() => setOpenModal(false)}>
-          <Modal.Header>Add my tribe</Modal.Header>
+          <Modal.Header>
+            <p className="w-full text-center text-2xl font-satoshi-bold text-indigo-600">
+              Add my tribe
+            </p>
+          </Modal.Header>
           <Modal.Body>
             <div className="space-y-6">
               <div>
@@ -174,6 +181,7 @@ export function Tribe() {
               <div>
                 <Label htmlFor="img" value="Cover Photo" />
                 <FileInput
+                  accept="image/*"
                   className="text-[#cbfd80]"
                   id="img"
                   onChange={handleFileChange}
@@ -192,6 +200,8 @@ export function Tribe() {
           </Modal.Footer>
         </Modal>
       </div>
+
+      <Tab />
     </div>
   );
 }

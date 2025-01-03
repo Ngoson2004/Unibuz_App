@@ -1,6 +1,6 @@
 "use client";
 
-import { Button, Label, TextInput, Select } from "flowbite-react";
+import { Button, Label, Select } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { GiGraduateCap } from "react-icons/gi";

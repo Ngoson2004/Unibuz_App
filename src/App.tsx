@@ -12,6 +12,7 @@ import { Feed } from "./Tribes/Feed.tsx";
 import { Tribe } from "./Tribes/MyTribes.tsx";
 import { TribeDetail } from "./Tribes/Tribe.tsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Unibazaar } from "./Tribes/Unibazaar.tsx";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
           <Route path="/feed" element={<Feed />} />
           <Route path="/tribes" element={<Tribe />} />
           <Route path="/tribes/:id" element={<TribeDetail />} />
+          <Route path="/market" element={<Unibazaar />} />
         </Routes>
       </Router>
     </main>
