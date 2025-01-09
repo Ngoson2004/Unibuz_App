@@ -19,8 +19,9 @@ const Product: React.FC<ProdProps> = ({
   unit,
 }) => {
   return (
-    <Card className="my-10 max-h-full w-full">
-    <img src={image} alt="Product" className="w-full h-full object-cover" />
+    <Card className="my-10 max-h-full w-full"
+      renderImage={() => <img src={image} alt="Product" className="w-full h-full" />}
+    >
       <a href="#">
         <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
           {title}

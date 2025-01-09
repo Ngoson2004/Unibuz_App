@@ -65,89 +65,89 @@ export function Feed() {
 
   return (
     <div className="min-h-screen bg-slate-100">
-      <TribeHeader />
-      {/* <SideDrawer /> */}
-      <div className="relative mx-auto py-44 lg:px-20 xl:px-52">
-        <Modal show={openModal} size="6xl" onClose={() => closeModal()} popup>
-          <FaArrowLeft
-            className="absolute start-1 top-1 m-3 h-5 w-5 text-indigo-600 hover:text-lime-300"
-            onClick={() => setOpenModal(false)}
-          />
-          <p className="w-full p-5 pb-10 text-center text-2xl font-satoshi-bold text-indigo-600">
-            Create Post
-          </p>
-
-          <Modal.Body>
-            <Textarea
-              placeholder="What's on your mind?"
-              value={newPostContent}
-              onChange={(e) => setNewPostContent(e.target.value)}
-              rows={10}
-              className="mb-4"
-              required
+      <div>
+        <TribeHeader />
+        {/* <SideDrawer /> */}
+        <div className="relative mx-auto py-44 lg:px-20 xl:px-52">
+          <Modal show={openModal} size="6xl" onClose={() => closeModal()} popup>
+            <FaArrowLeft
+              className="absolute start-1 top-1 m-3 h-5 w-5 text-indigo-600 hover:text-lime-300"
+              onClick={() => setOpenModal(false)}
             />
-            {openFile && (
-              <FileInput
-                accept="image/*, video/*"
-                id="media-upload"
-                onChange={handleFileChange}
-                className="mb-4 border-indigo-600 bg-indigo-100 text-indigo-600"
-                multiple
+            <p className="w-full p-5 pb-10 text-center text-2xl font-satoshi-bold text-indigo-600">
+              Create Post
+            </p>
+            <Modal.Body>
+              <Textarea
+                placeholder="What's on your mind?"
+                value={newPostContent}
+                onChange={(e) => setNewPostContent(e.target.value)}
+                rows={10}
+                className="mb-4"
+                required
               />
-            )}
-            <div className="flex flex-row">
-              <div className="flex basis-3/4 flex-wrap gap-4">
-                <Button
-                  className="px-auto h-10 bg-[#3224f2] text-[#cbfd80] sm:h-auto sm:w-auto sm:py-1.5"
-                  onClick={() => setOpenFile(!openFile)}
-                  size="sm"
-                  pill
-                >
-                  <IoMdPhotos className="mr-2 h-5 w-5" />
-                  Add Media
-                </Button>
-                <Button
-                  className="px-auto h-10 bg-[#3224f2] text-[#cbfd80] sm:h-auto sm:w-auto sm:py-1.5"
-                  pill
-                >
-                  <FaMapLocationDot className="mr-2 h-5 w-5" />
-                  Add Location
-                </Button>
-                <Button
-                  className="px-auto h-10 bg-[#3224f2] text-[#cbfd80] sm:h-auto sm:w-auto sm:py-1.5"
-                  pill
-                >
-                  <BsEmojiHeartEyesFill className="mr-2 h-5 w-5" />
-                  Add feeling
-                </Button>
+              {openFile && (
+                <FileInput
+                  accept="image/*, video/*"
+                  id="media-upload"
+                  onChange={handleFileChange}
+                  className="mb-4 border-indigo-600 bg-indigo-100 text-indigo-600"
+                  multiple
+                />
+              )}
+              <div className="flex flex-row">
+                <div className="flex basis-3/4 flex-wrap gap-4">
+                  <Button
+                    className="px-auto h-10 bg-[#3224f2] text-[#cbfd80] sm:h-auto sm:w-auto sm:py-1.5"
+                    onClick={() => setOpenFile(!openFile)}
+                    size="sm"
+                    pill
+                  >
+                    <IoMdPhotos className="mr-2 h-5 w-5" />
+                    Add Media
+                  </Button>
+                  <Button
+                    className="px-auto h-10 bg-[#3224f2] text-[#cbfd80] sm:h-auto sm:w-auto sm:py-1.5"
+                    pill
+                  >
+                    <FaMapLocationDot className="mr-2 h-5 w-5" />
+                    Add Location
+                  </Button>
+                  <Button
+                    className="px-auto h-10 bg-[#3224f2] text-[#cbfd80] sm:h-auto sm:w-auto sm:py-1.5"
+                    pill
+                  >
+                    <BsEmojiHeartEyesFill className="mr-2 h-5 w-5" />
+                    Add feeling
+                  </Button>
+                </div>
+                <div className="flex grow justify-end">
+                  <Button
+                    gradientMonochrome="lime"
+                    className="px-auto h-10 sm:h-12 sm:py-1.5"
+                    onClick={handleAddPost}
+                    type="submit"
+                    pill
+                    disabled={newPostContent.trim() === ""}
+                  >
+                    Post
+                    <FaArrowUp className="ml-2 h-5 w-5" />
+                  </Button>
+                </div>
               </div>
-              <div className="flex grow justify-end">
-                <Button
-                  gradientMonochrome="lime"
-                  className="px-auto h-10 sm:h-12 sm:py-1.5"
-                  onClick={handleAddPost}
-                  type="submit"
-                  pill
-                  disabled={newPostContent.trim() === ""}
-                >
-                  Post
-                  <FaArrowUp className="ml-2 h-5 w-5" />
-                </Button>
-              </div>
-            </div>
-          </Modal.Body>
-        </Modal>
-
-        {posts.map((post, index) => (
-          <Post
-            key={index}
-            content={post.content}
-            image={post.image}
-            initialLikes={post.likes}
-            initialComments={post.comments}
-            initialShares={post.share}
-          />
-        ))}
+            </Modal.Body>
+          </Modal>
+          {posts.map((post, index) => (
+            <Post
+              key={index}
+              content={post.content}
+              image={post.image}
+              initialLikes={post.likes}
+              initialComments={post.comments}
+              initialShares={post.share}
+            />
+          ))}
+        </div>
       </div>
 
       <Tab />

@@ -18,21 +18,23 @@ import { IoMdPhotos } from "react-icons/io";
 import { FaDollarSign } from "react-icons/fa";
 import { useState } from "react";
 import Product from "./ProductCard";
+import image1 from "../media/bedroom.jpeg";
+import image2 from "../media/lamp.jpg";
 
 export function Unibazaar() {
   const [products, setProducts] = useState([
     {
-      title: "Product 1",
+      title: "House",
       description: "This is a product",
-      image: "https://via.placeholder.com/150",
-      price: 100,
-      unit: "",
+      image: image1,
+      price: 200,
+      unit: "week",
     },
     {
-      title: "Product 2",
+      title: "Lamp",
       description: "This is another product",
-      image: "https://via.placeholder.com/150",
-      price: 200,
+      image: image2,
+      price: 50,
       unit: "",
     },
   ]);
@@ -49,52 +51,17 @@ export function Unibazaar() {
         ...products,
         {
           title: newTitle,
-          description: "",
-          image: "https://via.placeholder.com/150",
+          description: newSellContent,
+          image: newImage,
           price: newPrice,
-          unit: "",
+          unit: newUnit,
         },
       ]);
-      if (newSellContent.trim() !== "") {
-        setProducts([
-          ...products,
-          {
-            title: newTitle,
-            description: newSellContent,
-            image: "https://via.placeholder.com/150",
-            price: newPrice,
-            unit: "",
-          },
-        ]);
-      }
-      if (newImage !== "https://via.placeholder.com/150") {
-        setProducts([
-          ...products,
-          {
-            title: newTitle,
-            description: newSellContent,
-            image: newImage,
-            price: newPrice,
-            unit: "",
-          },
-        ]);
-      }
-      if (newUnit !== "") {
-        setProducts([
-          ...products,
-          {
-            title: newTitle,
-            description: newSellContent,
-            image: newImage,
-            price: newPrice,
-            unit: newUnit,
-          },
-        ]);
-      }
       setNewSellContent("");
       setNewTitle("");
       setNewSellContent("");
       setNewUnit("");
+      setNewPrice(0);
       setNewImage("https://via.placeholder.com/150");
       setOpenModal(false);
     }

@@ -4,15 +4,17 @@ import SigninPage from "./Home/SignInPage.tsx";
 import Email from "./AccCreation/SignUpPage.tsx";
 import { Code } from "./AccCreation/AuthCode.tsx";
 import { Password } from "./AccCreation/Password.tsx";
-import { Profile } from "./AccCreation/Profile.tsx";
+import { Profile } from "./AccCreation/ProfileIn4.tsx";
 import { Uni } from "./AccCreation/Uni.tsx";
 import { Interest } from "./AccCreation/Interest.tsx";
 import { Guide } from "./AccCreation/GoodVibeGuide.tsx";
 import { Feed } from "./Tribes/Feed.tsx";
 import { Tribe } from "./Tribes/MyTribes.tsx";
 import { TribeDetail } from "./Tribes/Tribe.tsx";
+import { Events } from "./UniVibes/Events.tsx";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Unibazaar } from "./Tribes/Unibazaar.tsx";
+import { Message } from "./Message/Message.tsx";
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route path="/tribes" element={<Tribe />} />
           <Route path="/tribes/:id" element={<TribeDetail />} />
           <Route path="/market" element={<Unibazaar />} />
+          <Route path="/events" element={<Events />} />
+          <Route path="/messages" element={<Message />} />
         </Routes>
       </Router>
     </main>
