@@ -4,13 +4,14 @@ import { Button, Label, TextInput } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { RiLockPasswordLine } from "react-icons/ri";
 import Header from "../Components/Header";
+import { Slideshow } from "../Components/Slideshow";
 
 export const Password = () => {
   const navigate = useNavigate();
   return (
     <div>
       <Header />
-      <div className="sm:grid grid-cols-2 gap-5">
+      <div className="h-dvh sm:grid grid-cols-2 gap-5">
         <div>
           <form onSubmit={() => {navigate("/profile")}} className="sm:px-auto mx-auto grid max-w-md grid-rows-1 gap-5 px-5 py-32 sm:py-48 lg:py-56">
             <legend>
@@ -57,12 +58,8 @@ export const Password = () => {
             </Button>
           </form>
         </div>
-        <div className="hidden sm:block">
-          <img
-            src="./src/media/Password.jpg"
-            alt="Password"
-            className="h-full w-full object-cover"
-          />
+        <div className="mt-10 hidden h-full sm:block">
+          <Slideshow />
         </div>
       </div>
     </div>

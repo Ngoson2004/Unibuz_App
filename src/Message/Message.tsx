@@ -50,7 +50,7 @@ export const Message = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleSendMessage = () => {
-    if (newMessage.trim()) {
+    if (newMessage.trim() || newImage) {
       setMessages([
         ...messages,
         {
@@ -159,7 +159,6 @@ export const Message = () => {
                     id="default-search"
                     className="block h-5 w-full rounded-full border border-gray-300 bg-gray-50 p-4 ps-12 text-sm text-gray-900"
                     placeholder="Search"
-                    required
                   />
                   <Button
                     gradientMonochrome="lime"
@@ -261,14 +260,14 @@ export const Message = () => {
                 .filter((message) => message.profile === selectedProfile)
                 .map(
                   (message, index) =>
-                    message.content && (
+                    (message.content || message.image) && (
                       <div
                         key={index}
                         className="mb-2 justify-self-end text-wrap"
                         onMouseEnter={() => handleMouseEnter(index)}
                         onMouseLeave={handleMouseLeave}
                       >
-                        <div className="flex-inline flex items-center">
+                        <div className="relative flex-inline flex items-center">
                           {hoveredMessageIndex === index && (
                             <div className="rounded-full bg-white p-2 shadow-lg">
                               <EmojiPicker
@@ -288,7 +287,7 @@ export const Message = () => {
                           <img
                             src={message.image}
                             alt="attachment"
-                            className="max-w-md rounded-lg"
+                            className="max-w-md rounded-lg justify-self-end"
                           />
                         )}
                         {message.reaction && (
@@ -334,6 +333,7 @@ export const Message = () => {
                   <IoMdSend className="h-5 w-5 text-[#cbfd80]" />
                 </Button>
               </div>
+
               <ul className="mt-5 divide-y divide-gray-200 overflow-y-auto">
                 {friends.map((friend) => (
                   <li
@@ -378,14 +378,24 @@ export const Message = () => {
                 </Dropdown.Item>
               </Dropdown>
 
-              <TextInput
-                type="text"
-                placeholder="Type a message"
-                value={newMessage}
-                onChange={(e) => setNewMessage(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
-                className="flex-1"
-              />
+              <div className="flex-1 flex-col gap-3 items-end">
+                {newImage && (
+                  <img
+                    src={newImage}
+                    alt="attachment"
+                    className="h-20 w-20 rounded-lg"
+                  />
+                )}
+                <TextInput
+                  type="text"
+                  placeholder="Type a message"
+                  value={newMessage}
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSendMessage()}
+                  className="flex-1"
+                />
+              </div>
+
               <Tooltip
                 content={
                   <EmojiPicker key={emojiKey} onEmojiClick={handleEmojiClick} />

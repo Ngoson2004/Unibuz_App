@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
 // import Footers from "../Components/Footer";
 import { FaRegEnvelope } from "react-icons/fa";
+import { Slideshow } from "../Components/Slideshow";
 
 function Email() {
   const navigate = useNavigate();
@@ -12,13 +13,9 @@ function Email() {
     <div>
       <Header />
 
-      <div className="grid-cols-2 gap-5 sm:grid">
-        <div className="hidden sm:block md:h-full">
-          <img
-            src="./src/media/SignUp.jpg"
-            alt="Sign Up"
-            className="h-full w-full object-cover"
-          />
+      <div className="grid-cols-2 gap-5 h-dvh sm:grid">
+        <div className="mt-10 hidden sm:block md:h-full">
+          <Slideshow />
         </div>
 
         <div>

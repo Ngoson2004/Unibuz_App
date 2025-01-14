@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { GiGraduateCap } from "react-icons/gi";
 import Header from "../Components/Header";
+import { Slideshow } from "../Components/Slideshow";
 
 export const Uni = () => {
   const navigate = useNavigate();
@@ -524,7 +525,7 @@ export const Uni = () => {
   return (
     <div>
       <Header />
-      <div className="grid-cols-2 gap-5 sm:grid">
+      <div className="h-dvh grid-cols-2 gap-5 sm:grid">
         <div>
           <form
             onSubmit={() => {
@@ -736,12 +737,8 @@ export const Uni = () => {
             </Button>
           </form>
         </div>
-        <div className="hidden sm:block">
-          <img
-            src="./src/media/uni.jpg"
-            alt="University"
-            className="h-full w-full object-cover"
-          />
+        <div className="h-full hidden sm:block">
+          <Slideshow />
         </div>
       </div>
     </div>

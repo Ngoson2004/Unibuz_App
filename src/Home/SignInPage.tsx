@@ -7,6 +7,7 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import { useNavigate } from "react-router-dom";
+import { Slideshow } from "../Components/Slideshow";
 
 function SignInPage() {
   const location = useLocation();
@@ -39,13 +40,9 @@ function SignInPage() {
         </div>
       )}
 
-      <div className="grid-cols-2 gap-5 sm:grid">
-        <div className="hidden sm:block">
-          <img
-            src="./src/media/SignIn.webp"
-            alt="Sign In"
-            className="h-full w-full object-cover"
-          />
+      <div className="h-dvh grid-cols-2 gap-5 sm:grid">
+        <div className="mt-5 h-full hidden sm:block">
+          <Slideshow />
         </div>
 
         <div>

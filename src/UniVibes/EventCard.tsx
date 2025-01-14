@@ -37,7 +37,7 @@ export const Event: React.FC<EventProps> = ({
       )}
     >
       <div className="grid grid-rows-4 items-center gap-3">
-        <p className="items-end font-satoshi-bold text-xs text-gray-500 dark:text-gray-400">
+        <p className="flex flex-inline justify-between items-end font-satoshi-bold text-xs text-gray-500 dark:text-gray-400">
           {dayjs(date).format("MMMM D, YYYY")} at {time}
         </p>
         <h1 className="font-satoshi-bold text-2xl text-gray-900 dark:text-white">
