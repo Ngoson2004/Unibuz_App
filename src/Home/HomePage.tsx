@@ -1,5 +1,3 @@
-"use client";
-
 import { Link } from "react-router-dom";
 import Header from "../Components/Header";
 import { useState, useEffect } from "react";

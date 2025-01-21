@@ -1,5 +1,3 @@
-"use client";
-
 import { Carousel } from "flowbite-react";
 import image1 from "../media/slideshow1.png";
 import image2 from "../media/slideshow2.png";

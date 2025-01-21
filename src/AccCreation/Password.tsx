@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, Label, TextInput } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { RiLockPasswordLine } from "react-icons/ri";
