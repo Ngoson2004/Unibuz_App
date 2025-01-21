@@ -11,7 +11,7 @@ const Footers = () => {
       <div className="hidden w-full sm:block">
         <div className="relative flex h-96 w-full">
           <img
-            src="./src/media/Password.jpg"
+            src="./src/media/footer.jpg"
             className="h-full w-full rounded-[40px] object-cover"
           />
 
