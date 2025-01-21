@@ -8,7 +8,7 @@ import image4 from "../media/slideshow4.png";
 
 export function Slideshow() {
   return (
-    <Carousel indicators={false} leftControl=" " rightControl=" ">
+    <Carousel className="" indicators={false} leftControl=" " rightControl=" ">
       <img src={image1} alt="..." />
       <img src={image2} alt="..." />
       <img src={image3} alt="..." />

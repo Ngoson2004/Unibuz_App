@@ -10,7 +10,9 @@ import { Slideshow } from "../Components/Slideshow";
 export const Uni = () => {
   const navigate = useNavigate();
 
+  const [state, setState] = useState("");
   const [university, setUniversity] = useState("");
+  const [degree, setDegree] = useState("");
   const [campusOpt, setCampus] = useState<string[]>([]);
   const [facultyOpt, setFaculty] = useState<string[]>([]);
 
@@ -531,7 +533,7 @@ export const Uni = () => {
             onSubmit={() => {
               navigate("/interest");
             }}
-            className="sm:px-auto mx-auto grid max-w-md grid-rows-1 gap-5 px-5 py-32 sm:py-48 lg:py-56"
+            className="sm:px-auto mx-auto grid max-w-md grid-rows-1 gap-5 px-10 py-32 sm:px-5"
           >
             <div className="flex flex-col space-y-2">
               <div>
@@ -556,9 +558,14 @@ export const Uni = () => {
               />
               <Select
                 id="state"
+                value={state}
+                onChange={(e) => setState(e.target.value)}
                 className="rounded-lg border-2 border-[#3B4FE6]"
                 required
               >
+                <option value="" disabled>
+                  Select your state
+                </option>
                 <option value="VIC">Victoria</option>
                 <option value="NSW">New South Wales</option>
                 <option value="SA">South Australia</option>
@@ -569,6 +576,32 @@ export const Uni = () => {
                 <option value="NT">Northern Territory</option>
               </Select>
             </div>
+
+            <div>
+              <Label
+                htmlFor="degree"
+                value="Degree"
+                className="text-xs font-normal text-black sm:text-sm"
+              />
+              <Select
+                id="degree"
+                value={degree}
+                onChange={(e) => setDegree(e.target.value)}
+                className="rounded-lg border-2 border-[#3B4FE6]"
+                required
+              >
+                <option value="" disabled>
+                  Select your degree
+                </option>
+                <option value="bachelor">Bachelor</option>
+                <option value="master">Master</option>
+                <option value="PhD">PhD</option>
+                <option value="diploma">Diploma</option>
+                <option value="certificate">Certificate</option>
+                <option value="vocational">Vocational</option>
+              </Select>
+            </div>
+
             <div>
               <Label
                 htmlFor="uni"
@@ -729,6 +762,7 @@ export const Uni = () => {
                 ))}
               </Select>
             </div>
+
             <Button
               type="submit"
               className="rounded-lg bg-blue-700 text-lime-200 hover:bg-lime-200 hover:text-white"
@@ -737,7 +771,8 @@ export const Uni = () => {
             </Button>
           </form>
         </div>
-        <div className="h-full hidden sm:block">
+
+        <div className="hidden mt-2 h-full sm:block">
           <Slideshow />
         </div>
       </div>

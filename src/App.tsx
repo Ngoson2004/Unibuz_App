@@ -1,5 +1,8 @@
 import Home from "./Home/HomePage.tsx";
 import SigninPage from "./Home/SignInPage.tsx";
+import { ComingSoon } from "./Home/ComingSoon.tsx";
+import {About} from "./Home/AboutPage.tsx";
+import { Feature } from "./Home/FeaturePage.tsx";
 import Email from "./AccCreation/SignUpPage.tsx";
 import { Code } from "./AccCreation/AuthCode.tsx";
 import { Password } from "./AccCreation/Password.tsx";
@@ -15,6 +18,9 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/coming" element={<ComingSoon/>}/>
+          <Route path="/about" element={<About />} />
+          <Route path="/feature" element={<Feature />} />
           <Route path="/signin" element={<SigninPage />} />
           <Route path="/signup" element={<Email />} />
           <Route path="/auth" element={<Code />} />

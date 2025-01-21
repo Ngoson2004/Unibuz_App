@@ -14,7 +14,7 @@ function Email() {
       <Header />
 
       <div className="grid-cols-2 gap-5 h-dvh sm:grid">
-        <div className="mt-10 hidden sm:block md:h-full">
+        <div className="mt-10 hidden sm:block h-full">
           <Slideshow />
         </div>
 
