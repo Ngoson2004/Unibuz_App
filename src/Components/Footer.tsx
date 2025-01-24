@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
 import { FaTiktok, FaLinkedin } from "react-icons/fa";
 import { FaRegPlayCircle } from "react-icons/fa";
+import footer_img from "../media/footer.jpg";
+import footer_brand from "../media/black_logo.png";
 
 const Footers = () => {
   return (
@@ -10,7 +12,7 @@ const Footers = () => {
       <div className="hidden w-full sm:block">
         <div className="relative flex h-96 w-full">
           <img
-            src="./src/media/footer.jpg"
+            src={footer_img}
             className="h-full w-full rounded-[40px] object-cover"
           />
 
@@ -39,7 +41,7 @@ const Footers = () => {
         <div className="flex-cols-2 flex gap-[77px] w-full border-b-2 border-indigo-100">
           <div className="grid basis-5/12 grid-rows-2 gap-[77px] bg-indigo-200 p-[77px]">
             <Footer.Brand
-              src="./src/media/black_logo.png"
+              src={footer_brand}
               alt="Unibuz Logo"
               name="UNIBUZ"
               className="h-16 w-auto"

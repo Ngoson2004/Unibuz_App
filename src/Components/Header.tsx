@@ -1,6 +1,7 @@
 import { Bars3Icon } from "@heroicons/react/24/outline";
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
+import logo from "../media/lime_logo.png";
 
 const Header = () => {
   return (
@@ -32,7 +33,7 @@ const Header = () => {
       <div className="hidden mx-[225px] sm:flex items-center">
         <Link to="/">
           <img
-            src="./src/media/lime_logo.png"
+            src={logo}
             alt="Unibuz"
             className="h-[53px] w-[188px]"
           />
