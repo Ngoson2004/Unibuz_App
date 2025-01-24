@@ -9,6 +9,26 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import Footers from "../Components/Footer";
 import { Avatar, Card } from "flowbite-react";
+import banner_img from "../media/Hero Banner BG.png";
+import character from "../media/characters.png";
+import video from "../media/Unibuz video.mp4";
+import mascot from "../media/mascot.png";
+
+import profile1 from "../media/testimonials/Adam.png";
+
+import profile2 from "../media/testimonials/Clara.png";
+
+import profile3 from "../media/testimonials/Jane.png";
+
+import profile4 from "../media/testimonials/Kevin.png";
+
+import profile5 from "../media/testimonials/Kylie.png";
+
+import profile6 from "../media/testimonials/Paul.png";
+
+import profile7 from "../media/testimonials/Sara.png";
+
+import profile8 from "../media/testimonials/Sophia.png";
 
 const TypingAnimation = () => {
   const sentences = [
@@ -77,7 +97,7 @@ function Home() {
           </video> */}
           <img
             className="absolute inset-0 z-[-1] h-full w-full object-cover"
-            src=".\src\media\Hero Banner BG.png"
+            src={banner_img}
             alt="Unibuz Hero Banner"
           />
 
@@ -121,14 +141,14 @@ function Home() {
               </div>
 
               <div className="flex justify-end">
-                <img src=".\src\media\characters.png" className="h-72 w-72" />
+                <img src={character} className="h-72 w-72" />
               </div>
             </div>
 
             <div className="mr-[66px] h-[614px] w-[345px]">
               <iframe
                 className="h-full w-full rounded-3xl"
-                src=".\src\media\Unibuz video.mp4"
+                src={video}
                 title="Unibuz video player"
                 allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
@@ -155,11 +175,7 @@ function Home() {
                   } 
                   z-0`}
                 >
-                  <img
-                    src=".\src\media\mascot.png"
-                    alt="Unibuz Mascot"
-                    className="h-52 w-52"
-                  />
+                  <img src={mascot} alt="Unibuz Mascot" className="h-52 w-52" />
                 </div>
               )}
               <div
@@ -230,11 +246,7 @@ function Home() {
             </h2>
             <div className="flex w-full flex-wrap gap-5 p-10">
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Adam.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile8} alt="ava" rounded>
                   <div className="text-gray-500">Adam Hubermann</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | University of Melbourne
@@ -248,11 +260,7 @@ function Home() {
               </div>
 
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Clara.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile1} alt="ava" rounded>
                   <div className="text-gray-500">Clara Boston</div>
                   <div className="text-sm text-gray-400">
                     Master Student | Monash University
@@ -265,11 +273,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Jane.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile2} alt="ava" rounded>
                   <div className="text-gray-500">Jane Mary</div>
                   <div className="text-sm text-gray-400">
                     Student | Victoria University
@@ -283,11 +287,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Kevin.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile3} alt="ava" rounded>
                   <div className="text-gray-500">Kevin Bry</div>
                   <div className="text-sm text-gray-400">
                     PhD Student | Swinburne University
@@ -301,11 +301,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Kylie.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile4} alt="ava" rounded>
                   <div className="text-gray-500">Kylie Fehring</div>
                   <div className="text-sm text-gray-400">
                     Student | LaTrobe University
@@ -318,11 +314,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Paul.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile5} alt="ava" rounded>
                   <div className="text-gray-500">Paul Park</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | Swinburne University
@@ -334,11 +326,7 @@ function Home() {
                 </p>
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Sara.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile6} alt="ava" rounded>
                   <div className="text-gray-500">Sara Henn</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | University of Sydney
@@ -351,11 +339,7 @@ function Home() {
                 </p>
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Sophia.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile7} alt="ava" rounded>
                   <div className="text-gray-500">Sophia Carter</div>
                   <div className="text-sm text-gray-400">
                     Master Student | Australia National University
