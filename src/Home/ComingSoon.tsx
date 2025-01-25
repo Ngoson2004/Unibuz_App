@@ -1,6 +1,3 @@
-"use client";
-
-
 import Header from "../Components/Header";
 
 import Footers from "../Components/Footer";

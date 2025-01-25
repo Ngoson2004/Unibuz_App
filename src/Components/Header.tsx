@@ -1,11 +1,9 @@
-"use client";
-
 import { Bars3Icon } from "@heroicons/react/24/outline";
-
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
 import logo from "../media/lime_logo.png";
 import logo_mobile from "../media/lime_logo_mobile.png";
+
 
 const Header = () => {
   return (
@@ -89,7 +87,11 @@ const Header = () => {
 
       <div className="mx-[225px] hidden items-center sm:flex">
         <Link to="/">
-          <img src={logo} alt="Unibuz" className="h-[53px] w-[188px]" />
+          <img
+            src={logo}
+            alt="Unibuz"
+            className="h-[53px] w-[188px]"
+          />
         </Link>
       </div>
 

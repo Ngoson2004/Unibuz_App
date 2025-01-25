@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, Card, Checkbox, Label } from "flowbite-react";
 // import { useState } from "react";
 import { useNavigate } from "react-router-dom";
