@@ -127,7 +127,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="grid w-full grid-rows-4 gap-20 sm:gap-1">
+        <div id="feature" className="grid w-full grid-rows-4 gap-20 sm:gap-1">
           {/*Intro - Desktop version */}
           <div className="hidden w-full grid-cols-2 items-center gap-96 bg-white p-[77px] sm:grid">
             <div className="grid w-[700px] grid-rows-2 gap-14">
