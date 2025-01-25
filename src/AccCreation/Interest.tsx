@@ -1,5 +1,3 @@
-"use client";
-
 import {Button} from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { IoGameController } from "react-icons/io5";

@@ -1,4 +1,3 @@
-"use client";
 import { Footer } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { BsFacebook, BsInstagram } from "react-icons/bs";

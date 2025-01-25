@@ -1,5 +1,3 @@
-"use client";
-
 import { Button, Label, Select } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";

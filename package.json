@@ -11,7 +11,9 @@
     "format:check": "prettier . --check",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
     "@aws-sdk/client-location": "^3.721.0",
@@ -40,10 +42,12 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "eslint-plugin-tailwindcss": "^3.15.1",
+    "gh-pages": "^6.3.0",
     "postcss": "^8.4.37",
     "prettier-plugin-tailwindcss": "^0.5.12",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.4.2",
     "vite": "^5.2.0"
-  }
+  },
+  "homepage": "https://unibuz-pty-ltd.github.io/Unibuz_Web_Demo/"
 }
