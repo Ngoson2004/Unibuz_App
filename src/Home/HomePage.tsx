@@ -9,26 +9,20 @@ import { FaShoppingCart } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import Footers from "../Components/Footer";
 import { Avatar, Card } from "flowbite-react";
+import { Fivestars } from "./5stars";
 import banner_img from "../media/Hero Banner BG.png";
 import character from "../media/characters.png";
 import video from "../media/Unibuz video.mp4";
 import mascot from "../media/mascot.png";
-
 import profile1 from "../media/testimonials/Adam.png";
-
 import profile2 from "../media/testimonials/Clara.png";
-
 import profile3 from "../media/testimonials/Jane.png";
-
 import profile4 from "../media/testimonials/Kevin.png";
-
 import profile5 from "../media/testimonials/Kylie.png";
-
 import profile6 from "../media/testimonials/Paul.png";
-
 import profile7 from "../media/testimonials/Sara.png";
-
 import profile8 from "../media/testimonials/Sophia.png";
+import blog_img from "../media/testimonials/Olivia.png";
 
 const TypingAnimation = () => {
   const sentences = [
@@ -81,27 +75,34 @@ function Home() {
   return (
     <div>
       <Header />
-      <div className="isolate bg-white sm:relative">
-        <div className="w-full pl-24 sm:relative sm:grid sm:grid-cols-2">
+      <div className="isolate bg-white">
+        {/*Mobile version */}
+        <img
+          className="absolute top-0 z-[-1] h-[700px] w-full object-cover sm:hidden"
+          src={banner_img}
+          alt="Unibuz Hero Banner"
+        />
+        <div className="relative w-full sm:grid sm:grid-cols-2 sm:pl-24">
           {/* <video
-            autoPlay
-            loop
-            muted
-            className="absolute inset-0 z-[-1] h-full w-full object-cover"
-            playsInline
-            preload="auto"
-            poster=".\src\media\Banner video poster.jpg"
-          >
-            <source src=".\src\media\Banner video.mp4" type="video/mp4" />
-            Your browser does not support the video tag.
-          </video> */}
+              autoPlay
+              loop
+              muted
+              className="absolute inset-0 z-[-1] h-full w-full object-cover"
+              playsInline
+              preload="auto"
+              poster=".\src\media\Banner video poster.jpg"
+            >
+              <source src=".\src\media\Banner video.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video> */}
+
+          {/*Desktop version */}
           <img
-            className="absolute inset-0 z-[-1] h-full w-full object-cover"
+            className="absolute top-0 z-[-1] hidden h-full w-full object-cover sm:block"
             src={banner_img}
             alt="Unibuz Hero Banner"
           />
-
-          <div className="w-50 relative mb-[210px] mt-[240px] h-auto justify-center rounded-[50px] bg-[#f8f7f9] px-16 pb-[37px] pt-[50px] opacity-80 sm:h-[443px] sm:w-[595px] sm:items-start">
+          <div className="mx-8 mt-40 h-80 items-center rounded-[50px] bg-[#f8f7f9] p-16 opacity-80 sm:mb-[210px] sm:mt-[240px] sm:h-[443px] sm:w-[595px] sm:items-start">
             <h1 className="mb-[37px] hidden w-full text-left font-clash-grotesk-semibold text-6xl text-[#060028] sm:inline-block">
               Join club events,{" "}
               <p className="text-[#3224f2]">Find your tribe!</p>
@@ -109,10 +110,10 @@ function Home() {
             <p className="mb-[60px] text-center font-satoshi-md text-[18px] leading-8 sm:inline-block sm:text-left sm:align-middle sm:text-2xl sm:text-[#050026]">
               <TypingAnimation />
             </p>
-            <div className="flex w-full items-center gap-x-[40px]">
+            <div className="flex w-full items-center justify-center gap-x-[40px] sm:justify-start">
               <Link
                 to="/signup"
-                className="rounded-full bg-[#3224f2] p-3 font-satoshi-bold text-[18px] text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3"
+                className="rounded-full bg-[#3224f2] px-5 py-3 font-satoshi-bold text-[18px] text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3"
               >
                 Let's go!
               </Link>
@@ -126,11 +127,12 @@ function Home() {
           </div>
         </div>
 
-        <div className="max-w-screen hidden grid-rows-4 gap-1 sm:grid">
-          <div className="grid w-full grid-cols-2 items-center gap-96 bg-white p-[77px]">
+        <div className="grid w-full grid-rows-4 gap-20 sm:gap-1">
+          {/*Intro - Desktop version */}
+          <div className="hidden w-full grid-cols-2 items-center gap-96 bg-white p-[77px] sm:grid">
             <div className="grid w-[700px] grid-rows-2 gap-14">
               <div>
-                <h2 className="flex-inline tex</h2>t-[#060028] gap-3 text-left font-clash-grotesk-semibold text-5xl xl:flex">
+                <h2 className="flex-inline gap-3 text-left font-clash-grotesk-semibold text-5xl text-[#060028] xl:flex">
                   Make your UniLife <p className="text-[#3224f2]">memorable</p>
                 </h2>
                 <p className="mt-[41px] text-left font-satoshi-md text-2xl text-[#44405e]">
@@ -146,25 +148,52 @@ function Home() {
             </div>
 
             <div className="mr-[66px] h-[614px] w-[345px]">
-              <iframe
+              <video
                 className="h-full w-full rounded-3xl"
                 src={video}
                 title="Unibuz video player"
-                allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
+                controls
               />
             </div>
           </div>
 
-          <div className="flex-1 bg-white p-[77px]">
-            <h2 className="text-center font-clash-grotesk-semibold text-5xl text-[#060028]">
+          {/*Intro - Mobile version */}
+          <div className="relative mt-72 grid h-fit max-w-sm grid-rows-2 items-center p-10 sm:hidden">
+            <div>
+              <h2 className="gap-3 text-left font-clash-grotesk-semibold text-3xl text-[#060028]">
+                Make your UniLife <p className="text-[#3224f2]">memorable</p>
+              </h2>
+              <p className="mt-10 text-left font-satoshi-md text-lg text-[#44405e]">
+                Use Unibuz to find and connect with other university students,
+                build friendships and network professionally. You never know
+                where your university connections may lead you!
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-10 justify-center">
+              <div className="place-self-center">
+                <img src={character} className="h-52 w-full" />
+              </div>
+              <div className="h-auto w-full">
+                <video
+                  className="h-full w-full rounded-3xl"
+                  src={video}
+                  title="Unibuz video player"
+                  controls
+                />
+              </div>
+            </div>
+          </div>
+
+          <div className="relative flex flex-grow flex-col justify-center bg-white px-10 sm:flex-1 sm:px-[77px]">
+            <h2 className="text-center font-clash-grotesk-semibold text-3xl text-[#060028] sm:text-5xl">
               Features
             </h2>
 
-            <div className="flex-cols-4 relative mt-5 flex h-[600px] items-end justify-center gap-5 text-[#44405e]">
+            <div className="relative mt-10 items-end space-y-32 text-[#44405e] sm:mt-5 sm:flex sm:gap-5">
               {hoveredMascot && (
                 <div
-                  className={`absolute top-0 ${
+                  className={`absolute top-0 hidden sm:block ${
                     hoveredMascot === "tribes"
                       ? "left-10"
                       : hoveredMascot === "events"
@@ -178,10 +207,11 @@ function Home() {
                   <img src={mascot} alt="Unibuz Mascot" className="h-52 w-52" />
                 </div>
               )}
+
               <div
                 onMouseEnter={() => setHoveredMascot("tribes")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] w-1/4 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80]"
+                className="z-10 h-[450px] rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Tribes
@@ -191,12 +221,12 @@ function Home() {
                   lifestyle. It’s like Facebook, but for oversharing about
                   UniLife :)
                 </p>
-                <MdGroups className="mx-20 my-5 h-24 w-24 text-[#3224f2]" />
+                <MdGroups className="my-5 h-24 w-24 justify-self-center text-[#3224f2]" />
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("events")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] w-1/4 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80]"
+                className="z-10 h-[450px] rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   What's on?
@@ -205,12 +235,12 @@ function Home() {
                   Our event picker’s like your mate who knows every gig, BBQ,
                   and footy match in town—no effort, just good times sorted ;)
                 </p>
-                <MdEvent className="mx-16 my-9 h-24 w-24 text-[#3224f2]" />
+                <MdEvent className="my-9 h-24 w-24 justify-self-center text-[#3224f2]" />
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("messages")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] w-1/4 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80]"
+                className="z-10 h-[450px] rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Messages
@@ -220,12 +250,12 @@ function Home() {
                   doing group assignments or just fishing for a soulmate with a
                   killer GPA 😘
                 </p>
-                <FaRegEnvelope className="mx-16 my-3 h-24 w-24 text-[#3224f2]" />
+                <FaRegEnvelope className="my-3 h-24 w-24 justify-self-center text-[#3224f2]" />
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("unibazaar")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] w-1/4 rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80]"
+                className="z-10 h-[450px] w-full rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Unibazaar
@@ -235,18 +265,23 @@ function Home() {
                   weird lamp you regret buying! It’s like Gumtree, but for
                   UniLife : D
                 </p>
-                <FaShoppingCart className="mx-20 my-9 h-20 w-20 text-[#3224f2]" />
+                <FaShoppingCart className="my-9 h-20 w-20 justify-self-center text-[#3224f2]" />
               </div>
             </div>
           </div>
 
-          <div className="mt-10 bg-gradient-to-b from-neutral-100 to-[#f3f2f4] p-[72px]">
+          {/*Testimonials - Desktop version */}
+          <div className="hidden sm:block mt-10 bg-gradient-to-b from-neutral-100 to-[#f3f2f4] p-[72px]">
             <h2 className="font-clash-grotesk-semibold text-5xl text-[#060028]">
               Testimonials - Loved by 1000+ students and organisers!
             </h2>
             <div className="flex w-full flex-wrap gap-5 p-10">
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile8} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Adam.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Adam Hubermann</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | University of Melbourne
@@ -257,10 +292,15 @@ function Home() {
                   UniBuz! Have been using it ever since and recommending it to
                   anyone I know.
                 </p>
+                <Fivestars />
               </div>
 
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile1} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Clara.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Clara Boston</div>
                   <div className="text-sm text-gray-400">
                     Master Student | Monash University
@@ -270,10 +310,15 @@ function Home() {
                   I found my dream job through a connection I made on UniBuz! I
                   can't thank the team enough for creating this platform.
                 </p>
+                <Fivestars />
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile2} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Jane.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Jane Mary</div>
                   <div className="text-sm text-gray-400">
                     Student | Victoria University
@@ -284,10 +329,15 @@ function Home() {
                   Brisbane to Melbourne. Thanks to Unibuz, I have been able to
                   rent one : D
                 </p>
+                <Fivestars />
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile3} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Kevin.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Kevin Bry</div>
                   <div className="text-sm text-gray-400">
                     PhD Student | Swinburne University
@@ -298,10 +348,15 @@ function Home() {
                   students who comes from the same country as mine! It is so
                   diverse {"<3"}
                 </p>
+                <Fivestars />
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile4} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Kylie.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Kylie Fehring</div>
                   <div className="text-sm text-gray-400">
                     Student | LaTrobe University
@@ -311,10 +366,15 @@ function Home() {
                   My go-to app for meeting new friends. Perfect for
                   international students!
                 </p>
+                <Fivestars />
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile5} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Paul.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Paul Park</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | Swinburne University
@@ -324,9 +384,14 @@ function Home() {
                   Finally found some mates who love playing Valorant on Unibuz
                   ^^ We love meeting each other at offline sessions.
                 </p>
+                <Fivestars />
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile6} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Sara.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Sara Henn</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | University of Sydney
@@ -337,9 +402,14 @@ function Home() {
                   I've made so many friends and connections that I wouldn't have
                   otherwise.
                 </p>
+                <Fivestars />
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile7} alt="ava" rounded>
+                <Avatar
+                  img="./src/media/testimonials/Sophia.png"
+                  alt="ava"
+                  rounded
+                >
                   <div className="text-gray-500">Sophia Carter</div>
                   <div className="text-sm text-gray-400">
                     Master Student | Australia National University
@@ -348,16 +418,140 @@ function Home() {
                 <p className="text-md font-satoshi">
                   Great app, beautiful interface and very user friendly.
                 </p>
+                <Fivestars />
               </div>
             </div>
           </div>
 
-          <div className="space-y-[56px] bg-white p-[72px]">
-            <h2 className="font-clash-grotesk-semibold text-5xl text-[#060028]">
+          {/*Testimonials - Mobile version */}
+          <div className="sm:hidden relative w-dvw space-y-20 mt-20 flex h-1/2 flex-col bg-gradient-to-b from-neutral-100 to-[#f3f2f4] p-8">
+            <h2 className="font-clash-grotesk-semibold text-[#060028] text-3xl">
+              Testimonials - Loved by 1000+ students and organisers!
+            </h2>
+            <div className="flex max-h-fit flex-nowrap gap-5 justify-self-center overflow-x-auto">
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-5">
+                <Avatar img={profile1} alt="ava" rounded>
+                  <div className="text-gray-500">Adam Hubermann</div>
+                  <div className="text-sm text-gray-400">
+                    Undergrad Student | University of Melbourne
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  I met my best friends and my current partner from an event on
+                  UniBuz! Have been using it ever since and recommending it to
+                  anyone I know.
+                </p>
+                <Fivestars />
+              </div>
+
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
+                <Avatar img={profile2} alt="ava" rounded>
+                  <div className="text-gray-500">Clara Boston</div>
+                  <div className="text-sm text-gray-400">
+                    Master Student | Monash University
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  I found my dream job through a connection I made on UniBuz! I
+                  can't thank the team enough for creating this platform.
+                </p>
+                <Fivestars />
+              </div>
+
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
+                <Avatar img={profile3} alt="ava" rounded>
+                  <div className="text-gray-500">Jane Mary</div>
+                  <div className="text-sm text-gray-400">
+                    Student | Victoria University
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  I was struggling to find a house when first moved from
+                  Brisbane to Melbourne. Thanks to Unibuz, I have been able to
+                  rent one : D
+                </p>
+                <Fivestars />
+              </div>
+
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
+                <Avatar img={profile4} alt="ava" rounded>
+                  <div className="text-gray-500">Kevin Bry</div>
+                  <div className="text-sm text-gray-400">
+                    PhD Student | Swinburne University
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  I am from Belgium and Unibuz has helped me connect with other
+                  students who comes from the same country as mine! It is so
+                  diverse {"<3"}
+                </p>
+                <Fivestars />
+              </div>
+            </div>
+            <div className="flex max-h-fit max-w-[320px] flex-nowrap gap-5 justify-self-center overflow-x-auto sm:max-w-fit sm:flex-wrap sm:p-10">
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
+                <Avatar img={profile5} alt="ava" rounded>
+                  <div className="text-gray-500">Kylie Fehring</div>
+                  <div className="text-sm text-gray-400">
+                    Student | LaTrobe University
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  My go-to app for meeting new friends. Perfect for
+                  international students!
+                </p>
+                <Fivestars />
+              </div>
+
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
+                <Avatar img={profile6} alt="ava" rounded>
+                  <div className="text-gray-500">Paul Park</div>
+                  <div className="text-sm text-gray-400">
+                    Undergrad Student | Swinburne University
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  Finally found some mates who love playing Valorant on Unibuz
+                  ^^ We love meeting each other at offline sessions.
+                </p>
+                <Fivestars />
+              </div>
+
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
+                <Avatar img={profile7} alt="ava" rounded>
+                  <div className="text-gray-500">Sara Henn</div>
+                  <div className="text-sm text-gray-400">
+                    Undergrad Student | University of Sydney
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  I've been using UniBuz for a while now and it's been amazing.
+                  I've made so many friends and connections that I wouldn't have
+                  otherwise.
+                </p>
+                <Fivestars />
+              </div>
+              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
+                <Avatar img={profile8} alt="ava" rounded>
+                  <div className="text-gray-500">Sophia Carter</div>
+                  <div className="text-sm text-gray-400">
+                    Master Student | Australia National University
+                  </div>
+                </Avatar>
+                <p className="font-satoshi">
+                  Great app, beautiful interface and very user friendly.
+                </p>
+                <Fivestars />
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-20 bg-white p-10 sm:space-y-[56px] sm:p-[72px]">
+            <h2 className="font-clash-grotesk-semibold text-3xl text-[#060028] sm:text-5xl">
               Event tips, life hacks, updates, and more!
             </h2>
 
-            <div className="mt-20 grid grid-cols-3 items-start gap-7">
+            <div className="mt-20 flex flex-grow grid-cols-3 flex-col items-start gap-7 sm:grid">
               <Card imgSrc="./src/media/Blog1.png" imgAlt="Blog 1">
                 <h1 className="my-2 font-satoshi-bold text-3xl">
                   How to organize events at Uni
@@ -367,7 +561,7 @@ function Home() {
                   Swinburne.
                 </p>
                 <div className="flex-inline my-5 flex gap-3">
-                  <Avatar img="./src/media/testimonials/Olivia.png" alt="ava">
+                  <Avatar img={blog_img} alt="ava">
                     <div className="text-gray-500">Olivia Smith</div>
                     <div className="text-sm text-gray-400">
                       1st December, 2024
@@ -384,7 +578,7 @@ function Home() {
                   for less?
                 </p>
                 <div className="flex-inline my-5 flex gap-3">
-                  <Avatar img="./src/media/testimonials/Olivia.png" alt="ava">
+                  <Avatar img={blog_img} alt="ava">
                     <div className="text-gray-500">Olivia Smith</div>
                     <div className="text-sm text-gray-400">
                       1st December, 2024
@@ -400,7 +594,7 @@ function Home() {
                   Want to start a club? We’ll walk you through it.
                 </p>
                 <div className="flex-inline my-5 flex gap-3">
-                  <Avatar img="./src/media/testimonials/Olivia.png" alt="ava">
+                  <Avatar img={blog_img} alt="ava">
                     <div className="text-gray-500">Olivia Smith</div>
                     <div className="text-sm text-gray-400">
                       1st December, 2024
