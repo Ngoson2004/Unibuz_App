@@ -1,3 +1,4 @@
+"use client";
 import { Footer } from "flowbite-react";
 import { Link } from "react-router-dom";
 import { BsFacebook, BsInstagram } from "react-icons/bs";
@@ -16,23 +17,23 @@ const Footers = () => {
             className="h-full w-full rounded-[40px] object-cover"
           />
 
-          <h1 className="absolute inset-0 px-5 pt-16 sm:px-[77px] sm:pt-[77px] bg-gradient-to-r from-black text-2xl sm:text-6xl font-clash-grotesk-semibold text-white">
+          <h1 className="absolute inset-0 px-5 pt-16 sm:px-[77px] sm:pt-[77px] bg-gradient-to-r from-black text-4xl sm:text-6xl font-clash-grotesk-semibold text-white">
             Ready to join your{" "}
             <p className="text-[#cbfd80]">first Unibuz event?</p>
           </h1>
 
-          <div className="absolute inset-1 px-2 sm:px-[77px] sm:pt-[154px] flex items-center space-x-4 font-satoshi-bold">
+          <div className="absolute inset-1 px-2 sm:px-[77px] sm:pt-[154px] flex items-center space-x-4 font-satoshi-bold text-[16px]">
             <Link
               to="/signup"
-              className="rounded-full bg-[#cbfd80] py-3 px-8 text-sm sm:text-lg text-[#1a1439] shadow-sm hover:bg-[#3224f2] hover:text-[#cbfd80] sm:px-12 sm:py-3"
+              className="rounded-full bg-[#cbfd80] py-3 px-8 text-lg text-[#1a1439] shadow-sm hover:bg-[#3224f2] hover:text-[#cbfd80] sm:px-12 sm:py-3"
             >
               Let's go!
             </Link>
             <a
               href="#feature"
-              className="flex rounded-full border-2 border-[#cbfd80] px-5 py-2 text-sm sm:text-lg font-normal leading-6 text-[#cbfd80] hover:border-[#3224f2] hover:text-[#3224f2] items-center gap-4"
+              className="flex rounded-full border-2 border-[#cbfd80] px-5 py-3 text-lg font-normal leading-6 text-[#cbfd80] hover:border-[#3224f2] hover:text-[#3224f2] items-center gap-4"
             >
-              <FaRegPlayCircle className="h-6 w-7" />
+              <FaRegPlayCircle className="h-7 w-7" />
               See Demo
             </a>
           </div>

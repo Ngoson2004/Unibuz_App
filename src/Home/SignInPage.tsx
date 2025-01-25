@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Checkbox, Label, TextInput, Toast } from "flowbite-react";
 import { FaCheckCircle } from "react-icons/fa";
 import { useState, useEffect } from "react";

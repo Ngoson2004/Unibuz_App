@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, Label, TextInput } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Components/Header";
