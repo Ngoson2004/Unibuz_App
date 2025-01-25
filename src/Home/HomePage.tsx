@@ -12,6 +12,7 @@ import banner_img from "../media/Hero Banner BG.png";
 import character from "../media/characters.png";
 import video from "../media/Unibuz video.mp4";
 import mascot from "../media/mascot.png";
+
 import profile1 from "../media/testimonials/Adam.png";
 import profile2 from "../media/testimonials/Clara.png";
 import profile3 from "../media/testimonials/Jane.png";
@@ -21,6 +22,7 @@ import profile6 from "../media/testimonials/Paul.png";
 import profile7 from "../media/testimonials/Sara.png";
 import profile8 from "../media/testimonials/Sophia.png";
 import blog_img from "../media/testimonials/Olivia.png";
+
 
 const TypingAnimation = () => {
   const sentences = [
@@ -275,11 +277,7 @@ function Home() {
             </h2>
             <div className="flex w-full flex-wrap gap-5 p-10">
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Adam.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile8} alt="ava" rounded>
                   <div className="text-gray-500">Adam Hubermann</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | University of Melbourne
@@ -294,11 +292,7 @@ function Home() {
               </div>
 
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Clara.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile1} alt="ava" rounded>
                   <div className="text-gray-500">Clara Boston</div>
                   <div className="text-sm text-gray-400">
                     Master Student | Monash University
@@ -312,11 +306,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Jane.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile2} alt="ava" rounded>
                   <div className="text-gray-500">Jane Mary</div>
                   <div className="text-sm text-gray-400">
                     Student | Victoria University
@@ -331,11 +321,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Kevin.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile3} alt="ava" rounded>
                   <div className="text-gray-500">Kevin Bry</div>
                   <div className="text-sm text-gray-400">
                     PhD Student | Swinburne University
@@ -350,11 +336,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Kylie.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile4} alt="ava" rounded>
                   <div className="text-gray-500">Kylie Fehring</div>
                   <div className="text-sm text-gray-400">
                     Student | LaTrobe University
@@ -368,11 +350,7 @@ function Home() {
               </div>
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Paul.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile5} alt="ava" rounded>
                   <div className="text-gray-500">Paul Park</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | Swinburne University
@@ -385,11 +363,7 @@ function Home() {
                 <Fivestars />
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Sara.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile6} alt="ava" rounded>
                   <div className="text-gray-500">Sara Henn</div>
                   <div className="text-sm text-gray-400">
                     Undergrad Student | University of Sydney
@@ -403,11 +377,7 @@ function Home() {
                 <Fivestars />
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar
-                  img="./src/media/testimonials/Sophia.png"
-                  alt="ava"
-                  rounded
-                >
+                <Avatar img={profile7} alt="ava" rounded>
                   <div className="text-gray-500">Sophia Carter</div>
                   <div className="text-sm text-gray-400">
                     Master Student | Australia National University
