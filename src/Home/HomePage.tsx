@@ -127,7 +127,7 @@ function Home() {
           </div>
         </div>
 
-        <div className="grid w-full grid-rows-4 gap-20 sm:gap-1">
+        <div id="feature" className="grid w-full grid-rows-4 gap-20 sm:gap-1">
           {/*Intro - Desktop version */}
           <div className="hidden w-full grid-cols-2 items-center gap-96 bg-white p-[77px] sm:grid">
             <div className="grid w-[700px] grid-rows-2 gap-14">
@@ -278,7 +278,7 @@ function Home() {
             <div className="flex w-full flex-wrap gap-5 p-10">
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Adam.png"
+                  img={profile1}
                   alt="ava"
                   rounded
                 >
@@ -297,7 +297,7 @@ function Home() {
 
               <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Clara.png"
+                  img={profile2}
                   alt="ava"
                   rounded
                 >
@@ -315,7 +315,7 @@ function Home() {
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Jane.png"
+                  img={profile3}
                   alt="ava"
                   rounded
                 >
@@ -334,7 +334,7 @@ function Home() {
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Kevin.png"
+                  img={profile4}
                   alt="ava"
                   rounded
                 >
@@ -353,7 +353,7 @@ function Home() {
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Kylie.png"
+                  img={profile5}
                   alt="ava"
                   rounded
                 >
@@ -371,7 +371,7 @@ function Home() {
 
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Paul.png"
+                  img={profile6}
                   alt="ava"
                   rounded
                 >
@@ -388,7 +388,7 @@ function Home() {
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Sara.png"
+                  img={profile7}
                   alt="ava"
                   rounded
                 >
@@ -406,7 +406,7 @@ function Home() {
               </div>
               <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
                 <Avatar
-                  img="./src/media/testimonials/Sophia.png"
+                  img={profile8}
                   alt="ava"
                   rounded
                 >
@@ -474,7 +474,7 @@ function Home() {
               </div>
 
               <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile4} alt="ava" rounded>
+                <Avatar img={profile5} alt="ava" rounded>
                   <div className="text-gray-500">Kevin Bry</div>
                   <div className="text-sm text-gray-400">
                     PhD Student | Swinburne University
