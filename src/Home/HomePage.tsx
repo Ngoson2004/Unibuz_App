@@ -22,6 +22,9 @@ import profile5 from "../media/testimonials/Kylie.png";
 import profile6 from "../media/testimonials/Paul.png";
 import profile7 from "../media/testimonials/Sara.png";
 import profile8 from "../media/testimonials/Sophia.png";
+import blog1 from "../media/Blog1.png";
+import blog2 from "../media/Blog2.png";
+import blog3 from "../media/Blog3.png";
 import blog_img from "../media/testimonials/Olivia.png";
 
 const TypingAnimation = () => {
@@ -129,13 +132,13 @@ function Home() {
 
         <div id="feature" className="grid w-full grid-rows-4 gap-20 sm:gap-1">
           {/*Intro - Desktop version */}
-          <div className="hidden w-full grid-cols-2 items-center gap-96 bg-white p-[77px] sm:grid">
-            <div className="grid w-[700px] grid-rows-2 gap-14">
+          <div className="hidden w-full grid-cols-2 items-center gap-72 xl:gap-96 bg-white p-[77px] sm:grid">
+            <div className="grid w-[500px] xl:w-[700px] grid-rows-2 gap-14">
               <div>
                 <h2 className="flex-inline gap-3 text-left font-clash-grotesk-semibold text-5xl text-[#060028] xl:flex">
                   Make your UniLife <p className="text-[#3224f2]">memorable</p>
                 </h2>
-                <p className="mt-[41px] text-left font-satoshi-md text-2xl text-[#44405e]">
+                <p className="mt-[41px] text-left font-satoshi-md text-lg xl:text-2xl text-[#44405e]">
                   Use Unibuz to find and connect with other university students,
                   build friendships and network professionally. You never know
                   where your university connections may lead you!
@@ -195,12 +198,12 @@ function Home() {
                 <div
                   className={`absolute top-0 hidden sm:block ${
                     hoveredMascot === "tribes"
-                      ? "left-10"
+                      ? "left-1 xl:left-10"
                       : hoveredMascot === "events"
-                        ? "left-[370px]"
+                        ? "left-56 xl:left-[370px]"
                         : hoveredMascot === "messages"
-                          ? "left-[700px]"
-                          : "left-[1010px]"
+                          ? "left-[440px] xl:left-[700px]"
+                          : "left-[660px] xl:left-[1010px]"
                   } 
                   z-0`}
                 >
@@ -221,7 +224,7 @@ function Home() {
                   lifestyle. It’s like Facebook, but for oversharing about
                   UniLife :)
                 </p>
-                <MdGroups className="my-5 h-24 w-24 justify-self-center text-[#3224f2]" />
+                <MdGroups className="xl:my-5 h-24 w-24 justify-self-center text-[#3224f2]" />
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("events")}
@@ -235,7 +238,7 @@ function Home() {
                   Our event picker’s like your mate who knows every gig, BBQ,
                   and footy match in town—no effort, just good times sorted ;)
                 </p>
-                <MdEvent className="my-9 h-24 w-24 justify-self-center text-[#3224f2]" />
+                <MdEvent className="xl:my-9 h-20 xl:h-24 w-24 justify-self-center text-[#3224f2]" />
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("messages")}
@@ -250,7 +253,7 @@ function Home() {
                   doing group assignments or just fishing for a soulmate with a
                   killer GPA 😘
                 </p>
-                <FaRegEnvelope className="my-3 h-24 w-24 justify-self-center text-[#3224f2]" />
+                <FaRegEnvelope className="xl:my-3 h-16 xl:h-24 w-24 justify-self-center text-[#3224f2]" />
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("unibazaar")}
@@ -265,7 +268,7 @@ function Home() {
                   weird lamp you regret buying! It’s like Gumtree, but for
                   UniLife : D
                 </p>
-                <FaShoppingCart className="my-9 h-20 w-20 justify-self-center text-[#3224f2]" />
+                <FaShoppingCart className="xl:my-9 h-20 w-20 justify-self-center text-[#3224f2]" />
               </div>
             </div>
           </div>
@@ -552,7 +555,7 @@ function Home() {
             </h2>
 
             <div className="mt-20 flex flex-grow grid-cols-3 flex-col items-start gap-7 sm:grid">
-              <Card imgSrc="./src/media/Blog1.png" imgAlt="Blog 1">
+              <Card imgSrc={blog1} imgAlt="Blog 1">
                 <h1 className="my-2 font-satoshi-bold text-3xl">
                   How to organize events at Uni
                 </h1>
@@ -569,7 +572,7 @@ function Home() {
                   </Avatar>
                 </div>
               </Card>
-              <Card imgSrc="./src/media/Blog2.png" imgAlt="Blog 2">
+              <Card imgSrc={blog2} imgAlt="Blog 2">
                 <h1 className="my-2 font-satoshi-bold text-3xl">
                   NextGen: Top 5 Benefits for Students
                 </h1>
@@ -586,7 +589,7 @@ function Home() {
                   </Avatar>
                 </div>
               </Card>
-              <Card imgSrc="./src/media/Blog3.png" imgAlt="Blog 3">
+              <Card imgSrc={blog3} imgAlt="Blog 3">
                 <h1 className="my-2 font-satoshi-bold text-3xl">
                   Starting a Swinburne Club: From A to Z
                 </h1>

@@ -9,7 +9,7 @@ import logo_mobile from "../media/lime_logo_mobile.png";
 
 const Header = () => {
   return (
-    <div className="fixed top-0 z-20 flex h-16 w-dvw items-center justify-between rounded-b-md sm:rounded-b-[40px] bg-[#3224f2] px-9 py-[30px] sm:h-20 sm:px-[77px] xl:h-28 2xl:h-[115px]">
+    <div className="fixed top-0 z-20 flex h-16 w-dvw items-center justify-between rounded-b-md sm:rounded-b-[40px] bg-[#3224f2] px-9 py-[30px] sm:h-20 xl:px-[77px] lg:h-28 2xl:h-[115px]">
       <div className="sm:hidden">
         <Dropdown
           label=""
@@ -54,7 +54,7 @@ const Header = () => {
         </Dropdown>
       </div>
 
-      <div className="hidden w-[286px] items-center space-x-10 font-satoshi text-lg sm:flex">
+      <div className="hidden w-[286px] items-center space-x-8 xl:space-x-10 font-satoshi text-lg sm:flex">
         <Link
           to="/"
           className="hidden text-white hover:text-[#b9b5fa] sm:block"
@@ -87,9 +87,9 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="mx-[225px] hidden items-center sm:flex">
+      <div className="mx-auto xl:mx-[225px] hidden items-center sm:flex">
         <Link to="/">
-          <img src={logo} alt="Unibuz" className="h-[53px] w-[188px]" />
+          <img src={logo} alt="Unibuz" className="h-10 w-auto xl:h-[53px] xl:w-[188px]" />
         </Link>
       </div>
 
