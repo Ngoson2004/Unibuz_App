@@ -9,10 +9,10 @@ export default function LandingRoutes() {
   return (
     <Routes>
       <Route element={<LandingLayout />}>
-        <Route index element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         <Route path="/feature" element={<Feature />} />
-        <Route path="/coming" element={<ComingSoon />} />
+        <Route index element={<ComingSoon />} />
       </Route>
     </Routes>
   );
