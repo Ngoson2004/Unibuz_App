@@ -8,8 +8,8 @@ import logo_mobile from "@/shared/assets/media/lime_logo_mobile.png";
 
 const Header = () => {
   return (
-    <div className="fixed top-0 z-20 flex h-16 w-dvw items-center justify-between rounded-b-md bg-[#3224f2] px-9 py-[30px] sm:h-20 sm:rounded-b-[40px] lg:h-28 xl:px-[77px] 2xl:h-[115px]">
-      <div className="sm:hidden">
+    <div className="fixed top-0 z-20 flex h-16 w-dvw items-center justify-between rounded-b-md bg-[#3224f2] px-9 py-[30px] md:h-20 md:rounded-b-[40px] lg:h-28 xl:px-[77px] 2xl:h-[115px]">
+      <div className="md:hidden">
         <Dropdown
           label=""
           renderTrigger={() => (
@@ -32,7 +32,7 @@ const Header = () => {
         >
           <Dropdown.Item>
             <NavLink
-              to="/"
+              to="/landing"
               className={({ isActive }) =>
                 isActive
                   ? "text-green-700"
@@ -68,7 +68,7 @@ const Header = () => {
           </Dropdown.Item>
           <Dropdown.Item>
             <NavLink
-              to="/coming"
+              to="/blog"
               className={({ isActive }) =>
                 isActive
                   ? "text-green-700"
@@ -81,11 +81,11 @@ const Header = () => {
         </Dropdown>
       </div>
 
-      <div className="hidden w-[286px] items-center space-x-8 font-satoshi text-lg sm:flex xl:space-x-10">
+      <div className="hidden w-[286px] items-center space-x-8 font-satoshi text-lg md:flex xl:space-x-10">
         <NavLink
-          to="/"
+          to="/landing"
           className={({ isActive }) =>
-            `relative hidden sm:block ${
+            `relative hidden md:block ${
               isActive
                 ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
                 : "text-white hover:text-[#b9b5fa]"
@@ -97,7 +97,7 @@ const Header = () => {
         <NavLink
           to="/feature"
           className={({ isActive }) =>
-            `relative hidden sm:block ${
+            `relative hidden md:block ${
               isActive
                 ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
                 : "text-white hover:text-[#b9b5fa]"
@@ -109,7 +109,7 @@ const Header = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            `relative hidden sm:block ${
+            `relative hidden md:block ${
               isActive
                 ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
                 : "text-white hover:text-[#b9b5fa]"
@@ -119,9 +119,9 @@ const Header = () => {
           About
         </NavLink>
         <NavLink
-          to="/coming"
+          to="/blog"
           className={({ isActive }) =>
-            `relative hidden sm:block ${
+            `relative hidden md:block ${
               isActive
                 ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
                 : "text-white hover:text-[#b9b5fa]"
@@ -132,13 +132,13 @@ const Header = () => {
         </NavLink>
       </div>
 
-      <div className="items-center sm:hidden">
+      <div className="items-center md:hidden">
         <Link to="/">
           <img src={logo_mobile} alt="Unibuz" className="size-6" />
         </Link>
       </div>
 
-      <div className="mx-auto hidden items-center sm:flex xl:mx-[225px]">
+      <div className="mx-auto hidden items-center md:flex xl:mx-[225px]">
         <Link to="/">
           <img
             src={logo}
@@ -148,21 +148,21 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="text-md hidden items-center space-x-[21px] font-satoshi-bold sm:flex">
+      <div className="text-md hidden items-center space-x-[21px] font-satoshi-bold md:flex">
         <Link
           to="/auth/sign-in"
-          className="hidden h-[49px] w-[133px] content-center rounded-full bg-[#cbfd80] px-[43px] text-[#3224f2] hover:bg-white sm:block"
+          className="hidden h-[49px] w-[133px] content-center rounded-full bg-[#cbfd80] px-[43px] text-[#3224f2] hover:bg-white md:block"
         >
           Log In
         </Link>
         <Link
           to="/auth/sign-up"
-          className="hidden h-[51px] w-[133px] content-center rounded-full border-2 border-[#cbfd80] px-[35px] text-[#cbfd80] hover:bg-[#1a0fb2] sm:block"
+          className="hidden h-[51px] w-[133px] content-center rounded-full border-2 border-[#cbfd80] px-[35px] text-[#cbfd80] hover:bg-[#1a0fb2] md:block"
         >
           Sign Up
         </Link>
       </div>
-      <div className="sm:hidden">
+      <div className="md:hidden">
         <Dropdown
           label=""
           renderTrigger={() => (
