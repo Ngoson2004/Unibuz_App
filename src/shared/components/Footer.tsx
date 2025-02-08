@@ -14,7 +14,7 @@ const Footers = () => {
         <div className="relative flex h-96">
           <img
             src={footer_img}
-            className="h-full w-full rounded-[40px] object-cover"
+            className="size-full rounded-[40px] object-cover"
           />
 
           <h1 className="absolute inset-0 bg-gradient-to-r from-black px-5 pt-16 font-clash-grotesk-semibold text-4xl text-white sm:px-[77px] sm:pt-[77px] sm:text-6xl">
@@ -33,7 +33,7 @@ const Footers = () => {
               href="#feature"
               className="flex items-center gap-4 rounded-full border-2 border-[#cbfd80] px-5 py-3 text-lg font-normal leading-6 text-[#cbfd80] hover:border-[#3224f2] hover:text-[#3224f2]"
             >
-              <FaRegPlayCircle className="h-7 w-7" />
+              <FaRegPlayCircle className="size-7" />
               See Demo
             </a>
           </div>
@@ -45,7 +45,7 @@ const Footers = () => {
               src={footer_brand}
               alt="Unibuz Logo"
               name="UNIBUZ"
-              className="h-16 w-auto"
+              className="mx-auto h-16 w-auto sm:mx-0"
             />
             <p className="place-content-center text-center font-clash-grotesk-semibold text-3xl text-[#060028] sm:text-left sm:text-5xl">
               Discover events, <p className="text-[#3224f2]">find new mates.</p>
@@ -114,7 +114,7 @@ const Footers = () => {
             </div>
           </div>
         </div>
-        <div className="flex items-center items-center justify-between px-5 py-5">
+        <div className="flex items-center justify-between p-5">
           <Footer.Copyright href="#" by="Unibuz" year={2025} />
           <div className="flex space-x-6 sm:justify-center">
             <Footer.Icon href="#" icon={BsFacebook} />
