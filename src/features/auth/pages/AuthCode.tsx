@@ -2,13 +2,11 @@
 
 import { Button, Label, TextInput } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
-import Header from "@/shared/components/Header";
 
 export default function AuthCode() {
   const navigate = useNavigate();
   return (
     <div>
-      <Header />
       <form
         onSubmit={() => {
           navigate("/auth/password");

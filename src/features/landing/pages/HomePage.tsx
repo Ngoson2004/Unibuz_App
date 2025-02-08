@@ -1,13 +1,11 @@
 "use client";
 
 import { Link } from "react-router-dom";
-import Header from "@/shared/components/Header";
 import { useState, useEffect } from "react";
 import { MdGroups } from "react-icons/md";
 import { FaRegEnvelope } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
-import Footers from "@/shared/components/Footer";
 import { Avatar, Card } from "flowbite-react";
 import { Fivestars } from "@/features/landing/components/FiveStars";
 import banner_img from "@/shared/assets/media/Hero Banner BG.png";
@@ -77,7 +75,6 @@ function Home() {
 
   return (
     <div>
-      <Header />
       <div className="isolate bg-white">
         {/*Mobile version */}
         <img
@@ -586,8 +583,6 @@ function Home() {
           </div>
         </div>
       </div>
-
-      <Footers />
     </div>
   );
 }

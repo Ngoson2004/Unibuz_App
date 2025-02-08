@@ -3,14 +3,12 @@
 import { Button, Label, TextInput } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
 import { RiLockPasswordLine } from "react-icons/ri";
-import Header from "../../../shared/components/Header";
-import { Slideshow } from "../../../shared/components/Slideshow";
+import { Slideshow } from "@/shared/components/Slideshow";
 
 export default function Password() {
   const navigate = useNavigate();
   return (
     <div>
-      <Header />
       <div className="h-dvh grid-cols-2 gap-5 sm:grid">
         <div>
           <form

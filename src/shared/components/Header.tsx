@@ -1,8 +1,7 @@
 "use client";
 
 import { Bars3Icon } from "@heroicons/react/24/outline";
-
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
 import logo from "@/shared/assets/media/lime_logo.png";
 import logo_mobile from "@/shared/assets/media/lime_logo_mobile.png";
@@ -32,53 +31,105 @@ const Header = () => {
           )}
         >
           <Dropdown.Item>
-            <Link to="/" className="text-lime-400 hover:text-green-700">
+            <NavLink
+              to="/"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-700"
+                  : "text-lime-400 hover:text-green-700"
+              }
+            >
               Home
-            </Link>
+            </NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <Link to="/feature" className="text-lime-400 hover:text-green-700">
+            <NavLink
+              to="/feature"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-700"
+                  : "text-lime-400 hover:text-green-700"
+              }
+            >
               Features
-            </Link>
+            </NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <Link to="/about" className="text-lime-400 hover:text-green-700">
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-700"
+                  : "text-lime-400 hover:text-green-700"
+              }
+            >
               About
-            </Link>
+            </NavLink>
           </Dropdown.Item>
           <Dropdown.Item>
-            <Link to="/" className="text-lime-400 hover:text-green-700">
+            <NavLink
+              to="/coming"
+              className={({ isActive }) =>
+                isActive
+                  ? "text-green-700"
+                  : "text-lime-400 hover:text-green-700"
+              }
+            >
               Blog
-            </Link>
+            </NavLink>
           </Dropdown.Item>
         </Dropdown>
       </div>
 
       <div className="hidden w-[286px] items-center space-x-8 font-satoshi text-lg sm:flex xl:space-x-10">
-        <Link
+        <NavLink
           to="/"
-          className="hidden text-white hover:text-[#b9b5fa] sm:block"
+          className={({ isActive }) =>
+            `relative hidden sm:block ${
+              isActive
+                ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
+                : "text-white hover:text-[#b9b5fa]"
+            }`
+          }
         >
           Home
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/feature"
-          className="hidden text-white hover:text-[#b9b5fa] sm:block"
+          className={({ isActive }) =>
+            `relative hidden sm:block ${
+              isActive
+                ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
+                : "text-white hover:text-[#b9b5fa]"
+            }`
+          }
         >
           Features
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/about"
-          className="hidden text-white hover:text-[#b9b5fa] sm:block"
+          className={({ isActive }) =>
+            `relative hidden sm:block ${
+              isActive
+                ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
+                : "text-white hover:text-[#b9b5fa]"
+            }`
+          }
         >
           About
-        </Link>
-        <Link
+        </NavLink>
+        <NavLink
           to="/coming"
-          className="hidden text-white hover:text-[#b9b5fa] sm:block"
+          className={({ isActive }) =>
+            `relative hidden sm:block ${
+              isActive
+                ? "text-[#cbfd80] before:absolute before:bottom-[-10px] before:left-1/2 before:h-2 before:w-2 before:-translate-x-1/2 before:rounded-full before:bg-[#cbfd80]"
+                : "text-white hover:text-[#b9b5fa]"
+            }`
+          }
         >
           Blog
-        </Link>
+        </NavLink>
       </div>
 
       <div className="items-center sm:hidden">

@@ -2,8 +2,6 @@
 
 import { Button, Label, TextInput } from "flowbite-react";
 import { useNavigate } from "react-router-dom";
-import Header from "@/shared/components/Header";
-// import Footers from "../Components/Footer";
 import { FaRegEnvelope } from "react-icons/fa";
 import { Slideshow } from "@/shared/components/Slideshow";
 
@@ -11,8 +9,6 @@ function Email() {
   const navigate = useNavigate();
   return (
     <div>
-      <Header />
-
       <div className="h-dvh grid-cols-2 gap-5 sm:grid">
         <div className="mt-10 hidden h-full sm:block">
           <Slideshow />

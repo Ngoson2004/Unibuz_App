@@ -5,7 +5,6 @@ import { FaCheckCircle } from "react-icons/fa";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
-import Header from "@/shared/components/Header";
 import { useNavigate } from "react-router-dom";
 import { Slideshow } from "@/shared/components/Slideshow";
 
@@ -27,7 +26,6 @@ function SignInPage() {
 
   return (
     <div className="bg-slate-100">
-      <Header />
       {showToast && (
         <div className="fixed bottom-5 right-5 z-20">
           <Toast>
