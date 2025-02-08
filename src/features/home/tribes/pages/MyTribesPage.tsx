@@ -15,7 +15,6 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "@/shared/context/AppContext";
-import { Tab } from "@/shared/components/Tabs";
 import artTribe from "@/shared/assets/media/artTribe.png";
 import animeClub from "@/shared/assets/media/animeClub.jpg";
 import gymClub from "@/shared/assets/media/gymClub.avif";
@@ -203,8 +202,6 @@ export default function MyTribesPage() {
           </Modal>
         </div>
       </div>
-
-      <Tab />
     </div>
   );
 }

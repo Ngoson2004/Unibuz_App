@@ -8,7 +8,6 @@ import { BsEmojiHeartEyesFill } from "react-icons/bs";
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import { useAppContext } from "@/shared/context/AppContext";
-import { Tab } from "@/shared/components/Tabs";
 // import { SideDrawer } from "../Components/Drawer";
 import Post from "../components/Post";
 
@@ -161,8 +160,6 @@ export default function FeedPage() {
           ))}
         </div>
       </div>
-
-      <Tab />
     </div>
   );
 }

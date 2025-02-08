@@ -1,5 +1,3 @@
-import Footers from "@/shared/components/Footer";
-import Header from "@/shared/components/Header";
 import about_banner from "@/shared/assets/media/about_banner.png";
 import mission from "@/shared/assets/media/mission.png";
 import vision from "@/shared/assets/media/vision.png";
@@ -14,7 +12,6 @@ import { Avatar, Card } from "flowbite-react";
 export function About() {
   return (
     <div>
-      <Header />
       <div className="isolate bg-white">
         {/*Banner - Mobile version */}
         <img
@@ -197,7 +194,6 @@ export function About() {
           className="absolute bottom-0 right-0 hidden size-[200px] object-cover sm:block"
         />
       </div>
-      <Footers />
     </div>
   );
 }

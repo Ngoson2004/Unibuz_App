@@ -1,7 +1,6 @@
 "use client";
 
 import { TribeHeader } from "@/features/home/tribes/components/TribeHeader";
-import { Tab } from "@/shared/components/Tabs";
 import {
   Modal,
   Textarea,
@@ -194,8 +193,6 @@ export default function UnibazaarPage() {
           <Product key={index} {...product} />
         ))}
       </div>
-
-      <Tab />
     </div>
   );
 }

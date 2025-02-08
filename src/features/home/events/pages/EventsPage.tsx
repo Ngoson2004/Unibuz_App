@@ -1,6 +1,5 @@
 "use client";
 
-import { Tab } from "@/shared/components/Tabs";
 import { Event } from "../components/EventCard";
 import { useAppContext } from "@/shared/context/AppContext";
 import {
@@ -278,8 +277,6 @@ export default function EventsPage() {
         <p className="font-satoshi-bold text-2xl text-black">Explore events</p>
         {/*Under construction for recommendation*/}
       </div>
-
-      <Tab />
     </div>
   );
 }

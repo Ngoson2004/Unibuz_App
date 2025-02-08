@@ -1,5 +1,3 @@
-import Footers from "@/shared/components/Footer";
-import Header from "@/shared/components/Header";
 import banner_img from "@/shared/assets/media/feature_banner.png";
 import tribe_img from "@/shared/assets/media/feature_tribe.png";
 import event_img from "@/shared/assets/media/feature_event.png";
@@ -11,7 +9,6 @@ import { Link } from "react-router-dom";
 export function Feature() {
   return (
     <div>
-      <Header />
       <div className="isolate bg-white">
         <img
           className="absolute top-0 z-[-1] h-[700px] w-full object-cover sm:hidden"
@@ -508,7 +505,6 @@ export function Feature() {
           </div>
         </div>
       </div>
-      <Footers />
     </div>
   );
 }

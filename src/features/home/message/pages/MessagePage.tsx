@@ -1,5 +1,4 @@
 "use client";
-import { Tab } from "@/shared/components/Tabs";
 import {
   Button,
   TextInput,
@@ -417,8 +416,6 @@ export default function MessagePage() {
           )}
         </div>
       </div>
-
-      <Tab />
     </div>
   );
 }

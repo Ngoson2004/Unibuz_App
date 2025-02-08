@@ -4,7 +4,6 @@ import { Button, Card, Checkbox, Label } from "flowbite-react";
 // import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { PiBookBookmarkFill } from "react-icons/pi";
-import Header from "@/shared/components/Header";
 
 export default function GoodVibeGuidePage() {
   const navigate = useNavigate();
@@ -17,7 +16,6 @@ export default function GoodVibeGuidePage() {
 
   return (
     <div className="bg-slate-100">
-      <Header />
       <form
         onSubmit={handleSubmit}
         className="sm:px-auto mx-auto grid max-w-4xl grid-rows-1 gap-5 px-5 py-16 lg:py-32"

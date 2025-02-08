@@ -1,30 +1,25 @@
-"use client";
-
-import Header from "@/shared/components/Header";
-
-import Footers from "@/shared/components/Footer";
+import React from "react";
 
 export function ComingSoon() {
   return (
     <div>
-      <Header />
       <div className="isolate bg-white sm:relative">
         <div className="w-full pl-24 sm:relative sm:grid sm:grid-cols-2">
-          {/* <video
+          <video
             autoPlay
             loop
             muted
-            className="absolute inset-0 z-[-1] h-full w-full object-cover"
+            className="absolute inset-0 z-[-1] size-full object-cover"
             playsInline
             preload="auto"
             poster=".\src\media\Banner video poster.jpg"
           >
             <source src=".\src\media\Banner video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
-          </video> */}
+          </video>
           <img
             className="absolute inset-0 z-[-1] size-full object-cover"
-            src=".\src\media\Hero Banner BG.png"
+            src=".\src\shared\assets\media\Hero Banner BG.png"
             alt="Unibuz Hero Banner"
           />
 
@@ -53,7 +48,6 @@ export function ComingSoon() {
           </div>
         </div>
       </div>
-      <Footers />
     </div>
   );
 }
