@@ -195,12 +195,12 @@ function Home() {
                 <div
                   className={`absolute top-0 hidden sm:block ${
                     hoveredMascot === "tribes"
-                      ? "left-1 xl:left-10"
+                      ? "left-1 xl:left-10 2xl:left-20"
                       : hoveredMascot === "events"
-                        ? "left-56 xl:left-[370px]"
+                        ? "left-56 xl:left-[370px] min-[1800px]:left-[550px]"
                         : hoveredMascot === "messages"
-                          ? "left-[440px] xl:left-[700px]"
-                          : "left-[660px] xl:left-[1010px]"
+                          ? "left-[440px] xl:left-[700px] min-[1800px]:left-[1000px]"
+                          : "left-[660px] xl:left-[1010px] min-[1800px]:left-[1440px]"
                   }
                   z-0`}
                 >
