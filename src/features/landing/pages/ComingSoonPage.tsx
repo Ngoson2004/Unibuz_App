@@ -12,18 +12,52 @@ import market_img from "@/shared/assets/media/feature_market.png";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Avatar, Toast } from "flowbite-react";
 import { Card } from "flowbite-react";
-import { FaCheckCircle } from "react-icons/fa";
+import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import { useMutation } from "@tanstack/react-query";
+import { supabase } from "@/shared/libs/supabase";
 
 export function ComingSoon() {
   const [email, setEmail] = useState("");
   const [showToast, setShowToast] = useState(false);
-  const handleSubmit = (e: React.FormEvent) => {
+  const [toastMessage, setToastMessage] = useState("");
+  const [isError, setIsError] = useState(false);
+
+  const { mutateAsync: subscribe, isPending } = useMutation({
+    mutationKey: ["subscribe"],
+    mutationFn: () =>
+      supabase.functions.invoke("enqueue-user", {
+        body: {
+          email: email,
+        },
+      }),
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setShowToast(true);
-    const timer = setTimeout(() => {
-      setShowToast(false);
-    }, 5000); // Show toast for 5 seconds
-    return () => clearTimeout(timer);
+    try {
+      const response = await subscribe();
+      console.log(response);
+      if (response.error) {
+        setIsError(true);
+        setToastMessage("Something went wrong - please try again later");
+      } else {
+        setIsError(false);
+        setToastMessage("You've been added to the waitlist!");
+      }
+      setShowToast(true);
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000); // Show toast for 5 seconds
+      return () => clearTimeout(timer);
+    } catch (error) {
+      setIsError(true);
+      setToastMessage((error as Error).message);
+      setShowToast(true);
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
   };
 
   return (
@@ -31,11 +65,19 @@ export function ComingSoon() {
       {showToast && (
         <div className="fixed bottom-5 right-5 z-20">
           <Toast>
-            <div className="inline-flex items-center justify-center rounded-lg bg-lime-100 text-lime-500">
-              <FaCheckCircle className="size-5" />
+            <div
+              className={`inline-flex items-center justify-center rounded-lg ${isError ? "bg-red-100 text-red-500" : "bg-lime-100 text-lime-500"}`}
+            >
+              {isError ? (
+                <FaExclamationCircle className="size-5" />
+              ) : (
+                <FaCheckCircle className="size-5" />
+              )}
             </div>
-            <div className="ml-8 text-xl font-medium text-lime-600">
-              Successfully subscribed to newsletter!
+            <div
+              className={`ml-8 text-xl font-medium ${isError ? "text-red-600" : "text-lime-600"}`}
+            >
+              {toastMessage}
             </div>
             <Toast.Toggle />
           </Toast>
@@ -87,7 +129,7 @@ export function ComingSoon() {
                   onClick={handleSubmit}
                   className="w-full rounded-[50px] bg-[#3224f2] px-6 py-3 font-satoshi-md text-white sm:w-auto"
                 >
-                  Subscribe
+                  {isPending ? "Subscribing..." : "Subscribe"}
                 </button>
               </div>
             </div>
