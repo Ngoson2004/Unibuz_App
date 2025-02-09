@@ -102,18 +102,18 @@ function Home() {
             src={banner_img}
             alt="Unibuz Hero Banner"
           />
-          <div className="mx-8 mt-40 h-80 items-center rounded-[50px] bg-[#f8f7f9] p-16 opacity-80 sm:mb-[210px] sm:mt-[240px] sm:h-[443px] sm:w-[595px] sm:items-start">
-            <h1 className="mb-[37px] hidden w-full text-left font-clash-grotesk-semibold text-6xl text-[#060028] sm:inline-block">
+          <div className="mx-8 mt-40 h-[400px] items-center rounded-[50px] bg-[#f8f7f9] p-16 opacity-80 sm:mb-[210px] sm:mt-[240px] sm:h-[443px] sm:w-[595px] sm:items-start">
+            <h1 className="mb-[37px] w-full text-center font-clash-grotesk-semibold text-3xl text-[#060028] sm:text-left sm:text-6xl">
               Join club events,{" "}
               <p className="text-[#3224f2]">Find your tribe!</p>
             </h1>
-            <p className="mb-[60px] text-center font-satoshi-md text-[18px] leading-8 sm:inline-block sm:text-left sm:align-middle sm:text-2xl sm:text-[#050026]">
+            <p className="mb-[60px] text-center font-satoshi-md text-base leading-8 sm:inline-block sm:text-left sm:align-middle sm:text-2xl sm:text-[#050026]">
               <TypingAnimation />
             </p>
             <div className="flex w-full items-center justify-center gap-x-[40px] sm:justify-start">
               <Link
                 to="/signup"
-                className="rounded-full bg-[#3224f2] px-5 py-3 font-satoshi-bold text-[18px] text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3"
+                className="rounded-full bg-[#3224f2] px-5 py-3 font-satoshi-bold text-base text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3 sm:text-[18px]"
               >
                 Let's go!
               </Link>
@@ -127,9 +127,12 @@ function Home() {
           </div>
         </div>
 
-        <div id="feature" className="grid w-full grid-rows-4 gap-20 sm:gap-1">
+        <div
+          id="feature"
+          className="grid w-full grid-rows-1 gap-20 sm:grid-rows-2 sm:gap-1"
+        >
           {/*Intro - Desktop version */}
-          <div className="hidden w-full grid-cols-2 items-center gap-72 bg-white p-[77px] sm:grid xl:gap-96">
+          <div className="hidden size-full grid-cols-2 items-center gap-72 bg-white p-[77px] sm:grid xl:gap-96">
             <div className="grid w-[500px] grid-rows-2 gap-14 xl:w-[700px]">
               <div>
                 <h2 className="flex-inline gap-3 text-left font-clash-grotesk-semibold text-5xl text-[#060028] xl:flex">
@@ -158,12 +161,12 @@ function Home() {
           </div>
 
           {/*Intro - Mobile version */}
-          <div className="relative mt-72 grid h-fit max-w-sm grid-rows-2 items-center p-10 sm:hidden">
-            <div>
-              <h2 className="gap-3 text-left font-clash-grotesk-semibold text-3xl text-[#060028]">
+          <div className="relative mt-0 grid h-fit max-w-sm grid-rows-1 items-center p-10 sm:hidden">
+            <div className="pt-40">
+              <h2 className="gap-1 text-left font-clash-grotesk-semibold text-3xl text-[#060028]">
                 Make your UniLife <p className="text-[#3224f2]">memorable</p>
               </h2>
-              <p className="mt-10 text-left font-satoshi-md text-lg text-[#44405e]">
+              <p className="mt-4 text-left font-satoshi-md text-lg text-[#44405e]">
                 Use Unibuz to find and connect with other university students,
                 build friendships and network professionally. You never know
                 where your university connections may lead you!
