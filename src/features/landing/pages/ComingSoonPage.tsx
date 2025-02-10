@@ -137,9 +137,9 @@ export function ComingSoon() {
           </div>
         </div>
       </div>
-      <div className="pt-40 md:pt-0">
-        <div className="relative grid grid-rows-1 gap-20 p-20 md:my-auto md:gap-10 md:p-[90px]">
-          <div className="flex h-fit grow flex-col items-center justify-center gap-20 md:flex-1 md:flex-row">
+      <div className="pt-64 md:pt-0">
+        <div className="relative grid grid-rows-1 gap-20 p-8 md:my-auto md:gap-10 md:p-[90px]">
+          <div className="flex h-fit grow flex-col items-center justify-center gap-12 md:flex-1 md:flex-row">
             <div className="h-[300px] w-full md:h-full md:w-[599px]">
               <img
                 src={story}
@@ -147,11 +147,11 @@ export function ComingSoon() {
                 className="size-full rounded-[40px] object-cover"
               />
             </div>
-            <div className="flex h-full flex-col justify-center space-y-8 px-4 sm:px-0">
-              <h1 className="font-clash-grotesk-semibold text-5xl text-[#0000FF]">
+            <div className="flex h-full flex-col justify-center space-y-6 px-4 sm:space-y-8 sm:px-0">
+              <h1 className="text-center font-clash-grotesk-semibold text-5xl text-[#0000FF] md:text-left">
                 Our Story
               </h1>
-              <p className="max-w-[566px] font-satoshi text-lg leading-relaxed text-[#1A1A1A]">
+              <p className="max-w-[566px] text-center font-satoshi text-lg leading-relaxed text-[#1A1A1A] md:text-left">
                 Unibuz began with the founder's personal experiences navigating
                 the challenges of university life, from academic pressure to
                 cultural differences and social isolation.
@@ -251,7 +251,7 @@ export function ComingSoon() {
           className="absolute bottom-0 right-0 hidden size-[200px] object-cover sm:block"
         />
       </div>
-      <div id="feature" className="grid gap-20 p-10">
+      <div id="feature" className="mb-8 grid gap-12 p-10 sm:mb-0 sm:gap-20">
         <div className="flex flex-col items-center">
           <h1 className="text-center font-clash-grotesk-semibold text-5xl">
             Features
@@ -267,23 +267,21 @@ export function ComingSoon() {
               className="h-auto w-full rounded-[40px] object-cover"
             />
           </div>
-          <div className="h-full flex-col items-center">
-            <h1 className="mb-5 font-clash-grotesk-semibold text-5xl">
+          <div className="flex h-full flex-col">
+            <h1 className="mb-8 text-center font-clash-grotesk-semibold text-5xl sm:text-left">
               Tribes
             </h1>
-            <div className="flex gap-2">
-              <p className="mb-16 max-w-[566px] grow font-satoshi text-[20px]">
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <p className="order-2 mb-8 max-w-[566px] font-satoshi text-[20px] sm:order-1">
                 In our app, 'Tribes' are clubs or interest groups where you can
                 connect with like-minded students. Join or create Tribes to make
                 the most of your uni experience.
               </p>
-              {/* <div className="aspect-w-3 aspect-h-2"> */}
               <img
                 src={tribe_img}
                 alt="Tribe"
-                className="h-auto w-1/2 max-w-[250px] sm:hidden"
+                className="order-1 size-full sm:order-2 sm:hidden"
               />
-              {/* </div> */}
             </div>
             <div className="mb-5 flex items-center gap-5 font-satoshi text-[20px] text-[#3224f2]">
               <svg
@@ -382,21 +380,21 @@ export function ComingSoon() {
         </div>
 
         <div className="flex h-fit grow flex-col gap-20 sm:h-[503px] sm:flex-1 sm:flex-row">
-          <div className="h-full flex-col items-center">
-            <h1 className="mb-5 font-clash-grotesk-semibold text-5xl">
+          <div className="flex h-full flex-col">
+            <h1 className="mb-8 text-center font-clash-grotesk-semibold text-5xl sm:text-left">
               What's On
             </h1>
-            <div className="flex gap-2">
-              <img
-                src={tribe_img}
-                alt="Tribe"
-                className="h-auto w-1/2 max-w-[250px] sm:hidden"
-              />
-              <p className="mb-16 max-w-[566px] font-satoshi text-[20px]">
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <p className="order-2 mb-8 max-w-[566px] font-satoshi text-[20px] sm:order-1">
                 Stay in the loop with events that matter to you. Unibuz makes it
                 easy to find, save, and manage your campus activities, all in
                 one place.
               </p>
+              <img
+                src={tribe_img}
+                alt="Tribe"
+                className="order-1 size-full sm:order-2 sm:hidden"
+              />
             </div>
             <div className="mb-5 flex items-center gap-5 font-satoshi text-[20px] text-[#3224f2]">
               <svg
@@ -496,7 +494,7 @@ export function ComingSoon() {
               </p>
             </div>
 
-            <div className="flex gap-5 font-satoshi text-[20px] text-[#3224f2]">
+            <div className="flex items-center gap-5 font-satoshi text-[20px] text-[#3224f2]">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="66"
@@ -546,19 +544,19 @@ export function ComingSoon() {
               className="h-auto w-full rounded-[40px] object-cover"
             />
           </div>
-          <div className="h-full flex-col items-center">
-            <h1 className="mb-5 font-clash-grotesk-semibold text-5xl">
+          <div className="flex h-full flex-col ">
+            <h1 className="mb-8 text-center font-clash-grotesk-semibold text-5xl sm:text-left">
               Messages
             </h1>
-            <div className="flex gap-2">
-              <p className="mb-16 max-w-[566px] font-satoshi text-[20px]">
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <p className="order-2 mb-8 max-w-[566px] font-satoshi text-[20px] sm:order-1">
                 Stay connected with your mates through a secure and seamless
                 chat experience designed just for students.
               </p>
               <img
                 src={message_img}
                 alt="Tribe"
-                className="h-auto w-1/2 max-w-[250px] sm:hidden"
+                className="order-1 size-full sm:order-2 sm:hidden"
               />
             </div>
             <div className="mb-5 flex items-center gap-5 font-satoshi text-[20px] text-[#3224f2]">
@@ -612,20 +610,20 @@ export function ComingSoon() {
         </div>
 
         <div className="flex h-fit grow flex-col gap-20 sm:h-[503px] sm:flex-1 sm:flex-row">
-          <div className="h-full flex-col items-center">
-            <h1 className="mb-5 font-clash-grotesk-semibold text-5xl">
+          <div className="flex h-full flex-col">
+            <h1 className="mb-8 text-center font-clash-grotesk-semibold text-5xl sm:text-left">
               Unibaazar
             </h1>
-            <div className="flex gap-2">
-              <img
-                src={market_img}
-                alt="Tribe"
-                className="h-auto w-1/2 max-w-[250px] sm:hidden"
-              />
-              <p className="mb-16 max-w-[566px] font-satoshi text-[20px]">
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <p className="order-2 mb-8 max-w-[566px] font-satoshi text-[20px] sm:order-1">
                 Our student-only marketplace makes buying, selling, or swapping
                 items on campus simple and secure.
               </p>
+              <img
+                src={market_img}
+                alt="Tribe"
+                className="order-1 size-full sm:order-2 sm:hidden"
+              />
             </div>
             <div className="mb-5 flex items-center gap-5 font-satoshi text-[20px] text-[#3224f2]">
               <svg

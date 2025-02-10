@@ -161,19 +161,19 @@ function Home() {
           </div>
 
           {/*Intro - Mobile version */}
-          <div className="relative mt-0 grid h-fit max-w-sm grid-rows-1 items-center p-10 sm:hidden">
-            <div className="pt-40">
-              <h2 className="gap-1 text-left font-clash-grotesk-semibold text-3xl text-[#060028]">
+          <div className="relative mx-auto mt-0 grid h-fit max-w-sm grid-rows-1 items-center p-10 sm:hidden">
+            <div className="pt-40 text-center">
+              <h2 className="gap-1 text-center font-clash-grotesk-semibold text-3xl text-[#060028]">
                 Make your UniLife <p className="text-[#3224f2]">memorable</p>
               </h2>
-              <p className="mt-4 text-left font-satoshi-md text-lg text-[#44405e]">
+              <p className="mt-4 text-center font-satoshi-md text-lg text-[#44405e]">
                 Use Unibuz to find and connect with other university students,
                 build friendships and network professionally. You never know
                 where your university connections may lead you!
               </p>
             </div>
 
-            <div className="flex flex-col justify-center gap-10">
+            <div className="flex flex-col items-center justify-center gap-10">
               <div className="place-self-center">
                 <img src={character} className="h-52 w-full" />
               </div>
