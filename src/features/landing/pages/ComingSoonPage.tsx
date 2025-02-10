@@ -14,35 +14,37 @@ import { Avatar, Toast } from "flowbite-react";
 import { Card } from "flowbite-react";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { useMutation } from "@tanstack/react-query";
-import { supabase } from "@/shared/libs/supabase";
+import { enqueueUser } from "../services/enqueue-user";
+// import { supabase } from "@/shared/libs/supabase";
 
 export function ComingSoon() {
   const [email, setEmail] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isError, setIsError] = useState(false);
-
   const { mutateAsync: subscribe, isPending } = useMutation({
     mutationKey: ["subscribe"],
-    mutationFn: () =>
-      supabase.functions.invoke("enqueue-user", {
-        body: {
-          email: email,
-        },
-      }),
+    mutationFn: () => enqueueUser(email),
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
       const response = await subscribe();
-      console.log(response);
-      if (response.error) {
-        setIsError(true);
-        setToastMessage("Something went wrong - please try again later");
-      } else {
+      if ((response as { message: string }).message) {
         setIsError(false);
-        setToastMessage("You've been added to the waitlist!");
+        setToastMessage((response as { message: string }).message);
+      } else if (
+        (response as { error: string; errorKey: string }).errorKey ===
+        "RATE_LIMIT_EXCEEDED"
+      ) {
+        setToastMessage(
+          "You've reached the rate limit. Please try again in the next hour.",
+        );
+        setIsError(true);
+      } else {
+        setToastMessage((response as { error: string }).error);
+        setIsError(true);
       }
       setShowToast(true);
       const timer = setTimeout(() => {
@@ -50,7 +52,6 @@ export function ComingSoon() {
       }, 5000); // Show toast for 5 seconds
       return () => clearTimeout(timer);
     } catch (error) {
-      setIsError(true);
       setToastMessage((error as Error).message);
       setShowToast(true);
       const timer = setTimeout(() => {
@@ -85,7 +86,7 @@ export function ComingSoon() {
       )}
 
       <div className="isolate bg-white sm:relative">
-        <div className="pt-32 sm:pt-0">
+        <div className="pt-16 sm:pt-0">
           <div className="mt-0 w-full sm:relative sm:grid sm:grid-cols-2 sm:pl-20">
             <video
               autoPlay
@@ -276,11 +277,13 @@ export function ComingSoon() {
                 connect with like-minded students. Join or create Tribes to make
                 the most of your uni experience.
               </p>
+              {/* <div className="aspect-w-3 aspect-h-2"> */}
               <img
                 src={tribe_img}
                 alt="Tribe"
                 className="h-auto w-1/2 max-w-[250px] sm:hidden"
               />
+              {/* </div> */}
             </div>
             <div className="mb-5 flex items-center gap-5 font-satoshi text-[20px] text-[#3224f2]">
               <svg
