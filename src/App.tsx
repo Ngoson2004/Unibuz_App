@@ -17,7 +17,7 @@ function App() {
             <Route path="/home/*" element={<HomeRoutes />} />
           </>
         )}
-        {import.meta.env.DEV && (
+        {!import.meta.env.DEV && (
           <>
             <Route path="/auth/*" element={<NotFound />} />
             <Route path="/onboarding/*" element={<NotFound />} />
