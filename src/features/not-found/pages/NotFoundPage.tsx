@@ -40,7 +40,7 @@ export function NotFound() {
         <img
           src={unibuz_logo}
           alt="Unibuz Logo"
-          className="mx-auto mb-8 w-36"
+          className="mx-auto mb-8 w-24"
         />
 
         <h1 className="mb-4 font-clash-grotesk-semibold text-4xl text-[#3224f2] sm:text-6xl">
