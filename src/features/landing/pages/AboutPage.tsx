@@ -20,8 +20,8 @@ export function About() {
           alt="Unibuz Hero Banner"
         />
         <div className="relative mt-16 w-dvw place-content-center sm:mt-28">
-          <div className="h-[465px] w-3/4 bg-transparent bg-gradient-to-r from-[#EAE9FE] from-85% py-5 sm:w-1/2 sm:px-14 sm:py-40">
-            <h1 className="mb-[37px] w-full text-center font-clash-grotesk-semibold text-4xl text-[#3224f2] sm:text-left sm:text-6xl">
+          <div className="h-[465px] w-3/4 bg-transparent bg-gradient-to-r from-[#EAE9FE] from-85% py-24 pr-12 sm:w-1/2 sm:px-14 sm:py-32 sm:pr-32">
+            <h1 className="mb-[28px] w-full text-center font-clash-grotesk-semibold text-4xl text-[#3224f2] sm:text-left sm:text-6xl">
               About
             </h1>
             <p className="mx-10 mb-[60px] text-center font-satoshi-md text-sm leading-8 sm:mx-auto sm:inline-block sm:text-left sm:align-middle sm:text-[18px] sm:text-[20px] sm:text-[#050026]">

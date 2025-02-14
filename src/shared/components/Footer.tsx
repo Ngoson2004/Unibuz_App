@@ -11,12 +11,11 @@ const Footers = () => {
   return (
     <Footer>
       <div className="w-dvw lg:w-full">
-        <div className="relative flex h-96">
+        <div className="relative flex h-96 items-center justify-center">
           <img
             src={footer_img}
             className="size-full rounded-[40px] object-cover"
           />
-
           <h1 className="absolute inset-0 bg-gradient-to-r from-black px-5 pt-16 font-clash-grotesk-semibold text-4xl text-white sm:px-[77px] sm:pt-[77px] sm:text-6xl">
             Ready to join your{" "}
             <p className="text-[#cbfd80]">first Unibuz event?</p>
