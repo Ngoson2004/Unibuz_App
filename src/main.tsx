@@ -6,13 +6,16 @@ import "./shared/assets/font/css/clash-grotesk.css";
 import "./shared/assets/font/css/satoshi.css";
 import { AppProvider } from "@/shared/context/AppContext.tsx";
 import { BrowserRouter } from "react-router-dom";
+import QueryProvider from "./shared/providers/QueryProvider.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <AppProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </AppProvider>
+    <QueryProvider>
+      <AppProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </AppProvider>
+    </QueryProvider>
   </React.StrictMode>,
 );
