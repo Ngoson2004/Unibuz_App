@@ -1,6 +1,5 @@
 import { supabase } from "@/shared/libs/supabase";
 import { sendOTP } from "./send-otp";
-import { redirect } from "react-router-dom";
 
 export const checkEmail = async (email: string) => {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
