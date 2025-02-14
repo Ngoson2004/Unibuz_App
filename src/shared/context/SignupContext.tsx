@@ -2,10 +2,11 @@ import { createContext, useContext, useReducer } from "react";
 
 type SignupState = {
   email: string | null;
+  code: string | null;
 };
 
 type SignupAction = {
-  type: "SET_EMAIL";
+  type: "SET_EMAIL" | "SET_CODE" | "CLEAN_UP";
   payload: string | null;
 };
 
@@ -25,6 +26,18 @@ function signupReducer(state: SignupState, action: SignupAction): SignupState {
         email: action.payload,
       };
     }
+    case "SET_CODE": {
+      return {
+        ...state,
+        code: action.payload,
+      };
+    }
+    case "CLEAN_UP": {
+      return {
+        email: null,
+        code: null,
+      };
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);
     }
@@ -32,7 +45,10 @@ function signupReducer(state: SignupState, action: SignupAction): SignupState {
 }
 
 export function SignupProvider({ children }: { children: React.ReactNode }) {
-  const [state, dispatch] = useReducer(signupReducer, { email: null });
+  const [state, dispatch] = useReducer(signupReducer, {
+    email: null,
+    code: null,
+  });
   const value = { state, dispatch };
   return (
     <SignupContext.Provider value={value}>{children}</SignupContext.Provider>

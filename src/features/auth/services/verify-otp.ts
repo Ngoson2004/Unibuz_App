@@ -1,19 +1,13 @@
+import { supabase } from "@/shared/libs/supabase";
+import { FunctionsResponse } from "@supabase/functions-js";
 export const verifyOTP = async (
   email: string,
-  otp: string,
-): Promise<{ message: string } | { error: string }> => {
-  const response = await fetch(
-    `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/verify-otp`,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apiKey: import.meta.env.VITE_SUPABASE_ANON_KEY,
-        Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
-      },
-      body: JSON.stringify({ email, otp }),
+  code: number,
+): Promise<FunctionsResponse<{ message: string } | { error: string }>> => {
+  return await supabase.functions.invoke("verify-otp", {
+    body: {
+      email,
+      code,
     },
-  );
-  const data = await response.json();
-  return data;
+  });
 };

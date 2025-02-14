@@ -6,13 +6,32 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { sendOTP } from "../services/send-otp";
 import { verifyOTP } from "../services/verify-otp";
+import { useMutation } from "@tanstack/react-query";
 
 export default function AuthCode() {
   const navigate = useNavigate();
-  const { state } = useSignup();
+  const { state, dispatch } = useSignup();
   const [otp, setOtp] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const { mutateAsync: verifyOTPMutation, isPending } = useMutation({
+    mutationFn: () => verifyOTP(state.email!, Number(otp)),
+    onSuccess: (res) => {
+      const { data, error } = res;
+
+      if ("message" in (data as { message: string })) {
+        dispatch({ type: "SET_CODE", payload: otp });
+        navigate("/auth/password");
+      } else if ("error" in (data as { error: string })) {
+        setError((data as { error: string }).error);
+      } else {
+        setError("Failed to verify code with error:" + error.context.json());
+      }
+    },
+    onError: () => {
+      setError("Failed to verify code");
+    },
+  });
 
   useEffect(() => {
     if (!state.email) {
@@ -23,31 +42,20 @@ export default function AuthCode() {
     // Send OTP when component mounts
     const sendOTPToEmail = async () => {
       try {
-        await sendOTP(state.email!);
+        const { data } = await sendOTP(state.email!);
+        if (!data?.success)
+          setError(data?.cause ?? "Failed to send verification code");
       } catch (err) {
         setError("Failed to send verification code");
       }
     };
     void sendOTPToEmail();
-  }, [state.email, navigate]);
+  }, [state.email, navigate]); // Only run when email changes or navigate function changes
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
     setError("");
-
-    try {
-      const isVerified = await verifyOTP(state.email!, otp);
-      if ((isVerified as { message: string }).message) {
-        navigate("/auth/password");
-      } else {
-        setError("Invalid verification code");
-      }
-    } catch (err) {
-      setError("Failed to verify code");
-    } finally {
-      setIsLoading(false);
-    }
+    await verifyOTPMutation();
   };
 
   return (
@@ -90,7 +98,7 @@ export default function AuthCode() {
           <div className="flex justify-between">
             <TextInput
               id="authCode"
-              type="text"
+              type="number"
               maxLength={5}
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
@@ -103,10 +111,10 @@ export default function AuthCode() {
 
         <Button
           type="submit"
-          disabled={isLoading}
+          disabled={isPending}
           className="rounded-lg bg-blue-700 text-lime-200 hover:bg-lime-200 hover:text-white"
         >
-          {isLoading ? "Verifying..." : "Verify"}
+          {isPending ? "Verifying..." : "Verify"}
         </Button>
       </form>
     </div>
