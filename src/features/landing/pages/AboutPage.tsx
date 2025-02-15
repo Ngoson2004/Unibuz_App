@@ -41,7 +41,7 @@ export function About() {
         </div>
       </div>
 
-      <div className="relative my-20 grid grid-rows-3 gap-20 p-10 sm:my-auto sm:gap-40 sm:p-[90px]">
+      <div className="relative my-20 grid grid-rows-1 gap-20 p-10 pt-0 sm:my-auto sm:grid-rows-3 sm:gap-40 sm:p-[90px]">
         <div className="flex h-fit grow flex-col gap-20 sm:h-[503px] sm:flex-1 sm:flex-row">
           <div className="h-full sm:w-[599px] ">
             <img
@@ -64,7 +64,7 @@ export function About() {
         </div>
 
         <div className="flex h-fit grow flex-col gap-20 sm:h-[503px] sm:flex-1 sm:flex-row">
-          <div className="h-full flex-col place-content-center space-y-10">
+          <div className="order-2 h-full flex-col place-content-center space-y-10 sm:order-1">
             <h1 className="mb-5 font-clash-grotesk-semibold text-5xl">
               Our vision
             </h1>
@@ -74,7 +74,7 @@ export function About() {
               relationships that enhance their university experience.
             </p>
           </div>
-          <div className="h-full w-auto sm:w-[599px]">
+          <div className="order-1 h-full w-auto sm:order-2 sm:w-[599px]">
             <img
               src={vision}
               alt="vision"
@@ -108,7 +108,7 @@ export function About() {
         </div>
       </div>
 
-      <div className="relative my-40 flex h-fit w-dvw flex-1 grow place-content-center rounded-[40px] bg-[#EAE9FE] sm:h-[622px]">
+      <div className="mt-1- relative mb-20 flex h-fit w-dvw flex-1 grow place-content-center rounded-[40px] bg-[#EAE9FE] sm:h-[622px]">
         <img
           src={ellipse1}
           alt="ellipse1"

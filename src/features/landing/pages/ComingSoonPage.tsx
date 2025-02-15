@@ -137,7 +137,7 @@ export function ComingSoon() {
           </div>
         </div>
       </div>
-      <div className="pt-64 md:pt-0">
+      <div className="pt-24 md:pt-0">
         <div className="relative grid grid-rows-1 gap-20 p-8 md:my-auto md:gap-10 md:p-[90px]">
           <div className="flex h-fit grow flex-col items-center justify-center gap-12 md:flex-1 md:flex-row">
             <div className="h-[300px] w-full md:h-full md:w-[599px]">
