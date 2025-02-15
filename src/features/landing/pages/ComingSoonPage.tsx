@@ -9,6 +9,7 @@ import tribe_img from "@/shared/assets/media/feature_tribe.png";
 import event_img from "@/shared/assets/media/feature_event.png";
 import message_img from "@/shared/assets/media/feature_message.png";
 import market_img from "@/shared/assets/media/feature_market.png";
+import banner_img from "@/shared/assets/media/Hero Banner BG.png";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Avatar, Toast } from "flowbite-react";
 import { Card } from "flowbite-react";
@@ -102,7 +103,7 @@ export function ComingSoon() {
             </video>
             <img
               className="absolute inset-0 z-[-1] size-full object-cover"
-              src=".\src\shared\assets\media\Hero Banner BG.png"
+              src={banner_img}
               alt="Unibuz Hero Banner"
             />
 
@@ -255,7 +256,7 @@ export function ComingSoon() {
         id="feature"
         className="mb-8 grid grid-rows-1 gap-12 p-6 sm:my-auto sm:mb-0 sm:gap-[60px] sm:p-[90px]"
       >
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center sm:mb-20">
           <h1 className="text-center font-clash-grotesk-semibold text-[28px] leading-[32px] sm:text-center sm:text-5xl">
             Features
           </h1>
