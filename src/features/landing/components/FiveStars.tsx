@@ -1,6 +1,8 @@
-export const Fivestars = () => {
+import { cn } from "@/shared/lib/utils";
+
+export const Fivestars = ({ className }: { className?: string }) => {
   return (
-    <div className="flex gap-2">
+    <div className={cn("flex gap-1", className)}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="22"
@@ -78,4 +80,4 @@ export const Fivestars = () => {
       </svg>
     </div>
   );
-}
+};
