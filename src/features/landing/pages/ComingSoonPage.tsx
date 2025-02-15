@@ -256,7 +256,7 @@ export function ComingSoon() {
         id="feature"
         className="mb-8 grid grid-rows-1 gap-12 p-6 sm:my-auto sm:mb-0 sm:gap-[60px] sm:p-[90px]"
       >
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center sm:mb-20">
           <h1 className="text-center font-clash-grotesk-semibold text-[28px] leading-[32px] sm:text-center sm:text-5xl">
             Features
           </h1>
