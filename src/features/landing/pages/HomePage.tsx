@@ -7,23 +7,17 @@ import { FaRegEnvelope } from "react-icons/fa";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdEvent } from "react-icons/md";
 import { Avatar, Card } from "flowbite-react";
-import { Fivestars } from "@/features/landing/components/FiveStars";
 import banner_img from "@/shared/assets/media/Hero Banner BG.png";
 import character from "@/shared/assets/media/characters.png";
 import video from "@/shared/assets/media/Unibuz video.mp4";
 import mascot from "@/shared/assets/media/mascot.png";
-import profile1 from "@/shared/assets/media/testimonials/Adam.png";
-import profile2 from "@/shared/assets/media/testimonials/Clara.png";
-import profile3 from "@/shared/assets/media/testimonials/Jane.png";
-import profile4 from "@/shared/assets/media/testimonials/Kevin.png";
-import profile5 from "@/shared/assets/media/testimonials/Kylie.png";
-import profile6 from "@/shared/assets/media/testimonials/Paul.png";
-import profile7 from "@/shared/assets/media/testimonials/Sara.png";
-import profile8 from "@/shared/assets/media/testimonials/Sophia.png";
+
 import blog1 from "@/shared/assets/media/Blog1.png";
 import blog2 from "@/shared/assets/media/Blog2.png";
 import blog3 from "@/shared/assets/media/Blog3.png";
 import blog_img from "@/shared/assets/media/testimonials/Olivia.png";
+import { InfiniteMovingCards } from "@/shared/components/ui/infinite-moving-cards";
+import { testimonials } from "../data/testimonials";
 
 const TypingAnimation = () => {
   const sentences = [
@@ -58,7 +52,7 @@ const TypingAnimation = () => {
           setCharIndex(0);
           setCurrentSentence("");
           setSentenceIndex((prev) => (prev + 1) % sentences.length);
-        }); // Pause before switching to the next sentence
+        }, 2000); // Pause before switching to the next sentence
       }
     };
 
@@ -188,22 +182,25 @@ function Home() {
             </div>
           </div>
 
-          <div className="relative flex grow flex-col justify-center bg-white px-10 sm:flex-1 sm:px-[77px]">
-            <h2 className="text-center font-clash-grotesk-semibold text-3xl text-[#060028] sm:text-5xl">
-              Features
-            </h2>
+          <div className="relative flex grow flex-col justify-center bg-white px-10 sm:-mt-10 sm:flex-1 sm:px-[77px]">
+            <div className="flex flex-col items-center">
+              <h2 className="text-center font-clash-grotesk-semibold text-3xl text-[#060028] sm:text-5xl">
+                Features
+              </h2>
+              <div className="mt-2 h-1 w-20 bg-[#3224f2]"></div>
+            </div>
 
-            <div className="relative mt-10 items-end space-y-32 text-[#44405e] sm:mt-5 sm:flex sm:gap-5">
+            <div className="relative mt-10 items-end space-y-16 text-[#44405e] sm:-mt-5 sm:flex sm:gap-8 sm:space-y-32">
               {hoveredMascot && (
                 <div
                   className={`absolute top-0 hidden sm:block ${
                     hoveredMascot === "tribes"
-                      ? "left-1 xl:left-10"
+                      ? "left-1 xl:left-10 2xl:left-20"
                       : hoveredMascot === "events"
-                        ? "left-56 xl:left-[370px]"
+                        ? "left-56 xl:left-[370px] min-[1800px]:left-[550px]"
                         : hoveredMascot === "messages"
-                          ? "left-[440px] xl:left-[700px]"
-                          : "left-[660px] xl:left-[1010px]"
+                          ? "left-[440px] xl:left-[700px] min-[1800px]:left-[1000px]"
+                          : "left-[660px] xl:left-[1010px] min-[1800px]:left-[1440px]"
                   }
                   z-0`}
                 >
@@ -214,61 +211,69 @@ function Home() {
               <div
                 onMouseEnter={() => setHoveredMascot("tribes")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
+                className="z-10 h-[450px] rounded-[40px] bg-gray-200 p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Tribes
                 </h3>
                 <p className="font-satoshi-md text-lg">
                   Unibuz is where you can find people with the same passions and
-                  lifestyle. It’s like Facebook, but for oversharing about
+                  lifestyle. It's like Facebook, but for oversharing about
                   UniLife :)
                 </p>
-                <MdGroups className="size-24 justify-self-center text-[#3224f2] xl:my-5" />
+                <div className="flex justify-center pt-24 sm:pt-0">
+                  <MdGroups className="size-24 text-[#3224f2] xl:my-5" />
+                </div>
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("events")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
+                className="z-10 h-[450px] rounded-[40px] bg-gray-200 p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   What's on?
                 </h3>
                 <p className="font-satoshi-md text-lg">
-                  Our event picker’s like your mate who knows every gig, BBQ,
+                  Our event picker's like your mate who knows every gig, BBQ,
                   and footy match in town—no effort, just good times sorted ;)
                 </p>
-                <MdEvent className="h-20 w-24 justify-self-center text-[#3224f2] xl:my-9 xl:h-24" />
+                <div className="flex justify-center pt-24 sm:pt-0">
+                  <MdEvent className="h-20 w-24 text-[#3224f2] xl:my-9 xl:h-24" />
+                </div>
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("messages")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
+                className="z-10 h-[450px] rounded-[40px] bg-gray-200 p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Messages
                 </h3>
                 <p className="font-satoshi-md text-lg">
-                  Having a good ol’ yarn with people on Unibuz, whether you’re
+                  Having a good ol' yarn with people on Unibuz, whether you're
                   doing group assignments or just fishing for a soulmate with a
                   killer GPA 😘
                 </p>
-                <FaRegEnvelope className="h-16 w-24 justify-self-center text-[#3224f2] xl:my-3 xl:h-24" />
+                <div className="flex justify-center pt-24 sm:pt-0">
+                  <FaRegEnvelope className="h-16 w-24 justify-self-center text-[#3224f2] xl:my-3 xl:h-24" />
+                </div>
               </div>
               <div
                 onMouseEnter={() => setHoveredMascot("unibazaar")}
                 onMouseLeave={() => setHoveredMascot(null)}
-                className="z-10 h-[450px] w-full rounded-[40px] bg-[#f3f2f4] p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
+                className="z-10 h-[450px] w-full rounded-[40px] bg-gray-200 p-8 text-center hover:h-[500px] hover:cursor-pointer hover:bg-[#cbfd80] sm:w-1/4"
               >
                 <h3 className="mb-10 font-clash-grotesk-semibold text-3xl underline decoration-wavy decoration-2 underline-offset-8">
                   Unibazaar
                 </h3>
                 <p className="font-satoshi-md text-lg">
                   You can empty you wallet, window shopping, and even sell that
-                  weird lamp you regret buying! It’s like Gumtree, but for
+                  weird lamp you regret buying! It's like Gumtree, but for
                   UniLife : D
                 </p>
-                <FaShoppingCart className="size-20 justify-self-center text-[#3224f2] xl:my-9" />
+                <div className="flex justify-center pt-24 sm:pt-0">
+                  <FaShoppingCart className="size-20 justify-self-center text-[#3224f2] xl:my-9" />
+                </div>
               </div>
             </div>
           </div>
@@ -278,246 +283,33 @@ function Home() {
             <h2 className="font-clash-grotesk-semibold text-5xl text-[#060028]">
               Testimonials - Loved by 1000+ students and organisers!
             </h2>
-            <div className="flex w-full flex-wrap gap-5 p-10">
-              <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile1} alt="ava" rounded>
-                  <div className="text-gray-500">Adam Hubermann</div>
-                  <div className="text-sm text-gray-400">
-                    Undergrad Student | University of Melbourne
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  I met my best friends and my current partner from an event on
-                  UniBuz! Have been using it ever since and recommending it to
-                  anyone I know.
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="max-w-xl justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile2} alt="ava" rounded>
-                  <div className="text-gray-500">Clara Boston</div>
-                  <div className="text-sm text-gray-400">
-                    Master Student | Monash University
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  I found my dream job through a connection I made on UniBuz! I
-                  can't thank the team enough for creating this platform.
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile3} alt="ava" rounded>
-                  <div className="text-gray-500">Jane Mary</div>
-                  <div className="text-sm text-gray-400">
-                    Student | Victoria University
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  I was struggling to find a house when first moved from
-                  Brisbane to Melbourne. Thanks to Unibuz, I have been able to
-                  rent one : D
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile4} alt="ava" rounded>
-                  <div className="text-gray-500">Kevin Bry</div>
-                  <div className="text-sm text-gray-400">
-                    PhD Student | Swinburne University
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  I am from Belgium and Unibuz has helped me connect with other
-                  students who comes from the same country as mine! It is so
-                  diverse {"<3"}
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile5} alt="ava" rounded>
-                  <div className="text-gray-500">Kylie Fehring</div>
-                  <div className="text-sm text-gray-400">
-                    Student | LaTrobe University
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  My go-to app for meeting new friends. Perfect for
-                  international students!
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile6} alt="ava" rounded>
-                  <div className="text-gray-500">Paul Park</div>
-                  <div className="text-sm text-gray-400">
-                    Undergrad Student | Swinburne University
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  Finally found some mates who love playing Valorant on Unibuz
-                  ^^ We love meeting each other at offline sessions.
-                </p>
-                <Fivestars />
-              </div>
-              <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile7} alt="ava" rounded>
-                  <div className="text-gray-500">Sara Henn</div>
-                  <div className="text-sm text-gray-400">
-                    Undergrad Student | University of Sydney
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  I've been using UniBuz for a while now and it's been amazing.
-                  I've made so many friends and connections that I wouldn't have
-                  otherwise.
-                </p>
-                <Fivestars />
-              </div>
-              <div className="max-w-sm justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile8} alt="ava" rounded>
-                  <div className="text-gray-500">Sophia Carter</div>
-                  <div className="text-sm text-gray-400">
-                    Master Student | Australia National University
-                  </div>
-                </Avatar>
-                <p className="text-md font-satoshi">
-                  Great app, beautiful interface and very user friendly.
-                </p>
-                <Fivestars />
-              </div>
+            {/* Testimonials goes here */}
+            <div className="relative flex flex-col items-center justify-center pt-8 antialiased">
+              <InfiniteMovingCards
+                items={testimonials}
+                direction="right"
+                speed="slow"
+                pauseOnHover={true}
+              />
             </div>
           </div>
 
           {/*Testimonials - Mobile version */}
-          <div className="relative mt-20 flex h-1/2 w-dvw flex-col space-y-20 bg-gradient-to-b from-neutral-100 to-[#f3f2f4] p-8 sm:hidden">
+          <div className="relative mt-0 flex h-1/2 w-dvw flex-col space-y-8 bg-gradient-to-b from-neutral-100 to-[#f3f2f4] p-8 sm:hidden">
             <h2 className="font-clash-grotesk-semibold text-3xl text-[#060028]">
               Testimonials - Loved by 1000+ students and organisers!
             </h2>
-            <div className="flex max-h-fit flex-nowrap gap-5 justify-self-center overflow-x-auto">
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-5">
-                <Avatar img={profile1} alt="ava" rounded>
-                  <div className="text-gray-500">Adam Hubermann</div>
-                  <div className="text-sm text-gray-400">
-                    Undergrad Student | University of Melbourne
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  I met my best friends and my current partner from an event on
-                  UniBuz! Have been using it ever since and recommending it to
-                  anyone I know.
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile2} alt="ava" rounded>
-                  <div className="text-gray-500">Clara Boston</div>
-                  <div className="text-sm text-gray-400">
-                    Master Student | Monash University
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  I found my dream job through a connection I made on UniBuz! I
-                  can't thank the team enough for creating this platform.
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile3} alt="ava" rounded>
-                  <div className="text-gray-500">Jane Mary</div>
-                  <div className="text-sm text-gray-400">
-                    Student | Victoria University
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  I was struggling to find a house when first moved from
-                  Brisbane to Melbourne. Thanks to Unibuz, I have been able to
-                  rent one : D
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile5} alt="ava" rounded>
-                  <div className="text-gray-500">Kevin Bry</div>
-                  <div className="text-sm text-gray-400">
-                    PhD Student | Swinburne University
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  I am from Belgium and Unibuz has helped me connect with other
-                  students who comes from the same country as mine! It is so
-                  diverse {"<3"}
-                </p>
-                <Fivestars />
-              </div>
-            </div>
-            <div className="flex max-h-fit max-w-[320px] flex-nowrap gap-5 justify-self-center overflow-x-auto sm:max-w-fit sm:flex-wrap sm:p-10">
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile5} alt="ava" rounded>
-                  <div className="text-gray-500">Kylie Fehring</div>
-                  <div className="text-sm text-gray-400">
-                    Student | LaTrobe University
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  My go-to app for meeting new friends. Perfect for
-                  international students!
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile6} alt="ava" rounded>
-                  <div className="text-gray-500">Paul Park</div>
-                  <div className="text-sm text-gray-400">
-                    Undergrad Student | Swinburne University
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  Finally found some mates who love playing Valorant on Unibuz
-                  ^^ We love meeting each other at offline sessions.
-                </p>
-                <Fivestars />
-              </div>
-
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile7} alt="ava" rounded>
-                  <div className="text-gray-500">Sara Henn</div>
-                  <div className="text-sm text-gray-400">
-                    Undergrad Student | University of Sydney
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  I've been using UniBuz for a while now and it's been amazing.
-                  I've made so many friends and connections that I wouldn't have
-                  otherwise.
-                </p>
-                <Fivestars />
-              </div>
-              <div className="w-[300px] flex-none justify-items-start space-y-5 rounded-[40px] bg-white p-10">
-                <Avatar img={profile8} alt="ava" rounded>
-                  <div className="text-gray-500">Sophia Carter</div>
-                  <div className="text-sm text-gray-400">
-                    Master Student | Australia National University
-                  </div>
-                </Avatar>
-                <p className="font-satoshi">
-                  Great app, beautiful interface and very user friendly.
-                </p>
-                <Fivestars />
-              </div>
+            <div className="relative flex flex-col items-center justify-center antialiased">
+              <InfiniteMovingCards
+                items={testimonials}
+                direction="right"
+                speed="slow"
+                pauseOnHover={true}
+              />
             </div>
           </div>
 
-          <div className="space-y-20 bg-white p-10 sm:space-y-[56px] sm:p-[72px]">
+          <div className="space-y-16 bg-white p-10 pt-0 sm:space-y-[56px] sm:p-[72px] sm:pt-8">
             <h2 className="font-clash-grotesk-semibold text-3xl text-[#060028] sm:text-5xl">
               Event tips, life hacks, updates, and more!
             </h2>
@@ -562,7 +354,7 @@ function Home() {
                   Starting a Swinburne Club: From A to Z
                 </h1>
                 <p className="font-satoshi text-[20px] text-[#828093]">
-                  Want to start a club? We’ll walk you through it.
+                  Want to start a club? We'll walk you through it.
                 </p>
                 <div className="flex-inline my-5 flex gap-3">
                   <Avatar img={blog_img} alt="ava">
@@ -575,7 +367,7 @@ function Home() {
               </Card>
             </div>
 
-            <div className="items-center justify-self-center">
+            <div className="flex items-center justify-center">
               <Link
                 className="rounded-full border-2 border-[#828093] bg-transparent py-[12px] pl-[42px] pr-[52px] font-satoshi text-[20px] text-[#828093] hover:bg-slate-200"
                 to="/blog"
