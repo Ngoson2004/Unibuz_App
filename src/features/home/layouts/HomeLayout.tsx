@@ -1,10 +1,10 @@
 import { Tab } from "@/shared/components/Tabs";
-import { Outlet } from "react-router-dom";
+import UserProvider from "../providers/UserProvider";
 
 export default function HomeLayout() {
   return (
     <>
-      <Outlet />
+      <UserProvider />
       <Tab />
     </>
   );

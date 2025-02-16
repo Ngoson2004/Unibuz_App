@@ -10,8 +10,11 @@ import { FaArrowLeft } from "react-icons/fa";
 import { useAppContext } from "@/shared/context/AppContext";
 // import { SideDrawer } from "../Components/Drawer";
 import Post from "../components/Post";
+import { useUser } from "../../providers/UserProvider";
 
 export default function FeedPage() {
+  const { state } = useUser();
+  console.log(state);
   const [posts, setPosts] = useState([
     {
       content: "Welcome to the feed! Share your thoughts.",

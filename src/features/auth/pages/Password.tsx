@@ -6,9 +6,9 @@ import { RiLockPasswordLine } from "react-icons/ri";
 import { Slideshow } from "@/shared/components/Slideshow";
 import { useSignup } from "@/shared/context/SignupContext";
 import { useEffect, useState } from "react";
-import { verifyOTP } from "../services/verify-otp";
 import { useMutation } from "@tanstack/react-query";
 import { signUpPassword } from "../services/sign-up-password";
+import { checkVerifiedOTP } from "../services/check-verified-otp";
 
 export default function Password() {
   const navigate = useNavigate();
@@ -18,21 +18,19 @@ export default function Password() {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    if (!state.code || !state.email) {
+      navigate("/auth/sign-up");
+      return;
+    }
     console.log(state);
-    // Early return if required state is missing
-    // if (!state.code || !state.email) {
-    //   navigate("/auth/sign-up");
-    //   return;
-    // }
 
     const preVerifyOTP = async () => {
       try {
-        const { data, error } = await verifyOTP(
+        const { data } = await checkVerifiedOTP(
           state.email!,
           Number(state.code),
         );
-        console.log(data, error);
-        if (!data || (data as { error: string }).error !== "" || error) {
+        if (!(data as { message: string }).message || error) {
           dispatch({ type: "CLEAN_UP", payload: null });
           navigate("/auth/sign-up");
         }
@@ -44,7 +42,7 @@ export default function Password() {
     };
 
     void preVerifyOTP();
-  }, [state.code, state.email, navigate, dispatch]);
+  }, []); // Empty dependency array to run only once when mounted
 
   const { mutateAsync: signUpPasswordMutation, isPending } = useMutation({
     mutationFn: () =>

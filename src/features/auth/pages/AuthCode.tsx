@@ -28,9 +28,6 @@ export default function AuthCode() {
         setError("Failed to verify code with error:" + error.context.json());
       }
     },
-    onError: () => {
-      setError("Failed to verify code");
-    },
   });
 
   useEffect(() => {
@@ -46,11 +43,11 @@ export default function AuthCode() {
         if (!data?.success)
           setError(data?.cause ?? "Failed to send verification code");
       } catch (err) {
-        setError("Failed to send verification code");
+        console.error("Error sending OTP:", err);
       }
     };
     void sendOTPToEmail();
-  }, [state.email, navigate]); // Only run when email changes or navigate function changes
+  }, []); // Only run once when component mounts
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
