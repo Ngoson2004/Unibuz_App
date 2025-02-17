@@ -1,11 +1,14 @@
 import { Tab } from "@/shared/components/Tabs";
-import UserProvider from "../providers/UserProvider";
+import AuthProvider from "../providers/AuthProvider";
+import { Outlet } from "react-router-dom";
 
 export default function HomeLayout() {
   return (
     <>
-      <UserProvider />
-      <Tab />
+      <AuthProvider>
+        <Outlet />
+        <Tab />
+      </AuthProvider>
     </>
   );
 }

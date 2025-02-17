@@ -22,7 +22,6 @@ export default function Password() {
       navigate("/auth/sign-up");
       return;
     }
-    console.log(state);
 
     const preVerifyOTP = async () => {
       try {

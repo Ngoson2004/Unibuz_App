@@ -101,13 +101,6 @@ export type Database = {
             foreignKeyName: "comment_post_id_fkey"
             columns: ["post_id"]
             isOneToOne: false
-            referencedRelation: "feed"
-            referencedColumns: ["post_id"]
-          },
-          {
-            foreignKeyName: "comment_post_id_fkey"
-            columns: ["post_id"]
-            isOneToOne: false
             referencedRelation: "feed_view"
             referencedColumns: ["post_id"]
           },
@@ -261,13 +254,6 @@ export type Database = {
             foreignKeyName: "likes_post_id_fkey"
             columns: ["post_id"]
             isOneToOne: false
-            referencedRelation: "feed"
-            referencedColumns: ["post_id"]
-          },
-          {
-            foreignKeyName: "likes_post_id_fkey"
-            columns: ["post_id"]
-            isOneToOne: false
             referencedRelation: "feed_view"
             referencedColumns: ["post_id"]
           },
@@ -376,13 +362,6 @@ export type Database = {
           URL?: string | null
         }
         Relationships: [
-          {
-            foreignKeyName: "post_media_post_id_fkey"
-            columns: ["post_id"]
-            isOneToOne: false
-            referencedRelation: "feed"
-            referencedColumns: ["post_id"]
-          },
           {
             foreignKeyName: "post_media_post_id_fkey"
             columns: ["post_id"]
@@ -775,34 +754,6 @@ export type Database = {
       }
     }
     Views: {
-      feed: {
-        Row: {
-          comments_count: number | null
-          content: string | null
-          created_at: string | null
-          likes_count: number | null
-          post_id: number | null
-          tribe_id: number | null
-          user_id: string | null
-          user_profile: string | null
-        }
-        Relationships: [
-          {
-            foreignKeyName: "post_tribe_id_fkey"
-            columns: ["tribe_id"]
-            isOneToOne: false
-            referencedRelation: "tribe"
-            referencedColumns: ["tribe_id"]
-          },
-          {
-            foreignKeyName: "post_user_id_fkey"
-            columns: ["user_id"]
-            isOneToOne: false
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          },
-        ]
-      }
       feed_view: {
         Row: {
           comments_count: number | null

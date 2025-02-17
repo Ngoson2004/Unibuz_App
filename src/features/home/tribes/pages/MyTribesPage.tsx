@@ -18,6 +18,7 @@ import { useAppContext } from "@/shared/context/AppContext";
 import artTribe from "@/shared/assets/media/artTribe.png";
 import animeClub from "@/shared/assets/media/animeClub.jpg";
 import gymClub from "@/shared/assets/media/gymClub.avif";
+import { useGetTribes } from "../hooks/useGetTribes";
 
 export default function MyTribesPage() {
   const [tribes, setTribes] = useState([
@@ -72,6 +73,9 @@ export default function MyTribesPage() {
       setNewTribe({ ...newTribe, img: filePath });
     }
   };
+
+  const { data } = useGetTribes();
+  console.log(data);
 
   return (
     <div className="min-h-screen bg-slate-100">
