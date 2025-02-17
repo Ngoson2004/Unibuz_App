@@ -52,15 +52,15 @@ const Footers = () => {
           </div>
 
           <div className="grid grid-rows-2 items-center justify-center gap-[59px] p-10 pt-32 sm:p-0 sm:pt-16 md:p-0 md:pt-20 lg:p-[70px]">
-            <div className="flex flex-col gap-20 justify-self-center sm:flex-row md:flex-col md:items-start md:gap-8 lg:flex-row lg:gap-32">
-              <div className="flex flex-col gap-8 md:flex-row md:gap-32 lg:flex-row">
+            <div className="flex flex-col gap-20 sm:flex-row md:flex-col md:items-start md:gap-8 lg:flex-row lg:gap-32">
+              <div className="flex flex-col justify-self-center gap-8 md:flex-row md:gap-32 lg:flex-row">
                 <div className="w-auto md:w-full">
                   <Footer.Title
-                    className="mb-[28px] font-satoshi-bold text-xl text-[#44405e] underline decoration-wavy underline-offset-8"
+                    className="mb-[28px] font-satoshi-bold text-3xl text-[#44405e] underline decoration-wavy underline-offset-8"
                     title="about us"
                   />
                   <Footer.LinkGroup
-                    className="font-satoshi-md text-[14px] text-[#6a667e]"
+                    className="font-satoshi-md text-md text-[#6a667e]"
                     col
                   >
                     <Footer.Link href="#">Our story</Footer.Link>
@@ -70,38 +70,38 @@ const Footers = () => {
                 </div>
                 <div className="w-auto md:w-full">
                   <Footer.Title
-                    className="mb-[28px] font-satoshi-bold text-xl text-[#44405e] underline decoration-wavy underline-offset-8"
+                    className="mb-[28px] font-satoshi-bold text-3xl text-[#44405e] underline decoration-wavy underline-offset-8"
                     title="Follow us"
                   />
                   <Footer.LinkGroup
-                    className="font-satoshi-md text-[14px] text-[#6a667e]"
+                    className="font-satoshi-md text-md text-[#6a667e]"
                     col
                   >
-                    <Footer.Link href="#">Facebook</Footer.Link>
-                    <Footer.Link href="#">Instagram</Footer.Link>
-                    <Footer.Link href="#">Tiktok</Footer.Link>
                     <Footer.Link href="https://www.linkedin.com/company/unibuz">
                       LinkedIn
                     </Footer.Link>
+                    <Footer.Link href="#">Facebook</Footer.Link>
+                    <Footer.Link href="#">Instagram</Footer.Link>
+                    <Footer.Link href="#">Tiktok</Footer.Link>
+                  </Footer.LinkGroup>
+                </div>
+                <div className="md:mt-8 lg:mt-0">
+                  <Footer.Title
+                    className="mb-[28px] font-satoshi-bold text-3xl text-[#44405e] underline decoration-wavy underline-offset-8"
+                    title="Blog"
+                  />
+                  <Footer.LinkGroup
+                    className="font-satoshi-md text-md text-[#6a667e]"
+                    col
+                  >
+                    <Footer.Link href="#">Privacy Policy</Footer.Link>
+                    <Footer.Link href="#"></Footer.Link>
                   </Footer.LinkGroup>
                 </div>
               </div>
-              <div className="md:mt-8 lg:mt-0">
-                <Footer.Title
-                  className="mb-[28px] font-satoshi-bold text-xl text-[#44405e] underline decoration-wavy underline-offset-8"
-                  title="Blog"
-                />
-                <Footer.LinkGroup
-                  className="font-satoshi-md text-[14px] text-[#6a667e]"
-                  col
-                >
-                  <Footer.Link href="#">Privacy Policy</Footer.Link>
-                  <Footer.Link href="#"></Footer.Link>
-                </Footer.LinkGroup>
-              </div>
             </div>
 
-            <div className="flex flex-col items-center gap-8 text-lg sm:flex-row">
+            {/* <div className="flex flex-col items-center gap-8 text-lg sm:flex-row">
               <Link
                 to="/auth/sign-in"
                 className="rounded-full bg-[#3224f2] px-12 py-3 font-satoshi-bold text-[#cbfd80] hover:bg-[#1a0fb2]"
@@ -114,19 +114,19 @@ const Footers = () => {
               >
                 Sign Up
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="flex items-center justify-between p-5">
           <Footer.Copyright href="#" by="Unibuz" year={2025} />
           <div className="flex space-x-6 sm:justify-center">
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={FaTiktok} />
             <Footer.Icon
               href="https://www.linkedin.com/company/unibuz"
               icon={FaLinkedin}
             />
+            <Footer.Icon href="#" icon={BsFacebook} />
+            <Footer.Icon href="#" icon={BsInstagram} />
+            <Footer.Icon href="#" icon={FaTiktok} />
           </div>
         </div>
       </div>
