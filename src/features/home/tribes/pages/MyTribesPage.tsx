@@ -18,7 +18,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppContext } from "@/shared/context/AppContext";
 import { useCreateTribe } from "../hooks/useCreateTribe";
 import { useQueryClient } from "@tanstack/react-query";
-import { useAuth } from "../../providers/AuthProvider";
+import { useAuth } from "../../../../shared/providers/AuthProvider";
 import { useGetTribes } from "../hooks/useGetTribes";
 
 export default function MyTribesPage() {

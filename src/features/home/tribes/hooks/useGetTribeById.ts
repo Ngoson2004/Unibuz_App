@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { useAuth } from "../../providers/AuthProvider";
+import { useAuth } from "../../../../shared/providers/AuthProvider";
 import { getTribeById } from "../services/get-tribe-by-id";
 import { PostgrestError } from "@supabase/supabase-js";
 
