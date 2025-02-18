@@ -11,19 +11,25 @@ import footer_brand from "@/shared/assets/media/black_logo.png";
 import { enqueueUser } from "@/features/landing/services/enqueue-user";
 
 const ComingSoonFooter = () => {
-  const [email, setEmail] = useState("");
+  const [heroEmail, setHeroEmail] = useState("");
+  const [footerEmail, setFooterEmail] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  const { mutateAsync: subscribe, isPending } = useMutation({
-    mutationFn: () => enqueueUser(email),
+  const { mutateAsync: subscribeHero, isPending: isHeroPending } = useMutation({
+    mutationFn: enqueueUser,
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const { mutateAsync: subscribeFooter, isPending: isFooterPending } =
+    useMutation({
+      mutationFn: enqueueUser,
+    });
+
+  const handleHeroSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     try {
-      const response = await subscribe();
+      const response = await subscribeHero(heroEmail);
       if ((response as { message: string }).message) {
         setIsError(false);
         setToastMessage((response as { message: string }).message);
@@ -43,6 +49,40 @@ const ComingSoonFooter = () => {
       const timer = setTimeout(() => {
         setShowToast(false);
       }, 5000); // Show toast for 5 seconds
+      return () => clearTimeout(timer);
+    } catch (error) {
+      setToastMessage((error as Error).message);
+      setShowToast(true);
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  };
+
+  const handleFooterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const response = await subscribeFooter(footerEmail);
+      if ((response as { message: string }).message) {
+        setIsError(false);
+        setToastMessage((response as { message: string }).message);
+      } else if (
+        (response as { error: string; errorKey: string }).errorKey ===
+        "RATE_LIMIT_EXCEEDED"
+      ) {
+        setToastMessage(
+          "You've reached the rate limit. Please try again in the next hour.",
+        );
+        setIsError(true);
+      } else {
+        setToastMessage((response as { error: string }).error);
+        setIsError(true);
+      }
+      setShowToast(true);
+      const timer = setTimeout(() => {
+        setShowToast(false);
+      }, 5000);
       return () => clearTimeout(timer);
     } catch (error) {
       setToastMessage((error as Error).message);
@@ -97,16 +137,16 @@ const ComingSoonFooter = () => {
               className="text-md block h-12 w-[350px] rounded-full border-2 border-gray-300 bg-white p-4"
               placeholder="Your university email"
               type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={heroEmail}
+              onChange={(e) => setHeroEmail(e.target.value)}
               required
             />
             <button
               type="submit"
-              onClick={handleSubmit}
+              onClick={handleHeroSubmit}
               className="text-md w-[125px] rounded-[50px] border-2 border-gray-300 bg-white px-6 py-3 font-satoshi-md text-gray-500 hover:bg-[#3224f2] hover:text-white sm:w-auto"
             >
-              {isPending ? "Subscribing..." : "Subscribe"}
+              {isHeroPending ? "Subscribing..." : "Subscribe"}
             </button>
           </div>
         </div>
@@ -141,16 +181,16 @@ const ComingSoonFooter = () => {
                   className="text-md block h-12 w-full rounded-full border-2 border-gray-300 bg-white p-4"
                   placeholder="Your university email"
                   type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  value={footerEmail}
+                  onChange={(e) => setFooterEmail(e.target.value)}
                   required
                 />
                 <button
                   type="submit"
-                  onClick={handleSubmit}
+                  onClick={handleFooterSubmit}
                   className="text-md w-32 rounded-[50px] border-2 border-gray-300 bg-white px-6 py-3 font-satoshi-md text-gray-500 hover:bg-[#3224f2] hover:text-white"
                 >
-                  {isPending ? "..." : "Subscribe"}
+                  {isFooterPending ? "..." : "Subscribe"}
                 </button>
               </div>
             </div>
