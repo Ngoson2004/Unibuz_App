@@ -6,24 +6,32 @@ import { FaCheckCircle, FaRegEnvelope } from "react-icons/fa";
 import { Slideshow } from "@/shared/components/Slideshow";
 import { useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { checkEmail } from "../utils/check-email";
+import { checkEmailExists } from "../services/check-exist-user";
 import { useNavigate } from "react-router-dom";
+import { useSignup } from "@/shared/context/SignupContext";
 
 function Email() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState("");
+  const { state, dispatch } = useSignup();
   const [showToast, setShowToast] = useState(false);
-  const { mutateAsync, isPending, error } = useMutation({
+  const [errorMessage, setErrorMessage] = useState("");
+  const { mutateAsync, isPending } = useMutation({
     mutationKey: ["check-email"],
-    mutationFn: () => checkEmail(email),
+    mutationFn: () => checkEmailExists(state.email ?? ""),
     onSuccess: (data) => {
-      if (data.redirect) {
-        navigate(data.redirect);
+      if (!data.isValid || data.isRegistered) {
+        setShowToast(true);
+        setErrorMessage(data.message ?? "");
+        setTimeout(() => setShowToast(false), 5000);
+        return;
       }
+      dispatch({ type: "SET_EMAIL", payload: data.email ?? null });
+      navigate("/auth/verify");
     },
     onError: (error) => {
       console.error(error);
       setShowToast(true);
+      setErrorMessage(error.message ?? "");
       setTimeout(() => setShowToast(false), 5000);
     },
   });
@@ -40,7 +48,7 @@ function Email() {
               <FaCheckCircle className="size-5" />
             </div>
             <div className="ml-8 text-xl font-medium text-red-600">
-              {error instanceof Error ? error.message : "An error occurred"}
+              {errorMessage}
             </div>
           </Toast>
         </div>
@@ -76,8 +84,10 @@ function Email() {
               <TextInput
                 id="email1"
                 type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                value={state.email ?? ""}
+                onChange={(e) =>
+                  dispatch({ type: "SET_EMAIL", payload: e.target.value })
+                }
                 placeholder="Type your email"
                 className="rounded-lg border-2 border-[#3B4FE6]"
                 required

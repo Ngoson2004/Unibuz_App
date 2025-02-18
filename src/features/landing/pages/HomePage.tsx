@@ -106,7 +106,7 @@ function Home() {
             </p>
             <div className="flex w-full items-center justify-center gap-x-[40px] sm:justify-start">
               <Link
-                to="/signup"
+                to="/auth/sign-up"
                 className="rounded-full bg-[#3224f2] px-5 py-3 font-satoshi-bold text-base text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3 sm:text-[18px]"
               >
                 Let's go!
@@ -279,7 +279,7 @@ function Home() {
           </div>
 
           {/*Testimonials - Desktop version */}
-          <div className="mt-10 hidden bg-gradient-to-b from-neutral-100 to-[#f3f2f4] p-[72px] sm:block">
+          <div className="mt-0 hidden bg-gradient-to-b from-neutral-100 to-[#f3f2f4] p-[72px] sm:block">
             <h2 className="font-clash-grotesk-semibold text-5xl text-[#060028]">
               Testimonials - Loved by 1000+ students and organisers!
             </h2>

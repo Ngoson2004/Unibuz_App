@@ -101,6 +101,13 @@ export type Database = {
             foreignKeyName: "comment_post_id_fkey"
             columns: ["post_id"]
             isOneToOne: false
+            referencedRelation: "feed_view"
+            referencedColumns: ["post_id"]
+          },
+          {
+            foreignKeyName: "comment_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
             referencedRelation: "post"
             referencedColumns: ["post_id"]
           },
@@ -247,6 +254,13 @@ export type Database = {
             foreignKeyName: "likes_post_id_fkey"
             columns: ["post_id"]
             isOneToOne: false
+            referencedRelation: "feed_view"
+            referencedColumns: ["post_id"]
+          },
+          {
+            foreignKeyName: "likes_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
             referencedRelation: "post"
             referencedColumns: ["post_id"]
           },
@@ -259,12 +273,38 @@ export type Database = {
           },
         ]
       }
+      otp_codes: {
+        Row: {
+          code: string
+          created_at: string | null
+          email: string
+          expires_at: string
+          id: string
+          verified: boolean | null
+        }
+        Insert: {
+          code: string
+          created_at?: string | null
+          email: string
+          expires_at: string
+          id?: string
+          verified?: boolean | null
+        }
+        Update: {
+          code?: string
+          created_at?: string | null
+          email?: string
+          expires_at?: string
+          id?: string
+          verified?: boolean | null
+        }
+        Relationships: []
+      }
       post: {
         Row: {
           content: string | null
           created_at: string
           post_id: number
-          title: string | null
           tribe_id: number | null
           user_id: string | null
         }
@@ -272,7 +312,6 @@ export type Database = {
           content?: string | null
           created_at?: string
           post_id?: number
-          title?: string | null
           tribe_id?: number | null
           user_id?: string | null
         }
@@ -280,7 +319,6 @@ export type Database = {
           content?: string | null
           created_at?: string
           post_id?: number
-          title?: string | null
           tribe_id?: number | null
           user_id?: string | null
         }
@@ -324,6 +362,13 @@ export type Database = {
           URL?: string | null
         }
         Relationships: [
+          {
+            foreignKeyName: "post_media_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "feed_view"
+            referencedColumns: ["post_id"]
+          },
           {
             foreignKeyName: "post_media_post_id_fkey"
             columns: ["post_id"]
@@ -445,6 +490,7 @@ export type Database = {
       tribe: {
         Row: {
           created_at: string
+          creator_id: string | null
           is_private: boolean | null
           member_count: number | null
           tribe_category: string | null
@@ -454,6 +500,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          creator_id?: string | null
           is_private?: boolean | null
           member_count?: number | null
           tribe_category?: string | null
@@ -463,6 +510,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          creator_id?: string | null
           is_private?: boolean | null
           member_count?: number | null
           tribe_category?: string | null
@@ -470,7 +518,15 @@ export type Database = {
           tribe_id?: number
           tribe_name?: string | null
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "tribe_creator_id_fkey"
+            columns: ["creator_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       tribe_member: {
         Row: {
@@ -591,6 +647,29 @@ export type Database = {
           },
         ]
       }
+      user_profile: {
+        Row: {
+          url: string | null
+          user_id: string
+        }
+        Insert: {
+          url?: string | null
+          user_id: string
+        }
+        Update: {
+          url?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_profile_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
       user_role: {
         Row: {
           created_at: string
@@ -641,23 +720,71 @@ export type Database = {
         Row: {
           email: string | null
           id: string
-          user_name: string | null
+          username: string | null
         }
         Insert: {
           email?: string | null
           id: string
-          user_name?: string | null
+          username?: string | null
         }
         Update: {
           email?: string | null
           id?: string
-          user_name?: string | null
+          username?: string | null
+        }
+        Relationships: []
+      }
+      verify: {
+        Row: {
+          code: number
+          created_at: string
+          emailID: string
+        }
+        Insert: {
+          code: number
+          created_at?: string
+          emailID: string
+        }
+        Update: {
+          code?: number
+          created_at?: string
+          emailID?: string
         }
         Relationships: []
       }
     }
     Views: {
-      [_ in never]: never
+      feed_view: {
+        Row: {
+          comments_count: number | null
+          content: string | null
+          created_at: string | null
+          likes_count: number | null
+          post_id: number | null
+          tribe_category: string | null
+          tribe_id: number | null
+          tribe_name: string | null
+          user_id: string | null
+          user_profile: string | null
+          username: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "post_tribe_id_fkey"
+            columns: ["tribe_id"]
+            isOneToOne: false
+            referencedRelation: "tribe"
+            referencedColumns: ["tribe_id"]
+          },
+          {
+            foreignKeyName: "post_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Functions: {
       [_ in never]: never

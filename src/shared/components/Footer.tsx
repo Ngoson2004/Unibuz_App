@@ -23,7 +23,7 @@ const Footers = () => {
 
           <div className="absolute inset-1 flex items-center space-x-4 px-2 font-satoshi-bold text-[16px] sm:px-[77px] sm:pt-[154px]">
             <Link
-              to="/signup"
+              to="/auth/sign-up"
               className="rounded-full bg-[#cbfd80] px-8 py-3 text-lg text-[#1a1439] shadow-sm hover:bg-[#3224f2] hover:text-[#cbfd80] sm:px-12 sm:py-3"
             >
               Let's go!
