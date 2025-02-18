@@ -38,8 +38,8 @@ const Footers = () => {
           </div>
         </div>
 
-        <div className="flex flex-col border-b-2 border-indigo-100 sm:flex-row md:gap-[50px] lg:gap-[77px]">
-          <div className="grid basis-5/12 grid-rows-1 gap-[77px] bg-indigo-200 p-[77px] sm:grid-rows-2">
+        <div className="flex flex-col border-b-2 border-indigo-100 sm:flex-row md:gap-[50px] lg:gap-[10px] xl:gap-[80px]">
+          <div className="sm:grid-rows-0 grid basis-5/12 grid-rows-1 gap-[77px] bg-indigo-200 p-[77px]">
             <Footer.Brand
               src={footer_brand}
               alt="Unibuz Logo"
@@ -51,16 +51,16 @@ const Footers = () => {
             </p>
           </div>
 
-          <div className="grid grid-rows-2 items-center justify-center gap-[59px] p-10 pt-32 sm:p-0 sm:pt-16 md:p-0 md:pt-20 lg:p-[70px]">
-            <div className="flex flex-col gap-20 sm:flex-row md:flex-col md:items-start md:gap-8 lg:flex-row lg:gap-32">
-              <div className="flex flex-col justify-self-center gap-8 md:flex-row md:gap-32 lg:flex-row">
-                <div className="w-auto md:w-full">
+          <div className="grid-rows-0 grid items-center justify-center gap-[59px] p-10 pt-16 sm:p-0 sm:pt-4 md:p-0 lg:p-[70px] lg:pt-8">
+            <div className="flex flex-col gap-20 justify-self-center sm:flex-row md:flex-col md:items-start md:gap-8 xl:flex-row xl:gap-32">
+              <div className="flex flex-col gap-8 md:grid md:grid-cols-2 md:gap-x-16 md:gap-y-8 xl:flex xl:flex-row xl:gap-32">
+                <div className="w-auto md:w-64 xl:w-auto">
                   <Footer.Title
-                    className="mb-[28px] font-satoshi-bold text-3xl text-[#44405e] underline decoration-wavy underline-offset-8"
+                    className="mb-[28px] font-satoshi-bold text-xl text-[#44405e] underline decoration-wavy underline-offset-8"
                     title="about us"
                   />
                   <Footer.LinkGroup
-                    className="font-satoshi-md text-md text-[#6a667e]"
+                    className="font-satoshi-md text-[14px] text-[#6a667e]"
                     col
                   >
                     <Footer.Link href="#">Our story</Footer.Link>
@@ -68,30 +68,30 @@ const Footers = () => {
                     <Footer.Link href="#">Terms & Conditions</Footer.Link>
                   </Footer.LinkGroup>
                 </div>
-                <div className="w-auto md:w-full">
+                <div className="w-auto md:w-64 xl:w-auto">
                   <Footer.Title
-                    className="mb-[28px] font-satoshi-bold text-3xl text-[#44405e] underline decoration-wavy underline-offset-8"
+                    className="mb-[28px] font-satoshi-bold text-xl text-[#44405e] underline decoration-wavy underline-offset-8"
                     title="Follow us"
                   />
                   <Footer.LinkGroup
-                    className="font-satoshi-md text-md text-[#6a667e]"
+                    className="font-satoshi-md text-[14px] text-[#6a667e]"
                     col
                   >
-                    <Footer.Link href="https://www.linkedin.com/company/unibuz">
-                      LinkedIn
-                    </Footer.Link>
                     <Footer.Link href="#">Facebook</Footer.Link>
                     <Footer.Link href="#">Instagram</Footer.Link>
                     <Footer.Link href="#">Tiktok</Footer.Link>
+                    <Footer.Link href="https://www.linkedin.com/company/unibuz">
+                      LinkedIn
+                    </Footer.Link>
                   </Footer.LinkGroup>
                 </div>
-                <div className="md:mt-8 lg:mt-0">
+                <div className="md:col-start-1 xl:mt-0">
                   <Footer.Title
-                    className="mb-[28px] font-satoshi-bold text-3xl text-[#44405e] underline decoration-wavy underline-offset-8"
+                    className="mb-[28px] font-satoshi-bold text-xl text-[#44405e] underline decoration-wavy underline-offset-8"
                     title="Blog"
                   />
                   <Footer.LinkGroup
-                    className="font-satoshi-md text-md text-[#6a667e]"
+                    className="font-satoshi-md text-[14px] text-[#6a667e]"
                     col
                   >
                     <Footer.Link href="#">Privacy Policy</Footer.Link>
@@ -100,33 +100,18 @@ const Footers = () => {
                 </div>
               </div>
             </div>
-
-            {/* <div className="flex flex-col items-center gap-8 text-lg sm:flex-row">
-              <Link
-                to="/auth/sign-in"
-                className="rounded-full bg-[#3224f2] px-12 py-3 font-satoshi-bold text-[#cbfd80] hover:bg-[#1a0fb2]"
-              >
-                Log In
-              </Link>
-              <Link
-                to="/auth/sign-up"
-                className="rounded-full border-2 border-[#3224f2] px-12 py-3 font-satoshi-md text-[#3224f2] hover:bg-[#c3c1e6]"
-              >
-                Sign Up
-              </Link>
-            </div> */}
           </div>
         </div>
         <div className="flex items-center justify-between p-5">
           <Footer.Copyright href="#" by="Unibuz" year={2025} />
           <div className="flex space-x-6 sm:justify-center">
+            <Footer.Icon href="#" icon={BsFacebook} />
+            <Footer.Icon href="#" icon={BsInstagram} />
+            <Footer.Icon href="#" icon={FaTiktok} />
             <Footer.Icon
               href="https://www.linkedin.com/company/unibuz"
               icon={FaLinkedin}
             />
-            <Footer.Icon href="#" icon={BsFacebook} />
-            <Footer.Icon href="#" icon={BsInstagram} />
-            <Footer.Icon href="#" icon={FaTiktok} />
           </div>
         </div>
       </div>
