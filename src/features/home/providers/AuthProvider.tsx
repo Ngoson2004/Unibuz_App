@@ -4,10 +4,11 @@ import {
   PropsWithChildren,
   useContext,
   useEffect,
-  useReducer,
+  useState,
 } from "react";
 import { supabase } from "@/shared/libs/supabase";
 import { Tables } from "@/shared/libs/supabase/types/supabase";
+import { useNavigate } from "react-router-dom";
 
 type AuthData = {
   session: Session | null;
@@ -15,43 +16,28 @@ type AuthData = {
   user: Tables<"users"> | null;
 };
 
-type AuthAction =
-  | { type: "SET_SESSION"; payload: Session | null }
-  | { type: "SET_USER"; payload: Tables<"users"> | null }
-  | { type: "SET_MOUNTING"; payload: boolean };
-
-const authReducer = (state: AuthData, action: AuthAction): AuthData => {
-  switch (action.type) {
-    case "SET_SESSION":
-      return { ...state, session: action.payload };
-    case "SET_USER":
-      return { ...state, user: action.payload };
-    case "SET_MOUNTING":
-      return { ...state, mounting: action.payload };
-    default:
-      return state;
-  }
-};
-
-const initialState: AuthData = {
+const AuthContext = createContext<AuthData>({
   session: null,
   mounting: true,
   user: null,
-};
-
-const AuthContext = createContext<AuthData>(initialState);
+});
 
 export default function AuthProvider({ children }: PropsWithChildren) {
-  const [state, dispatch] = useReducer(authReducer, initialState);
+  const [session, setSession] = useState<Session | null>(null);
+  const [user, setUser] = useState<Tables<"users"> | null>(null);
+  const [mounting, setMounting] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange(async (_event, session) => {
-      dispatch({ type: "SET_SESSION", payload: session });
+    const fetchSession = async () => {
+      const {
+        data: { session },
+      } = await supabase.auth.getSession();
+
+      setSession(session);
 
       if (session) {
-        const { data: user, error } = await supabase
+        const { data: userData, error } = await supabase
           .from("users")
           .select("*")
           .eq("id", session.user.id)
@@ -60,21 +46,52 @@ export default function AuthProvider({ children }: PropsWithChildren) {
         if (error) {
           console.error("error", error);
         } else {
-          dispatch({ type: "SET_USER", payload: user });
+          setUser(userData);
         }
       } else {
-        dispatch({ type: "SET_USER", payload: null });
+        navigate("/auth/sign-in");
       }
 
-      dispatch({ type: "SET_MOUNTING", payload: false });
+      setMounting(false);
+    };
+
+    fetchSession();
+
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (_event, newSession) => {
+      setSession(newSession);
+
+      if (newSession) {
+        const { data: userData, error } = await supabase
+          .from("users")
+          .select("*")
+          .eq("id", newSession.user.id)
+          .single();
+
+        if (error) {
+          console.error("error", error);
+        } else {
+          setUser(userData);
+        }
+      } else {
+        setUser(null);
+        navigate("/auth/sign-in");
+      }
+
+      setMounting(false);
     });
 
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [navigate]);
 
-  return <AuthContext.Provider value={state}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={{ session, mounting, user }}>
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 export const useAuth = () => useContext(AuthContext);

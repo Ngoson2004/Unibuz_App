@@ -1,17 +1,17 @@
 import { useQuery } from "@tanstack/react-query";
 import { useAuth } from "../../providers/AuthProvider";
-import { getTribes } from "../services/get-tribes";
+import { getTribeById } from "../services/get-tribe-by-id";
 import { PostgrestError } from "@supabase/supabase-js";
 
-export const useGetTribes = () => {
+export const useGetTribeById = (tribeId: string) => {
   const { user } = useAuth();
   const result = useQuery<
-    Awaited<ReturnType<typeof getTribes>>,
+    Awaited<ReturnType<typeof getTribeById>>,
     PostgrestError
   >({
-    queryKey: ["tribes", user?.id],
-    queryFn: async () => await getTribes(user?.id ?? ""),
-    enabled: !!user?.id,
+    queryKey: ["tribe", user?.id, tribeId],
+    queryFn: async () => await getTribeById(tribeId, user?.id ?? ""),
+    enabled: !!user?.id && !!tribeId,
     staleTime: 1000 * 60 * 5,
     refetchOnWindowFocus: false,
     refetchOnMount: false,

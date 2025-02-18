@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { Slideshow } from "@/shared/components/Slideshow";
 import { signIn } from "../services/sign-in";
 import { useMutation } from "@tanstack/react-query";
+import { checkIsLogin } from "../services/check-is-login";
 
 function SignInPage() {
   const location = useLocation();
@@ -66,6 +67,18 @@ function SignInPage() {
       return () => clearTimeout(timer);
     }
   }, [showToast]);
+
+  useEffect(() => {
+    const checkLogin = async () => {
+      const session = await checkIsLogin();
+      if (session) {
+        navigate("/home/tribes/feed");
+      } else {
+        return;
+      }
+    };
+    void checkLogin();
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
