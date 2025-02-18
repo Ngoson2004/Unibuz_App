@@ -129,7 +129,7 @@ export function ComingSoon() {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-full rounded-[50px] bg-[#3224f2] px-6 py-3 font-satoshi-md text-white sm:w-auto"
+                  className="text-md w-full rounded-[50px] rounded-full border-2 border-gray-300 bg-transparent px-6 py-3 font-satoshi-md text-gray-500 hover:bg-[#3224f2] hover:text-white sm:w-auto"
                 >
                   {isPending ? "Subscribing..." : "Subscribe"}
                 </button>
@@ -138,7 +138,7 @@ export function ComingSoon() {
           </div>
         </div>
       </div>
-      <div className="pt-24 md:pt-0">
+      <div className="pt-24 md:pt-0" id="about">
         <div className="relative grid grid-rows-1 gap-20 p-8 md:my-auto md:gap-10 md:p-[90px]">
           <div className="flex h-fit grow flex-col items-center justify-center gap-12 md:flex-1 md:flex-row">
             <div className="h-[300px] w-full md:h-full md:w-[599px]">
@@ -149,7 +149,7 @@ export function ComingSoon() {
               />
             </div>
             <div className="flex h-full flex-col justify-center space-y-6 px-4 sm:space-y-8 sm:px-0">
-              <h1 className="text-center font-clash-grotesk-semibold text-5xl text-[#0000FF] md:text-left">
+              <h1 className="mb-4 text-center font-clash-grotesk-semibold text-5xl text-[#0000FF] underline decoration-wavy decoration-4 underline-offset-[15px] md:text-left">
                 Our Story
               </h1>
               <p className="max-w-[566px] text-center font-satoshi text-lg leading-relaxed text-[#1A1A1A] md:text-left">
@@ -257,10 +257,9 @@ export function ComingSoon() {
         className="mb-8 grid grid-rows-1 gap-12 p-6 sm:my-auto sm:mb-0 sm:gap-[60px] sm:p-[90px]"
       >
         <div className="flex flex-col items-center sm:mb-20">
-          <h1 className="text-center font-clash-grotesk-semibold text-[28px] leading-[32px] sm:text-center sm:text-5xl">
+          <h1 className="text-center font-clash-grotesk-semibold text-[28px] leading-[32px] text-[#0000FF] underline decoration-wavy decoration-4 underline-offset-[15px] sm:text-center sm:text-5xl ">
             Features
           </h1>
-          <div className="mt-2 h-1 w-20 bg-[#3224f2]"></div>
         </div>
 
         <div className="flex h-fit grow flex-col gap-20 sm:h-[503px] sm:flex-1 sm:flex-row">
