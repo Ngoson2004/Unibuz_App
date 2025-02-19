@@ -47,7 +47,12 @@ export default function ComingSoonHeader() {
       {/* Mobile Logo (Center) */}
       <div className="items-center md:hidden">
         <Link to="/">
-          <img src={logo_mobile} alt="Unibuz" className="size-6" />
+          <img
+            src={logo_mobile}
+            alt="Unibuz"
+            className="size-6"
+            loading="lazy"
+          />
         </Link>
       </div>
 
@@ -58,6 +63,7 @@ export default function ComingSoonHeader() {
             src={logo}
             alt="Unibuz"
             className="h-10 w-auto xl:h-[53px] xl:w-[188px]"
+            loading="lazy"
           />
         </Link>
       </div>

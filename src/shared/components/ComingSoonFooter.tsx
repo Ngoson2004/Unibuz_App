@@ -125,6 +125,7 @@ const ComingSoonFooter = () => {
         >
           <img
             src={footer_img}
+            loading="lazy"
             className="size-full rounded-[40px] object-cover"
           />
           <h1 className="absolute inset-0 bg-gradient-to-r from-black px-5 pt-16 font-clash-grotesk-semibold text-4xl text-white sm:px-[77px] sm:pt-[77px] sm:text-6xl">
