@@ -1,4 +1,3 @@
-"use client";
 import { TribeHeader } from "../components/TribeHeader";
 import { FiPlus } from "react-icons/fi";
 import {
@@ -11,65 +10,91 @@ import {
   Label,
   FileInput,
   Select,
+  Spinner,
+  Alert,
 } from "flowbite-react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppContext } from "@/shared/context/AppContext";
-import artTribe from "@/shared/assets/media/artTribe.png";
-import animeClub from "@/shared/assets/media/animeClub.jpg";
-import gymClub from "@/shared/assets/media/gymClub.avif";
+import { useCreateTribe } from "../hooks/useCreateTribe";
+import { useQueryClient } from "@tanstack/react-query";
+import { useAuth } from "../../../../shared/providers/AuthProvider";
+import { useGetTribes } from "../hooks/useGetTribes";
 
 export default function MyTribesPage() {
-  const [tribes, setTribes] = useState([
-    {
-      id: 1,
-      name: "Monash Arts",
-      description: "",
-      img: artTribe,
-    },
-    {
-      id: 2,
-      name: "SWeebs",
-      description: "Swinburne Anime Club",
-      img: animeClub,
-    },
-    {
-      id: 3,
-      name: "Swolburne",
-      description: "Swinburne Gym Club",
-      img: gymClub,
-    },
-  ]);
+  const queryClient = useQueryClient();
+  const { user } = useAuth();
+  const { data: tribes, isLoading, error } = useGetTribes();
+  const { openModal, setOpenModal } = useAppContext();
+  console.log(tribes);
 
-  const { openModal, setOpenModal } = useAppContext(); //useState(false);
-  const [newTribe, setNewTribe] = useState({
-    name: "",
-    type: "",
-    category: "",
-    description: "",
-    img: "",
-  });
-  const navigate = useNavigate();
-
-  const handleAddTribe = () => {
-    if (newTribe.name.trim() !== "") {
-      setTribes([...tribes, { ...newTribe, id: tribes.length + 1 }]);
+  const createTribeMutation = useCreateTribe({
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["tribes", user?.id] });
+      setOpenModal(false);
+      // Reset form after successful submission
       setNewTribe({
         name: "",
         type: "",
         category: "",
         description: "",
-        img: "",
+        img: null,
       });
-      setOpenModal(false);
+    },
+    onError: (error) => {
+      console.error("Error creating tribe: ", error);
+    },
+  });
+  const [newTribe, setNewTribe] = useState<{
+    name: string;
+    type: string;
+    category: string;
+    description: string;
+    img: File | null;
+  }>({
+    name: "",
+    type: "",
+    category: "",
+    description: "",
+    img: null,
+  });
+  const navigate = useNavigate();
+
+  const handleAddTribe = async () => {
+    // Validate required fields
+    if (!newTribe.name.trim()) {
+      alert("Please enter a tribe name");
+      return;
+    }
+    if (!newTribe.type) {
+      alert("Please select a tribe type");
+      return;
+    }
+    if (!newTribe.category) {
+      alert("Please select a category");
+      return;
+    }
+
+    try {
+      await createTribeMutation.mutateAsync({
+        img: newTribe.img,
+        tribe: {
+          tribe_name: newTribe.name.trim(),
+          is_private: newTribe.type.toLowerCase() === "private",
+          tribe_category: newTribe.category,
+          tribe_description: newTribe.description.trim(),
+          creator_id: user?.id,
+        },
+      });
+    } catch (error) {
+      console.error("Failed to create tribe:", error);
     }
   };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const file = event.target.files[0];
-      const filePath = URL.createObjectURL(file);
-      setNewTribe({ ...newTribe, img: filePath });
+      setNewTribe({ ...newTribe, img: file });
     }
   };
 
@@ -99,26 +124,46 @@ export default function MyTribesPage() {
           </div>
           <Card className="mx-auto w-10/12">
             <div className="flow-root">
-              <ul className="divide-y divide-gray-200 px-10 dark:divide-gray-700">
-                {tribes.map((tribe, index) => (
-                  <li
-                    key={index}
-                    className="flex-inline flex cursor-pointer items-center justify-start gap-5 py-4 hover:bg-gray-100"
-                    onClick={() => navigate(`/tribes/${tribe.id}`)}
-                  >
-                    <Avatar img={tribe.img} />
-                    <div className="flex flex-col gap-0.5">
-                      <p className="text-md font-bold">{tribe.name}</p>
-                      {tribe.description && (
-                        <p className="text-sm font-light">
-                          {tribe.description.split(" ").slice(0, 5).join(" ")}
-                          {tribe.description.split(" ").length > 5 && "..."}
-                        </p>
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              {isLoading ? (
+                <div className="flex justify-center py-4">
+                  <Spinner size="xl" />
+                </div>
+              ) : error ? (
+                <Alert color="failure">
+                  <span>Error loading tribes: {error.message}</span>
+                </Alert>
+              ) : tribes && tribes.length > 0 ? (
+                <ul className="divide-y divide-gray-200 px-10 dark:divide-gray-700">
+                  {tribes.map((tribe) => (
+                    <li
+                      key={tribe.tribe_id}
+                      className="flex-inline flex cursor-pointer items-center justify-start gap-5 py-4 hover:bg-gray-100"
+                      onClick={() =>
+                        navigate(`/home/tribes/my-tribes/${tribe.tribe_id}`)
+                      }
+                    >
+                      <Avatar img={tribe.tribe_profile[0].url ?? ""} />
+                      <div className="flex flex-col gap-0.5">
+                        <p className="text-md font-bold">{tribe.tribe_name}</p>
+                        {tribe.tribe_description && (
+                          <p className="text-sm font-light">
+                            {tribe.tribe_description
+                              .split(" ")
+                              .slice(0, 5)
+                              .join(" ")}
+                            {tribe.tribe_description.split(" ").length > 5 &&
+                              "..."}
+                          </p>
+                        )}
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              ) : (
+                <p className="py-4 text-center">
+                  No tribes found. Create one to get started!
+                </p>
+              )}
             </div>
           </Card>
           <Modal show={openModal} onClose={() => setOpenModal(false)}>
@@ -134,6 +179,7 @@ export default function MyTribesPage() {
                   <TextInput
                     id="name"
                     type="text"
+                    required
                     value={newTribe.name}
                     onChange={(e) =>
                       setNewTribe({ ...newTribe, name: e.target.value })
@@ -144,11 +190,13 @@ export default function MyTribesPage() {
                   <Label htmlFor="type" value="Tribe Type" />
                   <Select
                     id="type"
+                    required
                     value={newTribe.type}
                     onChange={(e) =>
                       setNewTribe({ ...newTribe, type: e.target.value })
                     }
                   >
+                    <option value="">Select type</option>
                     <option value="public">Public</option>
                     <option value="private">Private</option>
                   </Select>
@@ -157,11 +205,13 @@ export default function MyTribesPage() {
                   <Label htmlFor="cate" value="Category" />
                   <Select
                     id="cate"
+                    required
                     value={newTribe.category}
                     onChange={(e) =>
                       setNewTribe({ ...newTribe, category: e.target.value })
                     }
                   >
+                    <option value="">Select category</option>
                     <option value="hobby">Hobby</option>
                     <option value="academic">Academic</option>
                     <option value="career">Career</option>
@@ -195,8 +245,9 @@ export default function MyTribesPage() {
                 className="bg-[#3224f2] text-[#cbfd80]"
                 onClick={handleAddTribe}
                 pill
+                disabled={createTribeMutation.isPending}
               >
-                Create
+                {createTribeMutation.isPending ? "Creating..." : "Create"}
               </Button>
             </Modal.Footer>
           </Modal>

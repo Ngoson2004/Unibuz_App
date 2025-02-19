@@ -2,11 +2,11 @@ import about_banner from "@/shared/assets/media/about_banner.png";
 import mission from "@/shared/assets/media/mission.png";
 import vision from "@/shared/assets/media/vision.png";
 import story from "@/shared/assets/media/story.png";
-import suzanne from "@/shared/assets/media/suzanne.png";
+import suzanne from "@/shared/assets/media/Suzanne.png";
 import ellipse1 from "@/shared/assets/media/ellipse1.png";
 import ellipse2 from "@/shared/assets/media/ellipse2.png";
-import polygon from "@/shared/assets/media/polygon.png";
-import rectangle from "@/shared/assets/media/rectangle.png";
+import polygon from "@/shared/assets/media/Polygon.png";
+import rectangle from "@/shared/assets/media/Rectangle.png";
 import { Avatar, Card } from "flowbite-react";
 
 export function About() {

@@ -31,7 +31,7 @@ export function Feature() {
             </p>
             <div className="flex w-full items-center justify-center gap-x-[40px] sm:justify-start">
               <Link
-                to="/signup"
+                to="/auth/sign-up"
                 className="rounded-full bg-[#3224f2] px-5 py-3 font-satoshi-bold text-[18px] text-[#cbfd80] shadow-sm hover:bg-[#1a0fb2] sm:px-16 sm:py-3"
               >
                 Try for free

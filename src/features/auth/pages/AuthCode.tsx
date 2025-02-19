@@ -1,17 +1,65 @@
 "use client";
 
+import { useSignup } from "@/shared/context/SignupContext";
 import { Button, Label, TextInput } from "flowbite-react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { sendOTP } from "../services/send-otp";
+import { verifyOTP } from "../services/verify-otp";
+import { useMutation } from "@tanstack/react-query";
 
 export default function AuthCode() {
   const navigate = useNavigate();
+  const { state, dispatch } = useSignup();
+  const [otp, setOtp] = useState("");
+  const [error, setError] = useState("");
+
+  const { mutateAsync: verifyOTPMutation, isPending } = useMutation({
+    mutationFn: () => verifyOTP(state.email!, Number(otp)),
+    onSuccess: (res) => {
+      const { data, error } = res;
+
+      if ("message" in (data as { message: string })) {
+        dispatch({ type: "SET_CODE", payload: otp });
+        navigate("/auth/password");
+      } else if ("error" in (data as { error: string })) {
+        setError((data as { error: string }).error);
+      } else {
+        setError("Failed to verify code with error:" + error.context.json());
+      }
+    },
+  });
+
+  useEffect(() => {
+    if (!state.email) {
+      navigate("/auth/sign-up");
+      return;
+    }
+
+    // Send OTP when component mounts
+    const sendOTPToEmail = async () => {
+      try {
+        const { data } = await sendOTP(state.email!);
+        if (!data?.success)
+          setError(data?.cause ?? "Failed to send verification code");
+      } catch (err) {
+        console.error("Error sending OTP:", err);
+      }
+    };
+    void sendOTPToEmail();
+  }, []); // Only run once when component mounts
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError("");
+    await verifyOTPMutation();
+  };
+
   return (
     <div>
       <form
-        onSubmit={() => {
-          navigate("/auth/password");
-        }}
-        className="sm:px-auto mx-auto inline-block grid max-w-md grid-rows-1 gap-5 px-5 py-32 align-middle sm:py-48 lg:py-56"
+        onSubmit={handleSubmit}
+        className="sm:px-auto mx-auto flex max-w-md flex-col gap-5 px-5 py-32 align-middle sm:py-48 lg:py-56"
       >
         <legend>
           <svg
@@ -40,28 +88,30 @@ export default function AuthCode() {
             />
             <p className="my-3 text-xs text-black sm:text-sm">
               Enter the 5-digit code sent to: <br />{" "}
-              <strong>
-                {(document.getElementById("email1") as HTMLInputElement)
-                  ?.value || "your email"}
-              </strong>
+              <strong>{state.email}</strong>
             </p>
           </div>
 
           <div className="flex justify-between">
             <TextInput
-              type="text"
+              id="authCode"
+              type="number"
               maxLength={5}
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
               className="rounded-lg border-2 border-[#3B4FE6] text-center text-lg font-bold"
               required
             />
           </div>
+          {error && <p className="mt-2 text-sm text-red-600">{error}</p>}
         </div>
 
         <Button
           type="submit"
+          disabled={isPending}
           className="rounded-lg bg-blue-700 text-lime-200 hover:bg-lime-200 hover:text-white"
         >
-          Verify
+          {isPending ? "Verifying..." : "Verify"}
         </Button>
       </form>
     </div>

@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import story from "@/shared/assets/media/story.png";
-import suzanne from "@/shared/assets/media/suzanne.png";
+import suzanne from "@/shared/assets/media/Suzanne.png";
 import ellipse1 from "@/shared/assets/media/ellipse1.png";
 import ellipse2 from "@/shared/assets/media/ellipse2.png";
-import polygon from "@/shared/assets/media/polygon.png";
-import rectangle from "@/shared/assets/media/rectangle.png";
+import polygon from "@/shared/assets/media/Polygon.png";
+import rectangle from "@/shared/assets/media/Rectangle.png";
 import tribe_img from "@/shared/assets/media/feature_tribe.png";
 import event_img from "@/shared/assets/media/feature_event.png";
 import message_img from "@/shared/assets/media/feature_message.png";

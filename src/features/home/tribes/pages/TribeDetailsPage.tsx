@@ -12,26 +12,14 @@ import { BsEmojiHeartEyesFill } from "react-icons/bs";
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
 import Post from "../components/Post";
-import myImage from "@/shared/assets/media/artTribe.png";
 import { useAppContext } from "@/shared/context/AppContext";
+import { useGetTribeById } from "../hooks/useGetTribeById";
 
 export default function TribeDetailsPage() {
   const { id } = useParams();
   const [join, setJoin] = useState(false);
 
-  // Fetch tribe details using the id
-  // For simplicity, we'll use static data here
-  const tribe = {
-    id,
-    name: "Art Tribe",
-    description: "This is an example tribe description.",
-    // img: "./src/media/animeClub.jpg",
-    // img: "/Users/ngoson/Desktop/Unibuz/Unibuz_App/src/media/animeClub.jpg",
-    img: myImage,
-    posts: [],
-    members: [],
-    events: [],
-  };
+  const { data: tribe, isLoading, error } = useGetTribeById(id ?? "");
 
   const [posts, setPosts] = useState([
     {
@@ -91,29 +79,39 @@ export default function TribeDetailsPage() {
     setOpenModal(false);
   };
 
-  const { openModal, setOpenModal } = useAppContext(); //useState(false);
+  const { openModal, setOpenModal } = useAppContext();
   const [newPostContent, setNewPostContent] = useState("");
   const [newImage, setNewImage] = useState("");
   const [openFile, setOpenFile] = useState(false);
-  //   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  //   const [members, setMembers] = useState([]);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  if (!tribe) {
+    return <div>Tribe not found</div>;
+  }
 
   return (
     <div className="min-h-screen bg-slate-100 pb-20">
       <div className="w-screen rounded-[40px] bg-white p-5">
         <img
-          src={tribe.img}
-          alt={tribe.name}
+          src={tribe.tribe_profile?.[0].url ?? ""}
+          alt={tribe.tribe_name ?? ""}
           className="my-5 h-[400px] w-full rounded-[40px] object-cover"
         />
 
         <div className="flex-inline mx-10 flex items-center justify-between border-b-2 py-8">
           <div className="flex-inline flex gap-5">
-            <Link to="/tribes">
+            <Link to="/home/tribes/my-tribes">
               <FaArrowLeft className="mt-1 size-8 cursor-pointer rounded-full bg-slate-100 p-2 hover:text-lime-300" />
             </Link>
             <h1 className="mb-5 font-clash-grotesk-semibold text-4xl">
-              {tribe.name}
+              {tribe.tribe_name}
             </h1>
           </div>
           <div className="flex-inline flex items-center gap-5">
@@ -200,8 +198,6 @@ export default function TribeDetailsPage() {
                 />
                 {openFile && (
                   <FileInput
-                    // value={selectedFile}
-                    // onChange={(e) => setSelectedFile(e.target.files[0])}
                     accept="image/*, video/*"
                     id="media-upload"
                     onChange={handleFileChange}
@@ -276,7 +272,7 @@ export default function TribeDetailsPage() {
         <h2 className="mb-5 font-clash-grotesk-semibold text-3xl">
           Tribe Description
         </h2>
-        <p className="font-satoshi-md">{tribe.description}</p>
+        <p className="font-satoshi-md">{tribe.tribe_description}</p>
       </div>
 
       <div className="m-20">
