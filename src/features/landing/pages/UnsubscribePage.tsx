@@ -2,6 +2,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import unibuz_logo from "@/shared/assets/media/logo_dark.jpeg";
 import { unsubscribeUser } from "../services/unsubscribe-user";
+import { z } from "zod";
 
 export function UnsubscribePage() {
   const [searchParams] = useSearchParams();
@@ -31,8 +32,15 @@ export function UnsubscribePage() {
     }
 
     const handleUnsubscribe = async () => {
+      const validEmail = await z.string().email().safeParseAsync(email);
+      if (!validEmail.success) {
+        setUnsubscribeStatus("error");
+        setErrorMessage("Invalid email provided");
+        return;
+      }
+
       try {
-        const response = await unsubscribeUser(email);
+        const response = await unsubscribeUser(validEmail.data);
         if ("error" in response) {
           setUnsubscribeStatus("error");
           setErrorMessage(response.error);
