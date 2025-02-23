@@ -102,6 +102,7 @@ export function ComingSoon() {
               Your browser does not support the video tag.
             </video>
             <img
+              loading="lazy"
               className="absolute inset-0 z-[-1] size-full object-cover"
               src={banner_img}
               alt="Unibuz Hero Banner"
@@ -129,7 +130,7 @@ export function ComingSoon() {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="w-full rounded-[50px] bg-[#3224f2] px-6 py-3 font-satoshi-md text-white sm:w-auto"
+                  className="text-md w-full rounded-[50px] rounded-full border-2 border-gray-300 bg-transparent px-6 py-3 font-satoshi-md text-gray-500 hover:bg-[#3224f2] hover:text-white sm:w-auto"
                 >
                   {isPending ? "Subscribing..." : "Subscribe"}
                 </button>
@@ -138,18 +139,19 @@ export function ComingSoon() {
           </div>
         </div>
       </div>
-      <div className="pt-24 md:pt-0">
+      <div className="pt-24 md:pt-0" id="about">
         <div className="relative grid grid-rows-1 gap-20 p-8 md:my-auto md:gap-10 md:p-[90px]">
           <div className="flex h-fit grow flex-col items-center justify-center gap-12 md:flex-1 md:flex-row">
             <div className="h-[300px] w-full md:h-full md:w-[599px]">
               <img
+                loading="lazy"
                 src={story}
                 alt="story"
                 className="size-full rounded-[40px] object-cover"
               />
             </div>
             <div className="flex h-full flex-col justify-center space-y-6 px-4 sm:space-y-8 sm:px-0">
-              <h1 className="text-center font-clash-grotesk-semibold text-5xl text-[#0000FF] md:text-left">
+              <h1 className="mb-4 text-center font-clash-grotesk-semibold text-5xl text-[#0000FF] underline decoration-wavy decoration-4 underline-offset-[15px] md:text-left">
                 Our Story
               </h1>
               <p className="max-w-[566px] text-center font-satoshi text-lg leading-relaxed text-[#1A1A1A] md:text-left">
@@ -168,11 +170,13 @@ export function ComingSoon() {
       </div>
       <div className="relative my-4 flex h-fit w-dvw flex-1 grow place-content-center rounded-[40px] bg-[#EAE9FE] sm:h-[622px]">
         <img
+          loading="lazy"
           src={ellipse1}
           alt="ellipse1"
           className="absolute left-0 top-0 hidden size-[200px] object-cover sm:block"
         />
         <img
+          loading="lazy"
           src={rectangle}
           alt="rectangle"
           className="absolute left-28 top-28 hidden size-[100px] object-cover sm:block"
@@ -197,6 +201,7 @@ export function ComingSoon() {
         </svg>
 
         <img
+          loading="lazy"
           src={rectangle}
           alt="rectangle"
           className="absolute bottom-10 left-0 size-[50px] object-cover sm:bottom-20 sm:left-96"
@@ -218,6 +223,7 @@ export function ComingSoon() {
         </Card>
 
         <img
+          loading="lazy"
           src={polygon}
           alt="polygon"
           className="absolute right-10 top-20 size-[50px] object-cover sm:right-96 sm:top-28"
@@ -242,11 +248,13 @@ export function ComingSoon() {
         </svg>
 
         <img
+          loading="lazy"
           src={polygon}
           alt="polygon"
           className="absolute bottom-28 right-28 hidden size-[100px] object-cover sm:block"
         />
         <img
+          loading="lazy"
           src={ellipse2}
           alt="ellipse2"
           className="absolute bottom-0 right-0 hidden size-[200px] object-cover sm:block"
@@ -257,15 +265,15 @@ export function ComingSoon() {
         className="mb-8 grid grid-rows-1 gap-12 p-6 sm:my-auto sm:mb-0 sm:gap-[60px] sm:p-[90px]"
       >
         <div className="flex flex-col items-center sm:mb-20">
-          <h1 className="text-center font-clash-grotesk-semibold text-[28px] leading-[32px] sm:text-center sm:text-5xl">
+          <h1 className="text-center font-clash-grotesk-semibold text-[28px] leading-[32px] text-[#0000FF] underline decoration-wavy decoration-4 underline-offset-[15px] sm:text-center sm:text-5xl ">
             Features
           </h1>
-          <div className="mt-2 h-1 w-20 bg-[#3224f2]"></div>
         </div>
 
         <div className="flex h-fit grow flex-col gap-20 sm:h-[503px] sm:flex-1 sm:flex-row">
           <div className="hidden size-full max-w-[599px] sm:block">
             <img
+              loading="lazy"
               src={tribe_img}
               alt="Tribe"
               className="h-auto w-full rounded-[40px] object-cover"
@@ -282,6 +290,7 @@ export function ComingSoon() {
                 the most of your uni experience.
               </p>
               <img
+                loading="lazy"
                 src={tribe_img}
                 alt="Tribe"
                 className="order-1 size-full sm:order-2 sm:hidden"
@@ -399,6 +408,7 @@ export function ComingSoon() {
                 one place.
               </p>
               <img
+                loading="lazy"
                 src={tribe_img}
                 alt="Tribe"
                 className="order-1 size-full sm:order-2 sm:hidden"
@@ -541,6 +551,7 @@ export function ComingSoon() {
           </div>
           <div className="hidden size-full max-w-[599px] sm:block">
             <img
+              loading="lazy"
               src={event_img}
               alt="Event"
               className="h-auto w-full rounded-[40px] object-cover"
@@ -551,6 +562,7 @@ export function ComingSoon() {
         <div className="flex h-fit grow flex-col gap-20 sm:h-[503px] sm:flex-1 sm:flex-row">
           <div className="hidden size-full max-w-[599px] sm:block">
             <img
+              loading="lazy"
               src={message_img}
               alt="Message"
               className="h-auto w-full rounded-[40px] object-cover"
@@ -566,6 +578,7 @@ export function ComingSoon() {
                 chat experience designed just for students.
               </p>
               <img
+                loading="lazy"
                 src={message_img}
                 alt="Tribe"
                 className="order-1 size-full sm:order-2 sm:hidden"
@@ -636,6 +649,7 @@ export function ComingSoon() {
                 items on campus simple and secure.
               </p>
               <img
+                loading="lazy"
                 src={market_img}
                 alt="Tribe"
                 className="order-1 size-full sm:order-2 sm:hidden"
@@ -726,6 +740,7 @@ export function ComingSoon() {
 
           <div className="hidden size-full max-w-[599px] sm:block">
             <img
+              loading="lazy"
               src={market_img}
               alt="Market"
               className="h-auto w-full rounded-[40px] object-cover"
