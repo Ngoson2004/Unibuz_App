@@ -47,7 +47,7 @@ export default function UniversityPage() {
             }}
             className="sm:px-auto mx-auto grid max-w-md grid-rows-1 gap-5 px-10 py-32 sm:px-5"
           >
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-2 my-7">
               <div>
                 <GiGraduateCap className="size-10 text-[#3B4FE6]" />
               </div>
@@ -62,114 +62,113 @@ export default function UniversityPage() {
                 </p>
               </div>
             </div>
-            <div>
-              <Label
-                htmlFor="state"
-                value="State"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="state"
-                value={state}
-                onChange={(e) => setState(e.target.value)}
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              >
-                <option value="" disabled>
-                  Select your state
-                </option>
-                {states.map(({ value, label }) => (
-                  <option key={value} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </Select>
-            </div>
 
-            <div>
-              <Label
-                htmlFor="degree"
-                value="Degree"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="degree"
-                value={degree}
-                onChange={(e) => setDegree(e.target.value)}
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              >
-                <option value="" disabled>
-                  Select your degree
-                </option>
-                {degrees.map(({ value, label }) => (
-                  <option key={value} value={value}>
-                    {label}
+            <div className="grid grid-cols-2 gap-5">
+              <div>
+                <Label
+                  htmlFor="state"
+                  value="State"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <Select
+                  id="state"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                >
+                  <option value="" disabled>
+                    Select your state
                   </option>
-                ))}
-              </Select>
-            </div>
-
-            <div>
-              <Label
-                htmlFor="uni"
-                value="University"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="uni"
-                value={university}
-                onChange={(e) => setUniversity(e.target.value)}
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              >
-                <option value="" disabled>
-                  Select your university
-                </option>
-                {universities.map(({ value, label }) => (
-                  <option key={value} value={value}>
-                    {label}
+                  {states.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+              <div>
+                <Label
+                  htmlFor="degree"
+                  value="Degree"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <Select
+                  id="degree"
+                  value={degree}
+                  onChange={(e) => setDegree(e.target.value)}
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                >
+                  <option value="" disabled>
+                    Select your degree
                   </option>
-                ))}
-              </Select>
-            </div>
-
-            <div>
-              <Label
-                htmlFor="campus"
-                value="Campus"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="campus"
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              >
-                {campusOpt.map((campus) => (
-                  <option key={campus} value={campus}>
-                    {campus}
+                  {degrees.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+              <div>
+                <Label
+                  htmlFor="uni"
+                  value="University"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <Select
+                  id="uni"
+                  value={university}
+                  onChange={(e) => setUniversity(e.target.value)}
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                >
+                  <option value="" disabled>
+                    Select your university
                   </option>
-                ))}
-              </Select>
-            </div>
-
-            <div>
-              <Label
-                htmlFor="faculty"
-                value="Faculty"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="faculty"
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              >
-                {facultyOpt.map((faculty) => (
-                  <option key={faculty} value={faculty}>
-                    {faculty}
-                  </option>
-                ))}
-              </Select>
+                  {universities.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+              <div>
+                <Label
+                  htmlFor="campus"
+                  value="Campus"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <Select
+                  id="campus"
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                >
+                  {campusOpt.map((campus) => (
+                    <option key={campus} value={campus}>
+                      {campus}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+              <div>
+                <Label
+                  htmlFor="faculty"
+                  value="Faculty"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <Select
+                  id="faculty"
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                >
+                  {facultyOpt.map((faculty) => (
+                    <option key={faculty} value={faculty}>
+                      {faculty}
+                    </option>
+                  ))}
+                </Select>
+              </div>
             </div>
 
             <Button

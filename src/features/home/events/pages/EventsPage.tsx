@@ -79,7 +79,6 @@ export default function EventsPage() {
     }
   };
 
-  const { openSearch, setOpenSearch } = useAppContext();
   const { openModal, setOpenModal } = useAppContext();
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -100,7 +99,6 @@ export default function EventsPage() {
           What's On
         </h1>
         <div className="flex items-center space-x-5 font-bold sm:space-x-7">
-          {openSearch && (
             <form>
               <div className="relative w-72">
                 <div className="pointer-events-none absolute inset-y-0 start-0 flex items-center ps-3">
@@ -123,17 +121,6 @@ export default function EventsPage() {
                 </Button>
               </div>
             </form>
-          )}
-          <Button
-            gradientMonochrome="lime"
-            className="py-1.0 px-0.5 sm:px-1.5"
-            pill
-          >
-            <SlMagnifier
-              className="size-3 text-[#3224f2] sm:size-6"
-              onClick={() => setOpenSearch(!openSearch)}
-            />
-          </Button>
           <Button
             gradientMonochrome="lime"
             className="py-1.0 px-0.5 sm:px-1.5"

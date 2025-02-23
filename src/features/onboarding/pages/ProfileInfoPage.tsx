@@ -41,7 +41,7 @@ export default function ProfileInfoPage() {
             }}
             className="sm:px-auto mx-auto grid max-w-md grid-rows-1 gap-5 px-10 py-32 sm:px-5"
           >
-            <div className="flex flex-col space-y-2">
+            <div className="flex flex-col space-y-2 my-4">
               <div>
                 <RxAvatar className="size-10 text-[#3B4FE6]" />
               </div>
@@ -55,121 +55,117 @@ export default function ProfileInfoPage() {
                   Show of your style by entering your information
                 </p>
               </div>
-            </div>
+            </div> 
 
-            <div>
-              <Label
-                htmlFor="name"
-                value="Full Name"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <TextInput
-                id="name"
-                type="text"
-                placeholder="Type your full name"
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              />
-            </div>
-
-            <div>
-              <Label
-                htmlFor="username"
-                value="Nickname"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <TextInput
-                id="username"
-                type="text"
-                placeholder="Type your nick name"
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              />
-            </div>
-
-            <div>
-              <Label
-                htmlFor="gender"
-                value="Gender"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="gender"
-                className="rounded-lg border-2 border-[#3B4FE6]"
-              >
-                <option value="" disabled>
-                  Select an option
-                </option>
-                {genderOptions.map(({ value, label }) => (
-                  <option key={value} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </Select>
-            </div>
-
-            <div>
-              <Label
-                htmlFor="pronouns"
-                value="Pronouns"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="pronouns"
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-              >
-                {pronounOptions.map(({ value, label }) => (
-                  <option key={value} value={value}>
-                    {label}
-                  </option>
-                ))}
-              </Select>
-            </div>
-
-            <div>
-              <Label
-                htmlFor="isInternational"
-                value="Are you an international student?"
-                className="text-xs font-normal text-black sm:text-sm"
-              />
-              <Select
-                id="isInternational"
-                className="rounded-lg border-2 border-[#3B4FE6]"
-                required
-                value={isInternational ? "Y" : "N"}
-                onChange={handleSelectChange}
-              >
-                <option value="Y">Yes</option>
-                <option value="N">No</option>
-              </Select>
-            </div>
-
-            {isInternational && (
+            <div className="grid grid-cols-2 gap-5 mb-4">
               <div>
                 <Label
-                  htmlFor="countryOfOrigin"
-                  value="Country of Origin"
+                  htmlFor="name"
+                  value="Full Name"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <TextInput
+                  id="name"
+                  type="text"
+                  placeholder="Type your full name"
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                />
+              </div>
+              {/* <div>
+                <Label
+                  htmlFor="username"
+                  value="User Name"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <TextInput
+                  id="username"
+                  type="text"
+                  placeholder="Type your optional username"
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                />
+              </div> */}
+              <div>
+                <Label
+                  htmlFor="gender"
+                  value="Gender"
                   className="text-xs font-normal text-black sm:text-sm"
                 />
                 <Select
-                  id="countryOfOrigin"
-                  value={countryOfOrigin}
-                  onChange={(e) => setCountryOfOrigin(e.target.value)}
+                  id="gender"
                   className="rounded-lg border-2 border-[#3B4FE6]"
-                  required
                 >
                   <option value="" disabled>
-                    Select your country of origin
+                    Select an option
                   </option>
-                  {countries.map(({ value, label }) => (
+                  {genderOptions.map(({ value, label }) => (
                     <option key={value} value={value}>
                       {label}
                     </option>
                   ))}
                 </Select>
               </div>
-            )}
+              <div>
+                <Label
+                  htmlFor="pronouns"
+                  value="Pronouns"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <Select
+                  id="pronouns"
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                >
+                  {pronounOptions.map(({ value, label }) => (
+                    <option key={value} value={value}>
+                      {label}
+                    </option>
+                  ))}
+                </Select>
+              </div>
+              <div>
+                <Label
+                  htmlFor="isInternational"
+                  value="Are you international student?"
+                  className="text-xs font-normal text-black sm:text-sm"
+                />
+                <Select
+                  id="isInternational"
+                  className="rounded-lg border-2 border-[#3B4FE6]"
+                  required
+                  value={isInternational ? "Y" : "N"}
+                  onChange={handleSelectChange}
+                >
+                  <option value="Y">Yes</option>
+                  <option value="N">No</option>
+                </Select>
+              </div>
+              {isInternational && (
+                <div>
+                  <Label
+                    htmlFor="countryOfOrigin"
+                    value="Country of Origin"
+                    className="text-xs font-normal text-black sm:text-sm"
+                  />
+                  <Select
+                    id="countryOfOrigin"
+                    value={countryOfOrigin}
+                    onChange={(e) => setCountryOfOrigin(e.target.value)}
+                    className="rounded-lg border-2 border-[#3B4FE6]"
+                    required
+                  >
+                    <option value="" disabled>
+                      Select your country of origin
+                    </option>
+                    {countries.map(({ value, label }) => (
+                      <option key={value} value={value}>
+                        {label}
+                      </option>
+                    ))}
+                  </Select>
+                </div>
+              )}
+            </div>
 
             <Button
               type="submit"

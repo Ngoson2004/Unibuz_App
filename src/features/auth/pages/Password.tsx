@@ -87,6 +87,10 @@ export default function Password() {
                   value="Set Password"
                   className="text-lg font-bold text-black"
                 />
+                <p className="my-5 text-xs font-satoshi-bold sm:text-sm">
+                  Your password must contain 8 or more characters with at least
+                  1 number, and 1 uppercase letter.
+                </p>
                 <p className="my-3 text-xs text-black sm:text-sm">
                   Your password
                 </p>

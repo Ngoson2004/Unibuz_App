@@ -261,7 +261,7 @@ export function ComingSoon() {
         />
       </div>
       <div
-        id="feature"
+        id="features"
         className="mb-8 grid grid-rows-1 gap-12 p-6 sm:my-auto sm:mb-0 sm:gap-[60px] sm:p-[90px]"
       >
         <div className="flex flex-col items-center sm:mb-20">
