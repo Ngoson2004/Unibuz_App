@@ -1,13 +1,13 @@
-import Footers from "@/shared/components/Footer";
-import Header from "@/shared/components/Header";
+import ComingSoonFooter from "@/shared/components/ComingSoonFooter";
+import ComingSoonHeader from "@/shared/components/ComingSoonHeader";
 import { Outlet } from "react-router-dom";
 
 function LandingLayout() {
   return (
     <div>
-      <Header />
+      <ComingSoonHeader />
       <Outlet />
-      <Footers />
+      <ComingSoonFooter />
     </div>
   );
 }
