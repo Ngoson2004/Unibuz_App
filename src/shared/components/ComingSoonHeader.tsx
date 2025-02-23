@@ -79,12 +79,12 @@ export default function ComingSoonHeader() {
         >
           Features
         </a>
-        <Link
-          to="#subscribe"
+        <a
+          href="#subscribe"
           className="flex h-[51px] w-[120px] items-center justify-center rounded-full bg-[#cbfd80] text-[#3224f2] hover:bg-white"
         >
           Subscribe
-        </Link>
+        </a>
       </div>
 
       {/* Mobile Sign Up Dropdown (Right) */}
