@@ -110,7 +110,7 @@ export function ComingSoon() {
 
             <div className="relative mx-4 mb-[100px] mt-[120px] h-auto justify-center rounded-[50px] bg-[#f8f7f9] px-6 pb-[37px] pt-[50px] opacity-80 sm:mx-0 sm:mb-[210px] sm:mt-[240px] sm:h-[443px] sm:w-[595px] sm:items-start sm:px-16">
               <h1 className="mb-[37px] text-center font-clash-grotesk-semibold text-4xl text-[#060028] sm:text-left sm:text-6xl">
-                We are <p className="text-[#3224f2]">coming soon...</p>
+                Almost there! <p className="text-[#3224f2]">We are hatching.</p>
               </h1>
 
               <p className="mb-[40px] text-center font-satoshi-md text-[16px] leading-8 sm:text-left sm:align-middle sm:text-[18px] sm:text-[#050026]">

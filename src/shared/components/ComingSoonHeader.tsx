@@ -37,7 +37,7 @@ export default function ComingSoonHeader() {
             </a>
           </Dropdown.Item>
           <Dropdown.Item>
-            <a href="/#feature" className="text-lime-400 hover:text-green-700">
+            <a href="/#features" className="text-lime-400 hover:text-green-700">
               Features
             </a>
           </Dropdown.Item>
@@ -98,12 +98,9 @@ export default function ComingSoonHeader() {
           )}
         >
           <Dropdown.Item>
-            <Link
-              to="#subscribe"
-              className="text-lime-400 hover:text-green-700"
-            >
+            <a href="#subscribe" className="text-lime-400 hover:text-green-700">
               Subscribe
-            </Link>
+            </a>
           </Dropdown.Item>
         </Dropdown>
       </div>
