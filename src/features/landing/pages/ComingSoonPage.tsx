@@ -11,11 +11,12 @@ import message_img from "@/shared/assets/media/feature_message.png";
 import market_img from "@/shared/assets/media/feature_market.png";
 import banner_img from "@/shared/assets/media/Hero Banner BG.png";
 import { RiLockPasswordLine } from "react-icons/ri";
-import { Avatar, Toast } from "flowbite-react";
+import { Avatar, Toast, Modal, Button } from "flowbite-react";
 import { Card } from "flowbite-react";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
 import { useMutation } from "@tanstack/react-query";
 import { enqueueUser } from "../services/enqueue-user";
+import { useNavigate } from "react-router-dom";
 // import { supabase } from "@/shared/libs/supabase";
 
 export function ComingSoon() {
@@ -23,6 +24,9 @@ export function ComingSoon() {
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
   const [isError, setIsError] = useState(false);
+  const [showSpinModal, setShowSpinModal] = useState(false);
+  const navigate = useNavigate();
+
   const { mutateAsync: subscribe, isPending } = useMutation({
     mutationKey: ["subscribe"],
     mutationFn: () => enqueueUser(email),
@@ -35,6 +39,7 @@ export function ComingSoon() {
       if ((response as { message: string }).message) {
         setIsError(false);
         setToastMessage((response as { message: string }).message);
+        setShowSpinModal(true);
       } else if (
         (response as { error: string; errorKey: string }).errorKey ===
         "RATE_LIMIT_EXCEEDED"
@@ -62,6 +67,11 @@ export function ComingSoon() {
     }
   };
 
+  const handleSpinWheel = () => {
+    setShowSpinModal(false);
+    navigate("/wheel-of-prizes");
+  };
+
   return (
     <div>
       {showToast && (
@@ -85,6 +95,31 @@ export function ComingSoon() {
           </Toast>
         </div>
       )}
+
+      <Modal
+        show={showSpinModal}
+        onClose={() => setShowSpinModal(false)}
+        popup
+        size="md"
+      >
+        <Modal.Header />
+        <Modal.Body>
+          <div className="text-center">
+            <h3 className="mb-5 text-lg font-normal text-gray-500 dark:text-gray-400">
+              Thank you for subscribing! Would you like to try your luck with
+              our Wheel of Prizes?
+            </h3>
+            <div className="flex justify-center gap-4">
+              <Button color="success" onClick={handleSpinWheel}>
+                Yes, I'm feeling lucky!
+              </Button>
+              <Button color="gray" onClick={() => setShowSpinModal(false)}>
+                No, thanks
+              </Button>
+            </div>
+          </div>
+        </Modal.Body>
+      </Modal>
 
       <div className="isolate bg-white sm:relative">
         <div className="pt-16 sm:pt-0">
@@ -130,7 +165,7 @@ export function ComingSoon() {
                 <button
                   type="submit"
                   onClick={handleSubmit}
-                  className="text-md w-full rounded-[50px] rounded-full border-2 border-gray-300 bg-transparent px-6 py-3 font-satoshi-md text-gray-500 hover:bg-[#3224f2] hover:text-white sm:w-auto"
+                  className="text-md w-full rounded-full border-2 border-gray-300 bg-transparent px-6 py-3 font-satoshi-md text-gray-500 hover:bg-[#3224f2] hover:text-white sm:w-auto"
                 >
                   {isPending ? "Subscribing..." : "Subscribe"}
                 </button>
