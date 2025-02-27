@@ -160,6 +160,14 @@ const ComingSoonFooter = () => {
               name="UNIBUZ"
               className="mx-auto h-16 w-auto sm:mx-0"
             />
+            <img
+              src="https://www.wehi.edu.au/wp-content/themes/wehi/dist/images/aboriginal-logos@2x.png"
+              alt="Aboriginal and Torres Strait Islander flags"
+              loading="lazy"
+              width={10}
+              height={10}
+              className="mx-auto h-12 w-auto sm:mx-0"
+            />
             <p className="text-center font-satoshi text-[16px] sm:text-left">
               In the spirit of reconciliation we acknowledge the Traditional
               Custodians of country throughout Australia and their connections
