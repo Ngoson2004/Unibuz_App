@@ -6,11 +6,13 @@ import { ComingSoon } from "../pages/ComingSoonPage";
 import LandingLayout from "../layouts/LandingLayout";
 import { NotFound } from "@/features/not-found/pages/NotFoundPage";
 import { UnsubscribePage } from "../pages/UnsubscribePage";
+import WheelOfPrizesPage from "../pages/WheelOfPrizesPage";
 
 export default function LandingRoutes() {
   return (
     <Routes>
       <Route path="/unsubscribe" element={<UnsubscribePage />} />
+      <Route path="/wheel-of-prizes" element={<WheelOfPrizesPage />} />
       <Route element={<LandingLayout />}>
         <Route index element={<ComingSoon />} />
         {import.meta.env.DEV && (
