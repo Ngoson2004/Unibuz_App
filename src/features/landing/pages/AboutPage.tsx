@@ -9,7 +9,7 @@ import polygon from "@/shared/assets/media/Polygon.png";
 import rectangle from "@/shared/assets/media/Rectangle.png";
 import { Avatar, Card } from "flowbite-react";
 
-export function About() {
+export default function About() {
   return (
     <div>
       <div className="isolate bg-white">
