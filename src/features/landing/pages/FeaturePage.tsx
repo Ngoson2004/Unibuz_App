@@ -6,7 +6,7 @@ import market_img from "@/shared/assets/media/feature_market.png";
 import { RiLockPasswordLine } from "react-icons/ri";
 import { Link } from "react-router-dom";
 
-export function Feature() {
+export default function Feature() {
   return (
     <div>
       <div className="isolate bg-white">

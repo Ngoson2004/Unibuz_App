@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import unibuz_logo from "@/shared/assets/media/logo_dark.jpeg";
 
-export function NotFound() {
+export default function NotFound() {
   const messages = [
     "We are working hard to bring you something amazing.",
     "Our team is crafting something special just for you.",

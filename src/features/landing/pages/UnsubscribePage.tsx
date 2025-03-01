@@ -4,7 +4,7 @@ import unibuz_logo from "@/shared/assets/media/logo_dark.jpeg";
 import { unsubscribeUser } from "../services/unsubscribe-user";
 import { z } from "zod";
 
-export function UnsubscribePage() {
+export default function UnsubscribePage() {
   const [searchParams] = useSearchParams();
   const [unsubscribeStatus, setUnsubscribeStatus] = useState<
     "loading" | "success" | "error"

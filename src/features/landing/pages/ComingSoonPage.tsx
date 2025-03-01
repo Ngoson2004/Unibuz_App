@@ -19,7 +19,7 @@ import { enqueueUser } from "../services/enqueue-user";
 import { useNavigate } from "react-router-dom";
 // import { supabase } from "@/shared/libs/supabase";
 
-export function ComingSoon() {
+export default function ComingSoon() {
   const [email, setEmail] = useState("");
   const [showToast, setShowToast] = useState(false);
   const [toastMessage, setToastMessage] = useState("");
